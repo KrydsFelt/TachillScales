@@ -11,7 +11,7 @@ export function TrustBar() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-center text-sm font-semibold text-zinc-500 mb-10 uppercase tracking-wider">
-            Tillid af førende virksomheder i Norden
+            Trusted by leading companies across the Nordics
           </p>
           <div className="flex flex-wrap justify-center items-center gap-16 md:gap-20">
             {/* Placeholder for company logos */}

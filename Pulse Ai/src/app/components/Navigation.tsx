@@ -22,26 +22,26 @@ export function Navigation() {
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-zinc-700 hover:text-black transition-colors text-sm font-medium">
-              Løsninger
+              Solutions
             </a>
             <a href="#use-cases" className="text-zinc-700 hover:text-black transition-colors text-sm font-medium">
               Cases
             </a>
             <a href="#pricing" className="text-zinc-700 hover:text-black transition-colors text-sm font-medium">
-              Priser
+              Pricing
             </a>
             <a href="#resources" className="text-zinc-700 hover:text-black transition-colors text-sm font-medium">
-              Ressourcer
+              Resources
             </a>
           </div>
 
           {/* CTA */}
           <div className="flex items-center gap-4">
             <button className="hidden sm:block text-zinc-700 hover:text-black transition-colors text-sm font-medium">
-              Log ind
+              Log in
             </button>
             <button className="px-6 py-2.5 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition-colors text-sm">
-              Book demo
+              Book a demo
             </button>
           </div>
         </div>

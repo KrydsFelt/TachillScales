@@ -14,14 +14,14 @@ export function Footer() {
               <span className="text-xl font-bold text-black">Ai Pulse</span>
             </div>
             <p className="text-zinc-600 max-w-sm leading-relaxed">
-              Intelligent kundeservice der arbejder for din virksomhed 24/7.
-              Konverter flere leads og lever bedre service.
+              Intelligent customer service that works for your business 24/7.
+              Convert more leads and deliver better service.
             </p>
           </div>
 
           {/* Product */}
           <div>
-            <h4 className="text-black font-semibold mb-4">Produkt</h4>
+            <h4 className="text-black font-semibold mb-4">Product</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-zinc-600 hover:text-black transition-colors">
@@ -30,7 +30,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="text-zinc-600 hover:text-black transition-colors">
-                  Priser
+                  Pricing
                 </a>
               </li>
               <li>
@@ -48,11 +48,11 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-black font-semibold mb-4">Virksomhed</h4>
+            <h4 className="text-black font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-zinc-600 hover:text-black transition-colors">
-                  Om os
+                  About us
                 </a>
               </li>
               <li>
@@ -62,12 +62,12 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="text-zinc-600 hover:text-black transition-colors">
-                  Karriere
+                  Careers
                 </a>
               </li>
               <li>
                 <a href="#" className="text-zinc-600 hover:text-black transition-colors">
-                  Kontakt
+                  Contact
                 </a>
               </li>
             </ul>
@@ -77,14 +77,14 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-zinc-500 text-sm">
-            © 2026 Ai Pulse. Alle rettigheder forbeholdes.
+            © 2026 Ai Pulse. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-zinc-500 hover:text-black transition-colors text-sm">
-              Privatlivspolitik
+              Privacy Policy
             </a>
             <a href="#" className="text-zinc-500 hover:text-black transition-colors text-sm">
-              Vilkår & Betingelser
+              Terms & Conditions
             </a>
           </div>
         </div>

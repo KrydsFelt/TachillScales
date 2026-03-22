@@ -5,30 +5,30 @@ const useCases = [
   {
     icon: Building2,
     industry: "Real Estate",
-    title: "Ejendomsmæglere",
-    description: "Book fremvisninger og kvalificer købere automatisk, selv udenfor åbningstid.",
-    stats: "+65% flere bookinger",
+    title: "Real Estate Agents",
+    description: "Book viewings and qualify buyers automatically, even outside business hours.",
+    stats: "+65% more bookings",
   },
   {
     icon: ShoppingBag,
     industry: "E-commerce",
-    title: "Webshops",
-    description: "Hjælp kunder med produktvalg og besvar spørgsmål øjeblikkeligt.",
-    stats: "+42% konverteringsrate",
+    title: "Online Stores",
+    description: "Help customers with product choices and answer questions instantly.",
+    stats: "+42% conversion rate",
   },
   {
     icon: Briefcase,
     industry: "B2B Services",
-    title: "B2B Virksomheder",
-    description: "Kvalificer leads og book demos med potentielle kunder døgnet rundt.",
-    stats: "+50% flere kvalificerede leads",
+    title: "B2B Companies",
+    description: "Qualify leads and book demos with potential customers around the clock.",
+    stats: "+50% more qualified leads",
   },
   {
     icon: GraduationCap,
     industry: "Education",
-    title: "Uddannelsesinstitutioner",
-    description: "Besvar ansøgerspørgsmål og book informationsmøder automatisk.",
-    stats: "+38% hurtigere respons",
+    title: "Educational Institutions",
+    description: "Answer applicant questions and book info sessions automatically.",
+    stats: "+38% faster response",
   },
 ];
 
@@ -44,10 +44,10 @@ export function UseCases() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Perfekt til din branche
+            Perfect for your industry
           </h2>
           <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-            Ai Pulse tilpasser sig dine unikke behov og arbejder på tværs af alle industrier
+            Ai Pulse adapts to your unique needs and works across all industries
           </p>
         </motion.div>
 

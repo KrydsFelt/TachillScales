@@ -4,39 +4,39 @@ import { MessageCircle, TrendingUp, Calendar, Zap, BarChart3, Shield } from "luc
 const features = [
   {
     icon: MessageCircle,
-    title: "Intelligent samtaleflow",
+    title: "Intelligent conversation flow",
     description:
-      "Avanceret AI forstår kundens behov og leverer præcise, kontekstuelle svar i naturligt sprog.",
+      "Advanced AI understands customer needs and delivers precise, contextual responses in natural language.",
   },
   {
     icon: TrendingUp,
-    title: "Lead-kvalificering",
+    title: "Lead qualification",
     description:
-      "Identificer og prioriter de mest lovende leads automatisk, så dit team fokuserer på de rigtige opgaver.",
+      "Automatically identify and prioritize the most promising leads so your team focuses on the right tasks.",
   },
   {
     icon: Calendar,
-    title: "Automatisk booking",
+    title: "Automatic booking",
     description:
-      "Integrerer med din kalender og booker møder direkte – uden manuel indgriben.",
+      "Integrates with your calendar and books meetings directly — no manual intervention needed.",
   },
   {
     icon: Zap,
-    title: "Lynhurtig integration",
+    title: "Lightning-fast integration",
     description:
-      "Implementer på minutter med vores plug-and-play løsning. Ingen teknisk ekspertise påkrævet.",
+      "Deploy in minutes with our plug-and-play solution. No technical expertise required.",
   },
   {
     icon: BarChart3,
-    title: "Dyb analyse",
+    title: "Deep analytics",
     description:
-      "Få indsigt i kundeadfærd, populære spørgsmål og konverteringsdata i realtid.",
+      "Get insights into customer behavior, popular questions, and conversion data in real time.",
   },
   {
     icon: Shield,
-    title: "Sikkerhed & GDPR",
+    title: "Security & GDPR",
     description:
-      "Fuld GDPR-compliance og enterprise-grade sikkerhed. Dine data er beskyttet.",
+      "Full GDPR compliance and enterprise-grade security. Your data is protected.",
   },
 ];
 
@@ -52,10 +52,10 @@ export function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Alt hvad du behøver i én løsning
+            Everything you need in one solution
           </h2>
           <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-            Kraftfulde features der hjælper din virksomhed med at vokse og servicere kunder bedre
+            Powerful features that help your business grow and serve customers better
           </p>
         </motion.div>
 

@@ -7,8 +7,8 @@ export function ChatDemo() {
   const [currentStep, setCurrentStep] = useState(0);
 
   const conversation = [
-    { type: 'user' as const, text: 'Hej, jeg har brug for hjælp til...', delay: 1000 },
-    { type: 'ai' as const, text: 'Ja, hvad kan jeg hjælpe med?', delay: 1500 },
+    { type: 'user' as const, text: 'Hi, I need help with...', delay: 1000 },
+    { type: 'ai' as const, text: 'Of course, how can I help you?', delay: 1500 },
   ];
 
   useEffect(() => {
@@ -125,7 +125,7 @@ export function ChatDemo() {
           <div className="flex items-center gap-3 px-4 py-3 rounded-full bg-zinc-50 border border-black/10">
             <input
               type="text"
-              placeholder="Skriv din besked..."
+              placeholder="Type your message..."
               className="flex-grow bg-transparent outline-none text-sm text-zinc-400"
               disabled
             />
@@ -145,7 +145,7 @@ export function ChatDemo() {
         transition={{ delay: 0.5 }}
         className="absolute -top-4 -right-4 px-4 py-2 rounded-full bg-green-500 text-white text-xs font-semibold shadow-lg"
       >
-        Respons på &lt; 2 sek
+        Response in &lt; 2 sec
       </motion.div>
     </div>
   );

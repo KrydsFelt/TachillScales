@@ -13,25 +13,25 @@ export function Benefits() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Hvorfor virksomheder vælger Ai Pulse
+              Why businesses choose Ai Pulse
             </h2>
             <p className="text-xl text-zinc-400 mb-12">
-              En løsning der leverer resultater fra dag ét
+              A solution that delivers results from day one
             </p>
 
             <div className="space-y-8">
               {[
                 {
-                  title: "Reducér kundeservice-omkostninger",
-                  description: "Automatiser op til 80% af rutine-henvendelser og frigør dit team til mere komplekse opgaver.",
+                  title: "Reduce customer service costs",
+                  description: "Automate up to 80% of routine inquiries and free your team to focus on more complex tasks.",
                 },
                 {
-                  title: "Øg salget med varmere leads",
-                  description: "AI'en kvalificerer og nurture leads, så de er klar til køb når dit salgsteam overtager.",
+                  title: "Boost sales with warmer leads",
+                  description: "The AI qualifies and nurtures leads so they're ready to buy when your sales team takes over.",
                 },
                 {
-                  title: "Aldrig gå glip af en mulighed",
-                  description: "Med 24/7 tilgængelighed sikrer du at hver kunde får hjælp – uanset tidspunkt.",
+                  title: "Never miss an opportunity",
+                  description: "With 24/7 availability, every customer gets help — no matter the time of day.",
                 },
               ].map((benefit, index) => (
                 <motion.div
@@ -58,10 +58,10 @@ export function Benefits() {
             className="grid grid-cols-2 gap-6"
           >
             {[
-              { value: "80%", label: "Færre support tickets" },
-              { value: "3x", label: "Flere bookede møder" },
-              { value: "24/7", label: "Altid tilgængelig" },
-              { value: "< 5 min", label: "Til at komme i gang" },
+              { value: "80%", label: "Fewer support tickets" },
+              { value: "3x", label: "More meetings booked" },
+              { value: "24/7", label: "Always available" },
+              { value: "< 5 min", label: "To get started" },
             ].map((stat, index) => (
               <motion.div
                 key={index}

@@ -3,23 +3,23 @@ import { motion } from "motion/react";
 const steps = [
   {
     step: "01",
-    title: "Installer på din hjemmeside",
-    description: "Tilføj vores simple code snippet til din hjemmeside – det tager kun 2 minutter.",
+    title: "Install on your website",
+    description: "Add our simple code snippet to your website — it only takes 2 minutes.",
   },
   {
     step: "02",
-    title: "Træn din AI-assistent",
-    description: "Upload din virksomheds information, produkter og FAQs. AI'en lærer din tone og stil.",
+    title: "Train your AI assistant",
+    description: "Upload your company info, products, and FAQs. The AI learns your tone and style.",
   },
   {
     step: "03",
-    title: "Tilpas og optimer",
-    description: "Justér samtaleflow, integrer med din kalender og CRM, og definer mål.",
+    title: "Customize and optimize",
+    description: "Adjust the conversation flow, integrate with your calendar and CRM, and define your goals.",
   },
   {
     step: "04",
-    title: "Gå live og mærk forskellen",
-    description: "Din AI-assistent er klar til at servicere kunder og generere leads 24/7.",
+    title: "Go live and feel the difference",
+    description: "Your AI assistant is ready to serve customers and generate leads 24/7.",
   },
 ];
 
@@ -35,10 +35,10 @@ export function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Sådan kommer du i gang
+            How to get started
           </h2>
           <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-            Fire simple trin til bedre kundeservice
+            Four simple steps to better customer service
           </p>
         </motion.div>
 
