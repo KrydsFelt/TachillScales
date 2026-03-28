@@ -1,0 +1,51 @@
+<div class="trust-banner">
+    <p class="trust-banner-label">Betroet af Danmarks ledende virksomheder</p>
+    <div class="trust-track-wrapper">
+        <div class="trust-track">
+            @foreach (var item in _items)
+            {
+                @if (item == "140+")
+                {
+                    <div class="trust-item">
+                        <span class="trust-more">og 140 andre &rarr;</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="trust-item">
+                        <span class="trust-item-name">@item</span>
+                    </div>
+                }
+            }
+            @* Duplicate for seamless loop *@
+            @foreach (var item in _items)
+            {
+                @if (item == "140+")
+                {
+                    <div class="trust-item">
+                        <span class="trust-more">og 140 andre &rarr;</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="trust-item">
+                        <span class="trust-item-name">@item</span>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private readonly string[] _items =
+    {
+        "Salling Group",
+        "Bilka",
+        "McDonald's",
+        "Jysk",
+        "Velo",
+        "State Energy Drink",
+        "140+",
+    };
+}
