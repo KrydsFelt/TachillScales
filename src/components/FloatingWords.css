@@ -1,0 +1,51 @@
+.floating-words-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-word {
+  position: absolute;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  opacity: 0;
+  color: var(--green-primary);
+  animation: floatIn 2.2s ease-in-out var(--delay) forwards;
+  filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.4));
+  text-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(20px) scale(0.9);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(0) translateY(-10px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100px) translateY(-30px) scale(0.9);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .floating-word {
+    font-size: 1.4rem;
+  }
+}
