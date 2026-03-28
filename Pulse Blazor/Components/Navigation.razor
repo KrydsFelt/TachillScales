@@ -1,3 +1,5 @@
+@inject NavigationManager Nav
+
 <nav class="nav">
     <div class="nav-inner">
         <a href="/" class="nav-logo">
@@ -10,10 +12,10 @@
         </a>
 
         <ul class="nav-links">
-            <li><a href="#hjem">Hjem</a></li>
-            <li><a href="#service">Service</a></li>
-            <li><a href="#produkter">Produkter</a></li>
-            <li><a href="#kontakt">Kontakt i dag</a></li>
+            <li><a href="/" class="@LinkClass("/")">Hjem</a></li>
+            <li><a href="/service" class="@LinkClass("/service")">Service</a></li>
+            <li><a href="/produkter" class="@LinkClass("/produkter")">Produkter</a></li>
+            <li><a href="@KontaktHref" class="@KontaktClass">Kontakt i dag</a></li>
         </ul>
 
         <div class="nav-phone">
@@ -24,3 +26,21 @@
         </div>
     </div>
 </nav>
+
+@code {
+    private string CurrentPath =>
+        "/" + new Uri(Nav.Uri).AbsolutePath.Trim('/').ToLower();
+
+    private string LinkClass(string path)
+    {
+        var current = CurrentPath == "/" ? "/" : CurrentPath.TrimEnd('/');
+        var target = path == "/" ? "/" : path.TrimEnd('/');
+        return current == target ? "active" : "";
+    }
+
+    // "Kontakt i dag" scroller ned på Home, navigerer hjem+anker på andre sider
+    private string KontaktHref =>
+        CurrentPath == "/" ? "#kontakt" : "/#kontakt";
+
+    private string KontaktClass => "";
+}

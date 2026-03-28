@@ -1,0 +1,78 @@
+<section class="section-wrap">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-eyebrow">Kundeanmeldelser</div>
+            <h2 class="section-title">Hvad vores kunder siger</h2>
+            <p class="section-desc">Over 140 virksomheder stoler på TACHILL SALES til at drive deres digitale vækst.</p>
+        </div>
+
+        <div class="testimonials-track">
+            <div class="testimonials-slider" style="transform: translateX(-@(_current * _cardWidth)%)">
+                @foreach (var t in _testimonials)
+                {
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">@t.Quote</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">@t.Initials</div>
+                            <div>
+                                <div class="testimonial-name">@t.Name</div>
+                                <div class="testimonial-role">@t.Role</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="testimonials-controls">
+            <button class="ctrl-btn" @onclick="Prev" disabled="@(_current == 0)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+            </button>
+
+            <div class="ctrl-dots">
+                @for (int i = 0; i <= MaxPage; i++)
+                {
+                    var idx = i;
+                    <div class="ctrl-dot @(idx == _current ? "active" : "")" @onclick="() => GoTo(idx)"></div>
+                }
+            </div>
+
+            <button class="ctrl-btn" @onclick="Next" disabled="@(_current == MaxPage)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+@code {
+    private int _current = 0;
+    private const double _cardWidth = 33.333;
+    private int MaxPage => _testimonials.Length - 3;
+
+    private record Testimonial(string Quote, string Name, string Role, string Initials);
+
+    private readonly Testimonial[] _testimonials =
+    {
+        new("TACHILL SALES transformerede vores Google Ads. Vores ROI steg med 280% på blot 3 måneder. De forstår virkelig data og optimering.",
+            "Lars Andersen", "CEO, Salling Group", "LA"),
+        new("Vores nye hjemmeside er simpelthen fantastisk. Professionel, hurtig og konverterer besøgende til kunder. Klart anbefalet!",
+            "Maria Jensen", "Marketing Director, Bilka", "MJ"),
+        new("Pulse AI har reduceret vores supportomkostninger med 60%. Kunderne er glade, og vores team kan fokusere på det vigtige.",
+            "Thomas Nielsen", "Operations Manager, Jysk", "TN"),
+        new("Vi prøvede andre bureauer, men ingen leverede som TACHILL SALES. Resultaterne taler for sig selv — vi er vokset 340% på et år.",
+            "Sarah Christensen", "Founder, Velo", "SC"),
+        new("Professionelt team der virkelig forstår digital markedsføring. De satte vores annoncering op på rekordtid og resultaterne kom med det samme.",
+            "Ahmed Al-Rashid", "CEO, State Energy Drink", "AA"),
+        new("TACHILL SALES leverede en hjemmeside der overgik alle vores forventninger. Hurtig levering, flot design og fremragende support.",
+            "Katrine Mølgaard", "Brand Manager, McDonald's DK", "KM"),
+    };
+
+    private void Prev() { if (_current > 0) _current--; }
+    private void Next() { if (_current < MaxPage) _current++; }
+    private void GoTo(int idx) { _current = idx; }
+}

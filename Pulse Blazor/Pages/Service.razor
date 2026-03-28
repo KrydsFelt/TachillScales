@@ -1,13 +1,19 @@
-<section class="section-wrap alt" id="service">
-    <div class="section-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">Vores Services</div>
-            <h2 class="section-title">Det vi er bedst til</h2>
-            <p class="section-desc">
-                To specialiserede ydelser designet til at give din virksomhed en konkret og målbar fordel.
-            </p>
-        </div>
+@page "/service"
 
+<PageTitle>Services — TACHILL SALES</PageTitle>
+
+<Navigation />
+
+<div class="page-hero">
+    <div class="page-hero-inner">
+        <div class="hero-badge">Vores Services</div>
+        <h1>Hvad vi tilbyder</h1>
+        <p>To specialiserede ydelser designet til at give din virksomhed en konkret og målbar fordel på markedet.</p>
+    </div>
+</div>
+
+<section class="section-wrap">
+    <div class="section-inner">
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-num">01 — Paid Marketing</div>
@@ -19,8 +25,8 @@
                 </div>
                 <h3 class="service-title">Paid Marketing</h3>
                 <p class="service-desc">
-                    Vi skaber og optimerer betalte annoncekampagner på tværs af alle platforme.
-                    Datadrevne strategier og løbende optimering sikrer maksimalt afkast af din investering.
+                    Vi skaber og optimerer betalte annoncekampagner på tværs af alle relevante platforme.
+                    Fra Google Ads til Meta — datadrevne strategier og løbende optimering sikrer maksimalt afkast.
                 </p>
                 <ul class="service-features">
                     <li>Google Ads & Search Engine Marketing</li>
@@ -28,21 +34,22 @@
                     <li>Retargeting & lookalike audiences</li>
                     <li>Månedlig performance rapportering</li>
                     <li>Løbende A/B test & optimering</li>
+                    <li>Conversion rate optimering</li>
                 </ul>
             </div>
 
             <div class="service-card">
-                <div class="service-num">02 — Custom hjemmesider</div>
+                <div class="service-num">02 — Custom Made Hjemmesider</div>
                 <div class="service-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="3" width="20" height="14" rx="2"/>
                         <path d="M8 21h8"/><path d="M12 17v4"/>
                     </svg>
                 </div>
-                <h3 class="service-title">Custom hjemmesider</h3>
+                <h3 class="service-title">Custom Made Hjemmesider</h3>
                 <p class="service-desc">
                     Vi bygger professionelle, skræddersyede hjemmesider der konverterer besøgende til kunder.
-                    Fra design til lancering — vi leverer resultater der afspejler dit brand.
+                    Fra design til lancering — vi leverer resultater der afspejler dit brand og skaber vækst.
                 </p>
                 <ul class="service-features">
                     <li>Unikt design tilpasset dit brand</li>
@@ -50,8 +57,13 @@
                     <li>SEO-optimeret fra dag ét</li>
                     <li>CMS integration (nem redigering)</li>
                     <li>Hosting, support & vedligeholdelse</li>
+                    <li>Analytics & performance tracking</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
+<WhyUs />
+<CTA />
+<PulseFooter />

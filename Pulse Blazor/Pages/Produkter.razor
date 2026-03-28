@@ -1,13 +1,19 @@
-<section class="section-wrap" id="produkter">
-    <div class="section-inner">
-        <div class="section-header">
-            <div class="section-eyebrow">Produkt</div>
-            <h2 class="section-title">Pulse AI</h2>
-            <p class="section-desc">
-                Vores flagskibsprodukt — intelligent AI der automatiserer kundeservice og skalerer din forretning.
-            </p>
-        </div>
+@page "/produkter"
 
+<PageTitle>Produkter — TACHILL SALES</PageTitle>
+
+<Navigation />
+
+<div class="page-hero">
+    <div class="page-hero-inner">
+        <div class="hero-badge">Vores Produkt</div>
+        <h1>Pulse AI</h1>
+        <p>Intelligent AI-teknologi der automatiserer kundeservice og skalerer din forretning — døgnet rundt.</p>
+    </div>
+</div>
+
+<section class="section-wrap">
+    <div class="section-inner">
         <div class="product-card">
             <div class="product-content">
                 <div class="product-badge">
@@ -18,8 +24,9 @@
                 </div>
                 <h3 class="product-title">AI-drevet<br />kundeservice</h3>
                 <p class="product-desc">
-                    Pulse AI håndterer kundespørgsmål øjeblikkeligt, 24/7, på tværs af alle kanaler —
-                    og frigiver din arbejdsstyrke til de opgaver der virkelig kræver et menneske.
+                    Pulse AI håndterer kundespørgsmål øjeblikkeligt, 24/7, på tværs af alle kanaler.
+                    Automatiser op til 80% af dine henvendelser og frigiv din arbejdsstyrke til de opgaver
+                    der virkelig kræver et menneske.
                 </p>
 
                 <div class="product-stats">
@@ -42,7 +49,7 @@
                 </div>
 
                 <button class="btn-primary">
-                    Læs mere om Pulse AI
+                    Kom i gang med Pulse AI
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                     </svg>
@@ -64,3 +71,6 @@
         </div>
     </div>
 </section>
+
+<CTA />
+<PulseFooter />
