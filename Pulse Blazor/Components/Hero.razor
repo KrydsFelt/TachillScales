@@ -33,45 +33,139 @@
             </div>
         </div>
 
-        <!-- Right: Signal SVG Graphic -->
-        <svg class="hero-signal-art" width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <pattern id="dotgrid" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <circle cx="1" cy="1" r="1" fill="var(--surface-3)"/>
-                </pattern>
-            </defs>
+        <!-- Right: Dashboard mockup -->
+        <div class="dashboard-wrap">
+            <div class="dashboard">
+                <!-- Browser chrome -->
+                <div class="db-topbar">
+                    <div class="db-dots">
+                        <div class="db-dot r"></div>
+                        <div class="db-dot y"></div>
+                        <div class="db-dot g"></div>
+                    </div>
+                    <div class="db-url">
+                        <span class="db-url-lock">🔒</span>
+                        app.tachillscales.dk/dashboard
+                    </div>
+                </div>
 
-            <!-- Dot grid background -->
-            <rect width="480" height="480" fill="url(#dotgrid)" opacity="0.6"/>
+                <!-- Dashboard body -->
+                <div class="db-body">
+                    <div class="db-header">
+                        <div class="db-title">Marketing Oversigt</div>
+                        <div class="db-date">Mar 2025 - i dag</div>
+                    </div>
 
-            <!-- Central point -->
-            <circle cx="240" cy="240" r="4" fill="var(--accent)"/>
+                    <!-- KPI cards -->
+                    <div class="db-kpis">
+                        <div class="db-kpi">
+                            <div class="db-kpi-label">ROI</div>
+                            <div class="db-kpi-val pos">+340%</div>
+                            <div class="db-kpi-trend">↑ 28% vs. sidst</div>
+                        </div>
+                        <div class="db-kpi">
+                            <div class="db-kpi-label">Konv. rate</div>
+                            <div class="db-kpi-val pos">+127%</div>
+                            <div class="db-kpi-trend">↑ 14% vs. sidst</div>
+                        </div>
+                        <div class="db-kpi">
+                            <div class="db-kpi-label">Trafik</div>
+                            <div class="db-kpi-val">89K</div>
+                            <div class="db-kpi-trend">↑ 22%</div>
+                        </div>
+                        <div class="db-kpi">
+                            <div class="db-kpi-label">ROAS</div>
+                            <div class="db-kpi-val pos">4.2x</div>
+                            <div class="db-kpi-trend">↑ 0.8x</div>
+                        </div>
+                    </div>
 
-            <!-- Expanding broadcast arcs -->
-            <path d="M 240 240 m -50 0 a 50 50 0 0 1 100 0" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.9"/>
-            <path d="M 240 240 m -100 0 a 100 100 0 0 1 200 0" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.7"/>
-            <path d="M 240 240 m -160 0 a 160 160 0 0 1 320 0" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.5"/>
-            <path d="M 240 240 m -220 0 a 220 220 0 0 1 440 0" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3"/>
+                    <!-- Bar chart -->
+                    <div class="db-chart-area">
+                        <div class="db-chart-title">Kampagne performance - Månedlig omsætning</div>
+                        <div class="db-bars">
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:30%"></div>
+                                <div class="db-bar-lbl">Jan</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:42%"></div>
+                                <div class="db-bar-lbl">Feb</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:38%"></div>
+                                <div class="db-bar-lbl">Mar</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:55%"></div>
+                                <div class="db-bar-lbl">Apr</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:62%"></div>
+                                <div class="db-bar-lbl">Maj</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:70%"></div>
+                                <div class="db-bar-lbl">Jun</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:78%"></div>
+                                <div class="db-bar-lbl">Jul</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar" style="height:85%"></div>
+                                <div class="db-bar-lbl">Aug</div>
+                            </div>
+                            <div class="db-bar-wrap">
+                                <div class="db-bar active" style="height:100%"></div>
+                                <div class="db-bar-lbl">Sep</div>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Radiating signal rays -->
-            <line x1="240" y1="240" x2="380" y2="100" stroke="var(--line)" stroke-width="1"/>
-            <line x1="240" y1="240" x2="400" y2="160" stroke="var(--line)" stroke-width="1"/>
-            <line x1="240" y1="240" x2="410" y2="240" stroke="var(--line)" stroke-width="1"/>
-            <line x1="240" y1="240" x2="380" y2="360" stroke="var(--line)" stroke-width="1"/>
-            <line x1="240" y1="240" x2="280" y2="410" stroke="var(--line)" stroke-width="1"/>
+                    <!-- Bottom mini cards -->
+                    <div class="db-bottom-row">
+                        <div class="db-mini-card">
+                            <div class="db-mini-icon green">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="db-mini-label">Google Ads ROAS</div>
+                                <div class="db-mini-val" style="color:var(--accent)">4.8x</div>
+                            </div>
+                        </div>
+                        <div class="db-mini-card">
+                            <div class="db-mini-icon purple">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                    <path d="M8 21h8"/><path d="M12 17v4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="db-mini-label">Nye leads i dag</div>
+                                <div class="db-mini-val">47</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Reception nodes -->
-            <circle cx="380" cy="100" r="3" fill="none" stroke="var(--accent-mid)" stroke-width="1"/>
-            <circle cx="400" cy="160" r="3" fill="none" stroke="var(--accent-mid)" stroke-width="1"/>
-            <circle cx="410" cy="240" r="3" fill="none" stroke="var(--accent-mid)" stroke-width="1"/>
-
-            <!-- Decorative line -->
-            <line x1="120" y1="360" x2="360" y2="360" stroke="var(--line)" stroke-width="1"/>
-
-            <!-- Labels -->
-            <text x="360" y="385" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="var(--ink-4)" letter-spacing="0.1em">SIGNAL</text>
-            <text x="360" y="398" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="var(--ink-4)" letter-spacing="0.1em">STYRKE</text>
-        </svg>
+            <!-- Floating badge -->
+            <div class="db-float-badge">
+                <div class="db-float-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                        <polyline points="16 7 22 7 22 13"/>
+                    </svg>
+                </div>
+                <div class="db-float-text">
+                    <strong>Kampagne aktiv</strong>
+                    ROI steg +28% denne uge
+                </div>
+            </div>
+        </div>
 
     </div>
 </section>

@@ -362,23 +362,146 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .hero-avatar { display: none; }
 .hero-proof-stars { display: none; }
 
-/* ========== 8. SIGNAL ART SVG ========== */
-.hero-signal-art {
-    opacity: 0.85;
-    max-width: 100%;
-    height: auto;
+/* ========== 8. DASHBOARD MOCKUP ========== */
+.dashboard-wrap {
+    position: relative;
+    filter: drop-shadow(0 16px 40px rgba(0,0,0,0.08));
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .hero-signal-art {
-        animation: signalPulse 4s ease-in-out infinite;
-    }
+.dashboard {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    font-size: 0;
 }
 
-@keyframes signalPulse {
-    0%, 100% { opacity: 0.85; }
-    50% { opacity: 1; }
+.db-topbar {
+    background: #f5f5f5;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
 }
+
+.db-dots { display: flex; gap: 5px; }
+.db-dot { width: 10px; height: 10px; border-radius: 50%; }
+.db-dot.r { background: #ff5f57; }
+.db-dot.y { background: #febc2e; }
+.db-dot.g { background: #28c840; }
+
+.db-url {
+    flex: 1;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.db-url-lock { color: var(--accent); font-size: 10px; }
+
+.db-body { padding: 16px; background: #fafafa; font-size: 13px; }
+
+.db-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.db-title { font-size: 13px; font-weight: 700; color: var(--text); font-family: var(--font-body); }
+.db-date { font-size: 11px; color: var(--text-faint); font-family: var(--font-body); }
+
+.db-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+.db-kpi {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.db-kpi-label { font-size: 10px; font-weight: 600; color: var(--text-faint); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.db-kpi-val { font-size: 16px; font-weight: 800; color: var(--text); font-family: var(--font-body); letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+.db-kpi-val.pos { color: var(--accent); }
+.db-kpi-trend { font-size: 10px; font-weight: 600; color: var(--accent); font-family: var(--font-body); }
+
+.db-chart-area {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 10px;
+}
+
+.db-chart-title { font-size: 11px; font-weight: 600; color: var(--text-2); font-family: var(--font-body); margin-bottom: 12px; }
+.db-bars { display: flex; align-items: flex-end; gap: 5px; height: 70px; }
+.db-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+.db-bar { border-radius: 3px 3px 0 0; width: 100%; background: var(--accent-lt); transition: background 0.2s; }
+.db-bar.active { background: var(--accent); }
+.db-bar-lbl { font-size: 9px; color: var(--text-faint); font-family: var(--font-body); }
+
+.db-bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.db-mini-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.db-mini-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.db-mini-icon.green { background: var(--accent-lt); }
+.db-mini-icon.purple { background: #ede9fe; }
+.db-mini-icon svg { display: block; }
+.db-mini-label { font-size: 10px; color: var(--text-faint); font-family: var(--font-body); }
+.db-mini-val { font-size: 13px; font-weight: 700; color: var(--text); font-family: var(--font-body); letter-spacing: -0.02em; }
+
+.db-float-badge {
+    position: absolute;
+    bottom: -12px;
+    left: -20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+}
+
+.db-float-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.db-float-icon svg { color: white; }
+.db-float-text { font-size: 11px; color: var(--text-muted); }
+.db-float-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); }
 
 /* ========== 9. TRUST BANNER ========== */
 .trust-banner {
@@ -756,15 +879,6 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
     line-height: 1.7;
 }
 
-.pulse-ai-graphic {
-    position: relative;
-}
-
-.ai-graphic {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-}
 
 /* ========== 14. TESTIMONIALS ========== */
 .testimonial-card {
