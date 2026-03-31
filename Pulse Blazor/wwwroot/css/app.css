@@ -801,7 +801,7 @@ p, .body-text {
 }
 
 .section-wrap.alt { background: var(--bg-subtle); }
-.section-wrap.dark { background: var(--ink); color: white; }
+.section-wrap.dark { background: var(--accent); color: white; }
 
 .section-inner {
     max-width: var(--max-w);
