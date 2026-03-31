@@ -848,7 +848,7 @@ p, .body-text {
     background: var(--bg);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 2rem 0;
+    padding: 3.5rem 0;
     overflow: hidden;
     margin-top: -5rem;
 }
@@ -894,6 +894,7 @@ p, .body-text {
     display: flex;
     align-items: center;
     animation: scrollTrack 32s linear infinite;
+    animation-delay: -8s;
     width: max-content;
 }
 
