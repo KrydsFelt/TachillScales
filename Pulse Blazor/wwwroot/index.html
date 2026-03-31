@@ -14,24 +14,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script type="importmap"></script>
-    <script>
-        // Initialize theme from localStorage or default to light
-        const savedTheme = localStorage.getItem('theme') ?? 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    </script>
-    <script>
-        window.toggleTheme = function() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            return next;
-        }
-        window.getTheme = function() {
-            return document.documentElement.getAttribute('data-theme');
-        }
-    </script>
 </head>
 
 <body>

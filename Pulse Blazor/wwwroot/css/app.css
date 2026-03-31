@@ -196,19 +196,22 @@ p, .body-text {
 /* ========== 5. NAVIGATION ========== */
 .nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 1.5rem;
+    left: 20rem;
+    right: 20rem;
     z-index: 50;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 16px;
     transition: background-color 0.3s, border-color 0.3s;
     height: 72px;
 }
 
 [data-theme="dark"] .nav {
-    background: rgba(10,10,10,0.9);
+    background: rgba(10,10,10,0.6);
+    border-color: rgba(255,255,255,0.1);
 }
 
 .nav-inner {
@@ -467,7 +470,7 @@ p, .body-text {
 
 /* ========== 7. HERO SECTION ========== */
 .hero {
-    padding: 100px 2rem 0;
+    padding: 175px 2rem 0;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     overflow: hidden;
@@ -601,6 +604,7 @@ p, .body-text {
 .hero-metrics {
     display: flex;
     gap: 3rem;
+    margin-top: 6rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
 }
@@ -846,6 +850,7 @@ p, .body-text {
     border-bottom: 1px solid var(--border);
     padding: 2rem 0;
     overflow: hidden;
+    margin-top: -5rem;
 }
 
 .trust-banner-label {
@@ -908,9 +913,7 @@ p, .body-text {
 }
 
 .trust-item::after {
-    content: '·';
-    margin-left: 2.5rem;
-    color: var(--ink-4);
+    content: '';
 }
 
 .trust-item-name {
@@ -918,6 +921,18 @@ p, .body-text {
     font-weight: 700;
     color: var(--ink-4);
     letter-spacing: -0.01em;
+}
+
+.trust-logo {
+    height: 40px;
+    max-width: 100px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.trust-item:hover .trust-logo {
+    opacity: 1;
 }
 
 .trust-more {
@@ -929,30 +944,54 @@ p, .body-text {
 }
 
 /* ========== 11. STATS STRIP (ImpactStats) ========== */
+.impact-section {
+    background: rgba(52,211,153,0.04);
+    border-top: 1px solid rgba(52,211,153,0.1);
+    border-bottom: 1px solid rgba(52,211,153,0.1);
+    padding: 8rem 2rem;
+}
+
 .impact-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    gap: 2rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
 }
 
 .impact-item {
-    background: var(--bg);
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
     padding: 3rem 2rem;
-    border-right: 1px solid var(--border);
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+    transition-delay: calc(var(--delay) * 150ms);
 }
 
-.impact-item:last-child { border-right: none; }
+.impact-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.impact-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .impact-num {
-    font-size: 2.5rem;
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
     color: var(--ink);
     line-height: 1;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.impact-num .suffix {
+    color: var(--accent);
+    font-size: 0.7em;
 }
 
 .impact-label {
@@ -1668,13 +1707,7 @@ p, .body-text {
     }
 
     .impact-item {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
         padding: 2rem 1.5rem;
-    }
-
-    .impact-item:last-child {
-        border-bottom: none;
     }
 
     .service-card {

@@ -1,20 +1,20 @@
-<section class="section-wrap">
+<section class="impact-section">
     <div class="section-inner">
         <div class="impact-grid">
-            <div class="impact-item impact-animate" style="--delay: 0;">
-                <div class="impact-num">340<span>%</span></div>
+            <div class="impact-item impact-animate" style="--delay: 0;" data-target="340" data-suffix="%">
+                <div class="impact-num"><span class="counter">0</span><span class="suffix">%</span></div>
                 <div class="impact-label">Gennemsnitlig ROI. Dokumenteret.</div>
             </div>
-            <div class="impact-item impact-animate" style="--delay: 1;">
-                <div class="impact-num">80<span style="color: var(--accent);">%</span></div>
+            <div class="impact-item impact-animate" style="--delay: 1;" data-target="80" data-suffix="%">
+                <div class="impact-num"><span class="counter">0</span><span class="suffix">%</span></div>
                 <div class="impact-label">Af kundehenvendelser løses af Pulse AI</div>
             </div>
-            <div class="impact-item impact-animate" style="--delay: 2;">
-                <div class="impact-num">60<span style="color: var(--accent);">%</span></div>
+            <div class="impact-item impact-animate" style="--delay: 2;" data-target="60" data-suffix="%">
+                <div class="impact-num"><span class="counter">0</span><span class="suffix">%</span></div>
                 <div class="impact-label">Lavere supportomkostninger inden for 90 dage</div>
             </div>
-            <div class="impact-item impact-animate" style="--delay: 3;">
-                <div class="impact-num">140<span>+</span></div>
+            <div class="impact-item impact-animate" style="--delay: 3;" data-target="140" data-suffix="+">
+                <div class="impact-num"><span class="counter">0</span><span class="suffix">+</span></div>
                 <div class="impact-label">Virksomheder der stoler på os</div>
             </div>
         </div>
@@ -24,23 +24,34 @@
 @if (IsInitialized)
 {
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.impact-animate');
+        function countUp(el, target, duration) {
+            let start = 0;
+            const step = target / (duration / 16);
+            const tick = () => {
+                start = Math.min(start + step, target);
+                el.querySelector('.counter').textContent = Math.floor(start);
+                if (start < target) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        }
 
+        setTimeout(() => {
+            const items = document.querySelectorAll('.impact-animate');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
+                        const delay = (parseFloat(entry.target.style.getPropertyValue('--delay')) || 0) * 150;
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-in');
+                            const target = parseInt(entry.target.dataset.target);
+                            countUp(entry.target, target, 1500);
+                        }, delay);
                         observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            });
-
+            }, { threshold: 0.2 });
             items.forEach(item => observer.observe(item));
-        });
+        }, 0);
     </script>
 }
 
