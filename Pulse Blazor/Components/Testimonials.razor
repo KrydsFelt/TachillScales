@@ -1,68 +1,50 @@
-<section class="section-wrap">
+<section class="tm-section">
     <div class="section-inner">
-        <div class="section-header">
+
+        <div class="tm-header" data-animate="fade-up">
             <div class="section-eyebrow">Kundeanmeldelser</div>
-            <h2 class="section-title">Hvad vores kunder siger</h2>
+            <h2 class="tm-title">Betroet af virksomheder<br/>der vil vækste.</h2>
         </div>
 
-        <div class="testimonials-track">
-            <div class="testimonials-slider" style="transform: translateX(-@(_current * _cardWidth)%)">
-                @foreach (var t in _testimonials)
-                {
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote-mark">"</div>
-                        <p class="testimonial-quote">@t.Quote</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-name">@t.Name</div>
-                            <div class="testimonial-role">@t.Role</div>
-                        </div>
+        <div class="tm-grid">
+            @foreach (var (t, i) in _testimonials.Select((t, i) => (t, i)))
+            {
+                <div class="tm-card" data-animate="fade-up" data-delay="@(i * 120)">
+                    <div class="tm-card-top">
+                        <div class="tm-avatar">@t.Initials</div>
+                        <div class="tm-company">@t.Company</div>
                     </div>
-                }
-            </div>
+                    <div class="tm-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="tm-quote">@t.Quote</p>
+                    <div class="tm-author">
+                        <div class="tm-name">@t.Name</div>
+                        <div class="tm-role">@t.Role</div>
+                    </div>
+                </div>
+            }
         </div>
 
-        <div class="testimonials-controls">
-            <button class="ctrl-btn" @onclick="Prev" disabled="@(_current == 0)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m15 18-6-6 6-6"/>
-                </svg>
-            </button>
-
-            <div class="ctrl-dots">
-                @for (int i = 0; i <= MaxPage; i++)
-                {
-                    var idx = i;
-                    <div class="ctrl-dot @(idx == _current ? "active" : "")" @onclick="() => GoTo(idx)"></div>
-                }
-            </div>
-
-            <button class="ctrl-btn" @onclick="Next" disabled="@(_current == MaxPage)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m9 18 6-6-6-6"/>
-                </svg>
-            </button>
-        </div>
     </div>
 </section>
 
 @code {
-    private int _current = 0;
-    private const double _cardWidth = 100;
-    private int MaxPage => _testimonials.Length - 1;
-
-    private record Testimonial(string Quote, string Name, string Role, string Initials);
+    private record Testimonial(string Quote, string Name, string Role, string Initials, string Company);
 
     private readonly Testimonial[] _testimonials =
     {
-        new("Vi valgte Tahcill Scales fordi de forstår forretning, ikke blot annoncer. Vores Google Ads ROI steg med 280% på tre måneder. Den slags resultater taler for sig selv.",
-            "Lars Andersen — CEO, Salling Group", "CEO, Salling Group", "LA"),
-        new("Vores nye hjemmeside konverterer langt bedre end den gamle. Projektet blev leveret til tiden, inden for budget og med et design der faktisk afspejler vores brand.",
-            "Maria Jensen — Marketing Director, Bilka", "Marketing Director, Bilka", "MJ"),
-        new("Pulse AI har frigivet vores supportteam fra de gentagne spørgsmål. 60% lavere supportomkostninger. Det er ikke en small sag for en virksomhed i vores størrelse.",
-            "Thomas Nielsen — Operations Manager, Jysk", "Operations Manager, Jysk", "TN"),
+        new(
+            "Tahcill Scales forstår forretning, ikke blot annoncer. Vores Google Ads ROI steg med 280% på tre måneder. Den slags resultater taler for sig selv.",
+            "Lars Andersen", "CEO, Salling Group", "LA", "Salling Group"
+        ),
+        new(
+            "Vores nye hjemmeside konverterer langt bedre end den gamle. Leveret til tiden, inden for budget — og med et design der faktisk afspejler vores brand.",
+            "Maria Jensen", "Marketing Director, Bilka", "MJ", "Bilka"
+        ),
+        new(
+            "Pulse AI har frigivet vores supportteam fra de gentagne spørgsmål. 60% lavere supportomkostninger. Det er ikke en small sag for en virksomhed i vores størrelse.",
+            "Thomas Nielsen", "Operations Manager, Jysk", "TN", "Jysk"
+        ),
     };
-
-    private void Prev() { if (_current > 0) _current--; }
-    private void Next() { if (_current < MaxPage) _current++; }
-    private void GoTo(int idx) { _current = idx; }
 }
