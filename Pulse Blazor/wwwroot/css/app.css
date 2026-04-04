@@ -2894,3 +2894,283 @@ p, .body-text {
     .oo-stats-row { grid-template-columns: 1fr; gap: 2rem; }
     .oo-timeline-item { grid-template-columns: 70px 1fr; gap: 1rem; padding-left: 1.5rem; }
 }
+
+/* ========== OO2 WIBIFY-STYLE PAGE ========== */
+
+.oo2-hero {
+    background: #ffffff;
+    padding: 10rem 2rem;
+    text-align: center;
+}
+
+.oo2-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #0a0a0a;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.oo2-hero-sub {
+    font-size: 1.1rem;
+    color: #6b7c93;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Team */
+.oo2-team {
+    background: #ffffff;
+    padding: 8rem 2rem;
+}
+
+.oo2-section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #0a0a0a;
+    margin-bottom: 4rem;
+    line-height: 1.15;
+}
+
+.oo2-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.oo2-team-card {
+    text-align: center;
+}
+
+.oo2-team-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    background-color: #f0f0f0;
+}
+
+.oo2-team-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.oo2-team-role {
+    font-size: 0.95rem;
+    color: #6b7c93;
+    margin-bottom: 0.25rem;
+}
+
+.oo2-team-location {
+    font-size: 0.9rem;
+    color: #aab8c8;
+    margin-bottom: 1rem;
+}
+
+.oo2-team-email {
+    color: #162436;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+
+.oo2-team-email:hover {
+    opacity: 0.7;
+}
+
+/* Stats */
+.oo2-stats {
+    background: #ffffff;
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.oo2-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.oo2-stat-num {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #0a0a0a;
+    letter-spacing: -0.04em;
+}
+
+.oo2-stat-label {
+    font-size: 0.9rem;
+    color: #6b7c93;
+    margin-top: 0.5rem;
+}
+
+/* Values */
+.oo2-values {
+    background: #ffffff;
+    padding: 8rem 2rem;
+}
+
+.oo2-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.oo2-value-card {
+    padding: 2.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.oo2-value-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.oo2-value-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.oo2-value-card p {
+    font-size: 0.95rem;
+    color: #6b7c93;
+    line-height: 1.6;
+}
+
+/* Timeline */
+.oo2-timeline {
+    background: #ffffff;
+    padding: 8rem 2rem;
+}
+
+.oo2-timeline-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.oo2-timeline-item {
+    padding: 3rem 0;
+    border-left: 3px solid #162436;
+    padding-left: 2rem;
+    margin-left: 1rem;
+    position: relative;
+}
+
+.oo2-timeline-item::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: #162436;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: -8.5px;
+    top: 2rem;
+}
+
+.oo2-timeline-year {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #162436;
+    margin-bottom: 0.5rem;
+}
+
+.oo2-timeline-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 0.75rem;
+}
+
+.oo2-timeline-item p {
+    font-size: 0.95rem;
+    color: #6b7c93;
+    line-height: 1.6;
+}
+
+/* CTA */
+.oo2-cta {
+    background: #162436;
+    padding: 8rem 2rem;
+    text-align: center;
+}
+
+.oo2-cta h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+}
+
+.oo2-cta p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.oo2-cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.oo2-cta-link {
+    padding: 0.75rem 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.oo2-cta-link:hover {
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .oo2-team-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .oo2-values-grid { grid-template-columns: repeat(2, 1fr); }
+    .oo2-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .oo2-hero { padding: 6rem 1.5rem; }
+    .oo2-team { padding: 6rem 1.5rem; }
+    .oo2-team-grid { grid-template-columns: 1fr; }
+    .oo2-team-img { height: 300px; }
+    .oo2-values { padding: 6rem 1.5rem; }
+    .oo2-values-grid { grid-template-columns: 1fr; }
+    .oo2-stats-grid { grid-template-columns: 1fr 1fr; }
+    .oo2-timeline { padding: 6rem 1.5rem; }
+    .oo2-cta { padding: 5rem 1.5rem; }
+    .oo2-cta-buttons { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+    .oo2-hero-title { font-size: 2rem; }
+    .oo2-section-title { font-size: 1.75rem; }
+    .oo2-team-grid { gap: 1.5rem; }
+    .oo2-values-grid { gap: 1.5rem; }
+    .oo2-stats-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .oo2-stats-num { font-size: 2rem; }
+}
