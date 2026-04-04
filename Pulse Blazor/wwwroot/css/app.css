@@ -2606,15 +2606,19 @@ p, .body-text {
 .pai-cta-note { font-size: 0.72rem; color: rgba(255,255,255,0.35); font-weight: 500; }
 
 /* ========== OO OM OS PAGE ========== */
-.oo-hero { background: #162436; padding: 8rem 2rem 5rem; }
+.oo-hero { background: #162436; padding: 6rem 2rem 4rem; }
 
 .oo-hero-inner {
     max-width: var(--max-w);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.oo-hero-text {
+    max-width: 640px;
 }
 
 .oo-eyebrow { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
@@ -2622,19 +2626,57 @@ p, .body-text {
 .oo-hero-title { font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; color: #ffffff; margin-bottom: 1.25rem; }
 .oo-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.85; }
 
-.oo-stat-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 2rem;
+/* Methodology steps */
+.oo-method-steps {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
-.oo-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.oo-stat-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 1.5rem 0; }
+.oo-step {
+    flex: 1;
+    min-width: 150px;
+    position: relative;
+    padding-top: 1.5rem;
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, #162436, transparent) 1;
+    transition: border-color 0.3s ease;
+}
 
-.oo-stat-num { font-size: 2.75rem; font-weight: 800; color: #ffffff; letter-spacing: -0.04em; line-height: 1; }
-.oo-stat-num span { font-size: 1.75rem; }
-.oo-stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); font-weight: 500; margin-top: 0.4rem; }
+.oo-step:hover {
+    border-top-color: #162436;
+}
+
+.oo-step-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.oo-step-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.oo-step-desc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+}
+
+.oo-step-arrow {
+    color: rgba(255,255,255,0.2);
+    font-size: 1.25rem;
+    font-weight: 300;
+    align-self: center;
+}
 
 .oo-mission { background: #ffffff; padding: 6rem 2rem; }
 .oo-mission-inner { max-width: 800px; margin: 0 auto; text-align: center; }
@@ -2696,7 +2738,7 @@ p, .body-text {
     .pai-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
     .pai-pain-grid { grid-template-columns: 1fr 1fr; }
     .pai-feat-grid { grid-template-columns: 1fr 1fr; }
-    .oo-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .oo-method-steps { flex-wrap: wrap; }
     .oo-apart-inner { grid-template-columns: 1fr; gap: 3rem; }
     .oo-how-grid { grid-template-columns: 1fr 1fr; }
 }
