@@ -245,6 +245,11 @@
 <PulseFooter />
 
 @code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -260,5 +265,10 @@
                 })();
             ");
         }
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
     }
 }

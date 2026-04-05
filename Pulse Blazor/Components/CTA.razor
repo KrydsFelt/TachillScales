@@ -21,3 +21,15 @@
         </div>
     </div>
 </section>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}

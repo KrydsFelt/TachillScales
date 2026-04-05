@@ -143,6 +143,18 @@
 
 <PulseFooter />
 
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}
+
 <style>
     /* ========== HERO ========== */
     .hjem-hero {

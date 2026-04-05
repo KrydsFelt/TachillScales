@@ -20,10 +20,11 @@
             }
         }
         catch { }
+        LanguageService.Subscribe(StateHasChanged);
     }
 
     async ValueTask IAsyncDisposable.DisposeAsync()
     {
-        // Cleanup if needed
+        LanguageService.Unsubscribe(StateHasChanged);
     }
 }

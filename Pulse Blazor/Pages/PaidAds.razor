@@ -46,6 +46,18 @@
 
 <PulseFooter />
 
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}
+
 <style>
     /* ========== BENEFITS SECTION ========== */
     .pa-benefits {

@@ -413,11 +413,21 @@
     private string _name = "", _company = "", _email = "", _phone = "", _message = "";
     private bool _sent = false;
 
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
     private void Submit()
     {
         if (!string.IsNullOrWhiteSpace(_name) && !string.IsNullOrWhiteSpace(_email) && !string.IsNullOrWhiteSpace(_message))
         {
             _sent = true;
         }
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
     }
 }
