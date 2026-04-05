@@ -77,14 +77,7 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 
 /* ========== 2. BLAZOR LOADING ========== */
 .loading-progress {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+    display: none;
 }
 
 .loading-progress circle {
@@ -96,12 +89,16 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 }
 
 .loading-progress-text {
-    position: static;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     font-weight: 700;
     font-size: 3rem;
     color: var(--accent);
     letter-spacing: 0.05em;
+    z-index: 1000;
 }
 
 .loading-progress-text::after { content: var(--blazor-load-percentage-text, "0%"); }
