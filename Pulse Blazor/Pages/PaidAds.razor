@@ -1,75 +1,41 @@
 @page "/paid-ads"
 
-<PageTitle>Paid Ads — Datadrevne kampagner | Tahcill Scales</PageTitle>
+<PageTitle>Marketing — Datadrevne kampagner | Tahcill Scales</PageTitle>
 
 <Navigation />
 
 <Hero />
 
-<!-- Hvad vi leverer -->
-<section class="pa-deliver">
+<!-- Benefits Section -->
+<section class="pa-benefits">
     <div class="section-inner">
-        <div class="pa-deliver-header">
-            <h2 class="pa-section-title">Hvad vi leverer</h2>
-            <p class="pa-section-desc">Strategisk kampagneplanlægning møder AI-drevet optimering for at maksimere din ROI.</p>
-        </div>
-
-        <div class="pa-deliver-grid">
-            <div class="pa-deliver-item">
-                <div class="pa-item-num">01</div>
-                <h3>Google Ads</h3>
-                <p>Search, Display og Performance Max kampagner optimeret til konvertering. Vi maksimerer hver eneste krone.</p>
-                <ul class="pa-item-list">
-                    <li>Præcis søgeordsmålretning</li>
-                    <li>A/B-test & optimering</li>
-                    <li>Optimering af konverteringsrate</li>
-                </ul>
+        <div class="pa-benefits-grid">
+            <div class="pa-benefit-card">
+                <div class="pa-benefit-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <p>Maksimerer ROI gennem kontinuerlig optimering og strategisk budgetallokeringbaseret på live performance data.</p>
             </div>
-
-            <div class="pa-deliver-item">
-                <div class="pa-item-num">02</div>
-                <h3>Meta Ads & Remarketing</h3>
-                <p>Facebook og Instagram kampagner med præcis målretning. Vi finder din ideale kunde og overbeviser dem.</p>
-                <ul class="pa-item-list">
-                    <li>Målgruppesegmentering</li>
-                    <li>Test af annoncemateriale</li>
-                    <li>Lookalike-målgrupper</li>
-                </ul>
+            <div class="pa-benefit-card">
+                <div class="pa-benefit-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </div>
+                <p>Data-dreven targeting sikrer dine annoncer når de potentielle kunder aktivt søger efter løsninger som dine.</p>
             </div>
-
-            <div class="pa-deliver-item">
-                <div class="pa-item-num">03</div>
-                <h3>Data & Rapportering</h3>
-                <p>Fuldt transparent rapportering med konkrete indsigter. Du ser præcis hvor dine penge går hen.</p>
-                <ul class="pa-item-list">
-                    <li>Realtids-dashboards</li>
-                    <li>Månedlige strategirapporter</li>
-                    <li>ROI-sporing</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Resultater -->
-<section class="pa-results">
-    <div class="section-inner">
-        <div class="pa-results-header">
-            <h2 class="pa-section-title">Resultater der taler for sig selv</h2>
-        </div>
-
-        <div class="pa-results-grid">
-            <div class="pa-result-card">
-                <div class="pa-result-stat">340%</div>
-                <div class="pa-result-label">Gennemsnitlig ROI stigning</div>
-            </div>
-            <div class="pa-result-card">
-                <div class="pa-result-stat">2.4x</div>
-                <div class="pa-result-label">ROAS på Google Ads</div>
-            </div>
-            <div class="pa-result-card">
-                <div class="pa-result-stat">47%</div>
-                <div class="pa-result-label">Gennemsnitlig omkostningsreduktion</div>
+            <div class="pa-benefit-card">
+                <div class="pa-benefit-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="2" x2="12" y2="22"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <p>Transparent rapportering giver dig fuld kontrol og indsigt i hvordan hver krone på marketing bruges.</p>
             </div>
         </div>
     </div>
@@ -80,155 +46,73 @@
 <PulseFooter />
 
 <style>
-    /* Deliver Section */
-    .pa-deliver {
+    /* ========== BENEFITS SECTION ========== */
+    .pa-benefits {
         padding: 100px 0;
         background: #fff;
-        border-bottom: 1px solid #e5e7eb;
     }
 
-    .pa-deliver-header {
-        text-align: center;
-        margin-bottom: 80px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .pa-section-title {
-        font-size: clamp(32px, 6vw, 56px);
-        font-weight: 900;
-        letter-spacing: -0.5px;
-        color: #000;
-        margin-bottom: 16px;
-    }
-
-    .pa-section-desc {
-        font-size: 18px;
-        color: #666;
-        line-height: 1.7;
-    }
-
-    .pa-deliver-grid {
+    .pa-benefits-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 48px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
     }
 
-    .pa-deliver-item {
-        padding: 0;
-    }
-
-    .pa-item-num {
-        font-size: 48px;
-        font-weight: 900;
-        color: #1c2a3a;
-        margin-bottom: 16px;
-        opacity: 0.6;
-    }
-
-    .pa-deliver-item h3 {
-        font-size: 22px;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 12px;
-    }
-
-    .pa-deliver-item > p {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.7;
-        margin-bottom: 24px;
-    }
-
-    .pa-item-list {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .pa-item-list li {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.6;
-        padding-left: 24px;
-        position: relative;
-    }
-
-    .pa-item-list li::before {
-        content: '→';
-        position: absolute;
-        left: 0;
-        color: #1c2a3a;
-        font-weight: 700;
-    }
-
-    /* Results Section */
-    .pa-results {
-        padding: 100px 0;
-        background: #f9fafb;
-    }
-
-    .pa-results-header {
-        text-align: center;
-        margin-bottom: 80px;
-    }
-
-    .pa-results-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 40px;
-    }
-
-    .pa-result-card {
-        padding: 48px 40px;
-        background: white;
-        border-radius: 12px;
-        border: 1px solid #e5e7eb;
+    .pa-benefit-card {
+        background: #f5f5f5;
+        border-radius: 16px;
+        padding: 36px 28px;
         text-align: center;
         transition: all 0.3s ease;
     }
 
-    .pa-result-card:hover {
-        border-color: #1c2a3a;
-        box-shadow: 0 12px 32px rgba(28, 42, 58, 0.1);
+    .pa-benefit-card:hover {
+        background: #efefef;
         transform: translateY(-4px);
     }
 
-    .pa-result-stat {
-        font-size: 48px;
-        font-weight: 900;
-        color: #1c2a3a;
-        margin-bottom: 12px;
+    .pa-benefit-icon {
+        width: 56px;
+        height: 56px;
+        background: #0f6d3a;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        flex-shrink: 0;
     }
 
-    .pa-result-label {
+    .pa-benefit-card p {
         font-size: 15px;
         color: #666;
-        line-height: 1.6;
+        line-height: 1.7;
+        margin: 0;
     }
 
     /* Responsive */
     @@media (max-width: 768px) {
-        .pa-deliver,
-        .pa-results {
+        .pa-benefits {
             padding: 80px 0;
         }
 
-        .pa-deliver-grid,
-        .pa-results-grid {
-            gap: 32px;
+        .pa-benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
         }
 
-        .pa-deliver-header,
-        .pa-results-header {
-            margin-bottom: 60px;
+        .pa-benefit-card {
+            padding: 28px 20px;
         }
 
-        .pa-result-card {
-            padding: 32px 24px;
+        .pa-benefit-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .pa-benefit-card p {
+            font-size: 14px;
         }
     }
 </style>
