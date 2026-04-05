@@ -30,14 +30,15 @@
             <li><a href="@KontaktHref" class="@KontaktClass" @onclick="CloseMenu">Kontakt</a></li>
         </ul>
 
-        <div class="nav-language">
-            <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick="SetLanguageDa" type="button">DA</button>
-            <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick="SetLanguageEn" type="button">EN</button>
+        <div class="nav-cta-group">
+            <a href="@KontaktHref" class="btn-green">
+                @(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book en samtale")
+            </a>
+            <div class="nav-language">
+                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick="SetLanguageDa" type="button">DA</button>
+                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick="SetLanguageEn" type="button">EN</button>
+            </div>
         </div>
-
-        <a href="@KontaktHref" class="btn-green">
-            @(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book en samtale")
-        </a>
 
         <button class="nav-hamburger @(MenuOpen ? "open" : "")"
                 @onclick="ToggleMenu"
