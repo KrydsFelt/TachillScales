@@ -196,31 +196,34 @@ p, .body-text {
 /* ========== 5. NAVIGATION ========== */
 .nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 100;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(22,36,54,0.08);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    height: 72px;
-    box-shadow: 0 2px 20px rgba(22,36,54,0.06);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(22, 36, 54, 0.08);
+    border-radius: 50px;
+    transition: all 0.3s;
+    height: 64px;
+    box-shadow: 0 8px 32px rgba(22, 36, 54, 0.12);
+    max-width: calc(100% - 40px);
+    width: auto;
 }
 
 [data-theme="dark"] .nav {
-    background: #ffffff;
-    border-color: rgba(22,36,54,0.10);
+    background: rgba(15, 23, 42, 0.95);
+    border-color: rgba(255, 255, 255, 0.10);
 }
 
 .nav-inner {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
 }
 
 .nav-logo {
