@@ -35,6 +35,66 @@
     </div>
 </section>
 
+<!-- Services Cards -->
+<section class="hjem-services">
+    <div class="section-inner">
+        <div class="hjem-services-grid">
+
+            <!-- Featured card -->
+            <div class="hjem-sc-featured">
+                <div class="hjem-sc-featured-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <div class="hjem-sc-featured-body">
+                    <h2 class="hjem-sc-featured-title">Din vækst begynder her.</h2>
+                    <a href="/kontakt" class="hjem-sc-featured-cta">Kom i gang →</a>
+                </div>
+            </div>
+
+            <!-- Paid Ads -->
+            <a href="/paid-ads" class="hjem-sc-card">
+                <div class="hjem-sc-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                        <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                </div>
+                <h3 class="hjem-sc-title">Paid Ads</h3>
+                <p class="hjem-sc-desc">Google & Meta kampagner der maksimerer din ROI med AI-drevet optimering og datadrevne strategier.</p>
+                <span class="hjem-sc-link">Læs mere →</span>
+            </a>
+
+            <!-- Hjemmesider -->
+            <a href="/hjemmesider" class="hjem-sc-card">
+                <div class="hjem-sc-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+                    </svg>
+                </div>
+                <h3 class="hjem-sc-title">Hjemmesider</h3>
+                <p class="hjem-sc-desc">Skræddersyede hjemmesider der konverterer besøgende til kunder og ranker højt på Google fra dag ét.</p>
+                <span class="hjem-sc-link">Læs mere →</span>
+            </a>
+
+            <!-- Pulse AI -->
+            <a href="/pulse-ai" class="hjem-sc-card">
+                <div class="hjem-sc-icon hjem-sc-icon--ai">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <h3 class="hjem-sc-title">Pulse AI</h3>
+                <p class="hjem-sc-desc">Din 24/7 AI-salgsassistent der aldrig mister et lead — besvarer, kvalificerer og videresender automatisk.</p>
+                <span class="hjem-sc-link">Læs mere →</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
 <PulseFooter />
 
 <style>
@@ -49,7 +109,6 @@
         padding: 100px 0 80px;
         overflow: hidden;
     }
-
 
     .hjem-hero-content {
         position: relative;
@@ -70,16 +129,8 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
     }
 
-    .hjem-title-light {
-        font-weight: 300;
-        display: inline;
-    }
-
-    .hjem-title-italic {
-        font-weight: 700;
-        font-style: italic;
-        display: inline;
-    }
+    .hjem-title-light { font-weight: 300; display: inline; }
+    .hjem-title-italic { font-weight: 700; font-style: italic; display: inline; }
 
     .hjem-hero-desc {
         font-size: 16px;
@@ -111,18 +162,9 @@
         white-space: nowrap;
     }
 
-    .hjem-stat-icon {
-        font-size: 16px;
-    }
-
-    .hjem-stat-text {
-        font-weight: 500;
-    }
-
-    .hjem-stat-text strong {
-        font-weight: 700;
-        color: #000;
-    }
+    .hjem-stat-icon { font-size: 16px; }
+    .hjem-stat-text { font-weight: 500; }
+    .hjem-stat-text strong { font-weight: 700; color: #000; }
 
     .hjem-hero-cta {
         display: inline-flex;
@@ -147,22 +189,206 @@
         box-shadow: 0 8px 20px rgba(0, 82, 255, 0.3);
     }
 
+    /* ========== SERVICES SECTION ========== */
+    .hjem-services {
+        padding: 80px 0 100px;
+        background: #f5f5f5;
+        border-top: 1px solid #e8e8e8;
+    }
+
+    .hjem-services-grid {
+        display: grid;
+        grid-template-columns: 280px 1fr 1fr 1fr;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    /* ── Featured card (dark, left) ── */
+    .hjem-sc-featured {
+        background: #0f1c2a;
+        border-radius: 20px;
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 320px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hjem-sc-featured::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 30% 80%, rgba(34, 197, 94, 0.15) 0%, transparent 60%),
+                    radial-gradient(ellipse at 80% 20%, rgba(99, 130, 180, 0.12) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .hjem-sc-featured-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hjem-sc-featured-body {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hjem-sc-featured-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        letter-spacing: -0.3px;
+    }
+
+    .hjem-sc-featured-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 22px;
+        background: #22c55e;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+    }
+
+    .hjem-sc-featured-cta:hover {
+        background: #16a34a;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
+    }
+
+    /* ── Service cards (light) ── */
+    .hjem-sc-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s ease;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hjem-sc-card:hover {
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .hjem-sc-icon {
+        width: 52px;
+        height: 52px;
+        background: #0f1c2a;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        margin-bottom: 24px;
+        flex-shrink: 0;
+    }
+
+    .hjem-sc-icon--ai {
+        background: linear-gradient(135deg, #1c2a4a 0%, #2d3a6a 100%);
+    }
+
+    .hjem-sc-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #0a0a0a;
+        margin-bottom: 12px;
+        line-height: 1.25;
+        letter-spacing: -0.2px;
+    }
+
+    .hjem-sc-desc {
+        font-size: 14px;
+        color: #6b7280;
+        line-height: 1.7;
+        flex: 1;
+        margin-bottom: 28px;
+    }
+
+    .hjem-sc-link {
+        font-size: 14px;
+        font-weight: 700;
+        color: #0a0a0a;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: gap 0.2s ease;
+    }
+
+    .hjem-sc-card:hover .hjem-sc-link {
+        gap: 8px;
+    }
 
     /* ========== RESPONSIVE ========== */
+    @@media (max-width: 1100px) {
+        .hjem-services-grid {
+            grid-template-columns: 240px 1fr 1fr 1fr;
+        }
+    }
+
+    @@media (max-width: 900px) {
+        .hjem-services-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        .hjem-sc-featured {
+            grid-column: 1 / -1;
+            min-height: 220px;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+        }
+        .hjem-sc-featured-body {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex: 1;
+        }
+        .hjem-sc-featured-title { margin-bottom: 0; font-size: 22px; }
+    }
+
+    @@media (max-width: 640px) {
+        .hjem-services-grid {
+            grid-template-columns: 1fr;
+        }
+        .hjem-sc-featured {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .hjem-sc-featured-body {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .hjem-sc-featured-title { margin-bottom: 16px; }
+    }
+
     @@media (max-width: 768px) {
         .hjem-hero {
             min-height: 80vh;
             padding: 80px 0 60px;
         }
 
-        .hjem-hero-title {
-            font-size: 42px;
-        }
-
-        .hjem-hero-desc {
-            font-size: 15px;
-            margin: 24px auto 40px;
-        }
+        .hjem-hero-title { font-size: 42px; }
+        .hjem-hero-desc { font-size: 15px; margin: 24px auto 40px; }
 
         .hjem-hero-stats {
             flex-direction: column;
@@ -170,21 +396,9 @@
             margin-bottom: 40px;
         }
 
-        .hjem-stat-badge {
-            justify-content: center;
-            width: 100%;
-        }
+        .hjem-stat-badge { justify-content: center; width: 100%; }
+        .hjem-hero-cta { padding: 14px 40px; font-size: 13px; }
 
-        .hjem-hero-cta {
-            padding: 14px 40px;
-            font-size: 13px;
-        }
-
-        .hjem-hero-bg-deco {
-            width: 400px;
-            height: 400px;
-            right: -150px;
-        }
-
+        .hjem-services { padding: 60px 0 80px; }
     }
 </style>

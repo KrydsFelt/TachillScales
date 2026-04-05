@@ -29,7 +29,6 @@
             <li><a href="@KontaktHref" class="@KontaktClass" @onclick="CloseMenu">Kontakt</a></li>
         </ul>
 
-
         <a href="@KontaktHref" class="btn-green">
             Book en samtale
         </a>
@@ -56,8 +55,7 @@
         return current == target ? "active" : "";
     }
 
-    private string KontaktHref =>
-        "/kontakt";
+    private string KontaktHref => "/kontakt";
 
     private string KontaktClass => "";
 
@@ -76,5 +74,4 @@
         MenuOpen = false;
         IsServiceDropdownOpen = false;
     }
-
 }
