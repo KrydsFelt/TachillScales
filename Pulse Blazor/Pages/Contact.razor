@@ -1,6 +1,7 @@
 @page "/kontakt"
+@inject LanguageService LanguageService
 
-<PageTitle>Kontakt — Tahcill Scales</PageTitle>
+<PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Contact - Tahcill Scales" : "Kontakt - Tahcill Scales")</PageTitle>
 
 <Navigation />
 
@@ -8,9 +9,13 @@
 <section class="contact-hero">
     <div class="section-inner">
         <div class="contact-hero-content">
-            <div class="contact-hero-badge">Lad os arbejde sammen</div>
-            <h1 class="contact-hero-title">Fortæl os<br/><span class="accent-text">hvad du drømmer om</span></h1>
-            <p class="contact-hero-sub">Vi svarer inden for 24 timer — uden salgspres, kun ærlighed.</p>
+            <div class="contact-hero-badge">@(LanguageService.CurrentLanguage == "en" ? "Let's Work Together" : "Lad os arbejde sammen")</div>
+            <h1 class="contact-hero-title">@if (LanguageService.CurrentLanguage == "en") {
+                <text>Tell us<br/><span class="accent-text">what you dream about</span></text>
+            } else {
+                <text>Fortæl os<br/><span class="accent-text">hvad du drømmer om</span></text>
+            }</h1>
+            <p class="contact-hero-sub">@(LanguageService.CurrentLanguage == "en" ? "We respond within 24 hours - no sales pressure, just honesty." : "Vi svarer inden for 24 timer - uden salgspres, kun ærlighed.")</p>
         </div>
     </div>
 </section>
@@ -23,8 +28,8 @@
             <!-- Left: Contact Info -->
             <div class="contact-info-block">
                 <div class="contact-info-header">
-                    <h2 class="contact-info-title">Kontakt os direkte</h2>
-                    <p class="contact-info-sub">Eller udfyld formularen og vi vender tilbage hurtigt.</p>
+                    <h2 class="contact-info-title">@(LanguageService.CurrentLanguage == "en" ? "Contact Us Directly" : "Kontakt os direkte")</h2>
+                    <p class="contact-info-sub">@(LanguageService.CurrentLanguage == "en" ? "Or fill out the form and we'll get back to you quickly." : "Eller udfyld formularen og vi vender tilbage hurtigt.")</p>
                 </div>
 
                 <div class="contact-details">
@@ -35,7 +40,7 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="contact-detail-label">Ring til os</div>
+                            <div class="contact-detail-label">@(LanguageService.CurrentLanguage == "en" ? "Call Us" : "Ring til os")</div>
                             <div class="contact-detail-value">+45 12 34 56 78</div>
                         </div>
                     </a>
@@ -47,7 +52,7 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="contact-detail-label">Skriv til os</div>
+                            <div class="contact-detail-label">@(LanguageService.CurrentLanguage == "en" ? "Email Us" : "Skriv til os")</div>
                             <div class="contact-detail-value">hej@tahcillscales.dk</div>
                         </div>
                     </a>
@@ -59,8 +64,8 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="contact-detail-label">Besøg os</div>
-                            <div class="contact-detail-value">København, Danmark</div>
+                            <div class="contact-detail-label">@(LanguageService.CurrentLanguage == "en" ? "Visit Us" : "Besøg os")</div>
+                            <div class="contact-detail-value">@(LanguageService.CurrentLanguage == "en" ? "Copenhagen, Denmark" : "København, Danmark")</div>
                         </div>
                     </div>
                 </div>
@@ -72,8 +77,8 @@
                 {
                     <div class="contact-success">
                         <div class="contact-success-icon">✓</div>
-                        <h3 class="contact-success-title">Besked modtaget!</h3>
-                        <p class="contact-success-sub">Tak fordi du skrev til os. Vi vender tilbage inden for 24 timer.</p>
+                        <h3 class="contact-success-title">@(LanguageService.CurrentLanguage == "en" ? "Message Received!" : "Besked modtaget!")</h3>
+                        <p class="contact-success-sub">@(LanguageService.CurrentLanguage == "en" ? "Thank you for reaching out to us. We'll get back to you within 24 hours." : "Tak fordi du skrev til os. Vi vender tilbage inden for 24 timer.")</p>
                     </div>
                 }
                 else
@@ -81,33 +86,33 @@
                     <form class="contact-form" @onsubmit="Submit" @onsubmit:preventDefault>
                         <div class="contact-form-row">
                             <div class="contact-form-field">
-                                <label for="name">Dit navn</label>
-                                <input type="text" id="name" placeholder="Dit fulde navn" @bind="_name" required />
+                                <label for="name">@(LanguageService.CurrentLanguage == "en" ? "Your Name" : "Dit navn")</label>
+                                <input type="text" id="name" placeholder="@(LanguageService.CurrentLanguage == "en" ? "Your Full Name" : "Dit fulde navn")" @bind="_name" required />
                             </div>
                             <div class="contact-form-field">
-                                <label for="email">Email adresse</label>
-                                <input type="email" id="email" placeholder="din@email.dk" @bind="_email" required />
+                                <label for="email">@(LanguageService.CurrentLanguage == "en" ? "Email Address" : "Email adresse")</label>
+                                <input type="email" id="email" placeholder="@(LanguageService.CurrentLanguage == "en" ? "your@email.com" : "din@email.dk")" @bind="_email" required />
                             </div>
                         </div>
 
                         <div class="contact-form-row">
                             <div class="contact-form-field">
-                                <label for="company">Virksomhed</label>
-                                <input type="text" id="company" placeholder="Virksomhedens navn" @bind="_company" />
+                                <label for="company">@(LanguageService.CurrentLanguage == "en" ? "Company" : "Virksomhed")</label>
+                                <input type="text" id="company" placeholder="@(LanguageService.CurrentLanguage == "en" ? "Company Name" : "Virksomhedens navn")" @bind="_company" />
                             </div>
                             <div class="contact-form-field">
-                                <label for="phone">Telefon</label>
-                                <input type="tel" id="phone" placeholder="+45 00 00 00 00" @bind="_phone" />
+                                <label for="phone">@(LanguageService.CurrentLanguage == "en" ? "Phone" : "Telefon")</label>
+                                <input type="tel" id="phone" placeholder="@(LanguageService.CurrentLanguage == "en" ? "+1 (555) 000-0000" : "+45 00 00 00 00")" @bind="_phone" />
                             </div>
                         </div>
 
                         <div class="contact-form-field full">
-                            <label for="message">Hvad kan vi hjælpe med?</label>
-                            <textarea id="message" placeholder="Fortæl kort om din virksomhed og hvad du ønsker hjælp til..." @bind="_message" rows="5" required></textarea>
+                            <label for="message">@(LanguageService.CurrentLanguage == "en" ? "How Can We Help?" : "Hvad kan vi hjælpe med?")</label>
+                            <textarea id="message" placeholder="@(LanguageService.CurrentLanguage == "en" ? "Tell us briefly about your company and what you need help with..." : "Fortæl kort om din virksomhed og hvad du ønsker hjælp til...")" @bind="_message" rows="5" required></textarea>
                         </div>
 
                         <button type="submit" class="contact-submit">
-                            Send besked
+                            @(LanguageService.CurrentLanguage == "en" ? "Send Message" : "Send besked")
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                             </svg>

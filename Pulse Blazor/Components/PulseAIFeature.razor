@@ -1,41 +1,63 @@
+@inject LanguageService LanguageService
+
 <!-- Pulse AI Feature Section -->
 <section class="pulse-ai-feature">
     <div class="pulse-ai-inner">
         <div class="pulse-ai-content">
-            <div class="pulse-ai-eyebrow">Pulse AI — Vores flagship-produkt</div>
+            <div class="pulse-ai-eyebrow">@(LanguageService.CurrentLanguage == "en" ? "Pulse AI - Our Flagship Product" : "Pulse AI - Vores flagship-produkt")</div>
             <h2 class="pulse-ai-title">
-                Fremtiden for kundeservice er her.
+                @if (LanguageService.CurrentLanguage == "en") {
+                    <text>The Future of Customer Service is Here.</text>
+                } else {
+                    <text>Fremtiden for kundeservice er her.</text>
+                }
             </h2>
             <p class="pulse-ai-body">
-                Pulse AI er intelligent AI-teknologi der besvarer dine kunders spørgsmål øjeblikkeligt — på alle kanaler, 24 timer i døgnet, 365 dage om året. Resultatet er ikke blot hurtigere service. Det er en fundamental ændring i, hvordan din virksomhed skalerer.
+                @if (LanguageService.CurrentLanguage == "en") {
+                    <text>Pulse AI is intelligent AI technology that answers your customers' questions instantly - across all channels, 24 hours a day, 365 days a year. The result is not just faster service. It's a fundamental shift in how your business scales.</text>
+                } else {
+                    <text>Pulse AI er intelligent AI-teknologi der besvarer dine kunders spørgsmål øjeblikkeligt - på alle kanaler, 24 timer i døgnet, 365 dage om året. Resultatet er ikke blot hurtigere service. Det er en fundamental ændring i, hvordan din virksomhed skalerer.</text>
+                }
             </p>
 
             <div class="pulse-ai-features">
                 <div class="pulse-ai-feature-item">
                     <div class="pulse-ai-feature-icon"></div>
                     <div class="pulse-ai-feature-text">
-                        <strong>Automatisk svar på 80% af henvendelser</strong> — uden menneskelig indgriben, uden ventetid.
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text><strong>Automatic Answers to 80% of Inquiries</strong> - without human intervention, without wait times.</text>
+                        } else {
+                            <text><strong>Automatisk svar på 80% af henvendelser</strong> - uden menneskelig indgriben, uden ventetid.</text>
+                        }
                     </div>
                 </div>
                 <div class="pulse-ai-feature-item">
                     <div class="pulse-ai-feature-icon"></div>
                     <div class="pulse-ai-feature-text">
-                        <strong>Under 2 sekunders svartid, altid</strong> — Pulse AI svarer lige så hurtigt som dine bedste kundeservicemitarbejdere.
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text><strong>Under 2 Seconds Response Time, Always</strong> - Pulse AI answers as fast as your best customer service reps.</text>
+                        } else {
+                            <text><strong>Under 2 sekunders svartid, altid</strong> - Pulse AI svarer lige så hurtigt som dine bedste kundeservicemitarbejdere.</text>
+                        }
                     </div>
                 </div>
                 <div class="pulse-ai-feature-item">
                     <div class="pulse-ai-feature-icon"></div>
                     <div class="pulse-ai-feature-text">
-                        <strong>Lavere supportomkostninger fra dag 30</strong> — Du sparer betydeligt på løn, træning og drift.
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text><strong>Lower Support Costs from Day 30</strong> - You save significantly on salaries, training, and operations.</text>
+                        } else {
+                            <text><strong>Lavere supportomkostninger fra dag 30</strong> - Du sparer betydeligt på løn, træning og drift.</text>
+                        }
                     </div>
                 </div>
             </div>
 
             <a href="/kontakt" class="btn-green">
-                Kom i gang med Pulse AI
+                @(LanguageService.CurrentLanguage == "en" ? "Get Started with Pulse AI" : "Kom i gang med Pulse AI")
             </a>
             <a href="/pulse-ai" class="service-link" style="margin-left: 1.5rem;">
-                Se alle funktioner →
+                @(LanguageService.CurrentLanguage == "en" ? "See All Features →" : "Se alle funktioner →")
             </a>
         </div>
 

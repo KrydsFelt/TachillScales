@@ -1,3 +1,5 @@
+@inject LanguageService LanguageService
+
 <section class="cf-section" id="kontakt">
     <div class="section-inner">
 
@@ -5,9 +7,17 @@
 
             <!-- Left: Text -->
             <div class="cf-left">
-                <div class="cf-eyebrow">Kontakt os</div>
-                <h2 class="cf-title">Er du klar til et stærkt samarbejde?</h2>
-                <p class="cf-sub">Du er få klik væk. Udfyld formularen, så vender vi tilbage inden for 24 timer — uden salgspres, kun ærlighed.</p>
+                <div class="cf-eyebrow">@(LanguageService.CurrentLanguage == "en" ? "Contact Us" : "Kontakt os")</div>
+                <h2 class="cf-title">@if (LanguageService.CurrentLanguage == "en") {
+                    <text>Ready for Strong Collaboration?</text>
+                } else {
+                    <text>Er du klar til et stærkt samarbejde?</text>
+                }</h2>
+                <p class="cf-sub">@if (LanguageService.CurrentLanguage == "en") {
+                    <text>You're just a few clicks away. Fill out the form and we'll get back to you within 24 hours - no sales pressure, just honesty.</text>
+                } else {
+                    <text>Du er få klik væk. Udfyld formularen, så vender vi tilbage inden for 24 timer - uden salgspres, kun ærlighed.</text>
+                }</p>
 
                 <div class="cf-contact-info">
                     <a href="tel:+4512345678" class="cf-contact-item">
@@ -17,7 +27,7 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="cf-contact-label">Ring til os</div>
+                            <div class="cf-contact-label">@(LanguageService.CurrentLanguage == "en" ? "Call Us" : "Ring til os")</div>
                             <div class="cf-contact-val">+45 12 34 56 78</div>
                         </div>
                     </a>
@@ -28,7 +38,7 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="cf-contact-label">Skriv til os</div>
+                            <div class="cf-contact-label">@(LanguageService.CurrentLanguage == "en" ? "Email Us" : "Skriv til os")</div>
                             <div class="cf-contact-val">hej@tahcillscales.dk</div>
                         </div>
                     </a>
@@ -41,8 +51,8 @@
                 {
                     <div class="cf-success">
                         <div class="cf-success-icon">✓</div>
-                        <h3>Besked modtaget!</h3>
-                        <p>Vi vender tilbage inden for 24 timer.</p>
+                        <h3>@(LanguageService.CurrentLanguage == "en" ? "Message Received!" : "Besked modtaget!")</h3>
+                        <p>@(LanguageService.CurrentLanguage == "en" ? "We'll get back to you within 24 hours." : "Vi vender tilbage inden for 24 timer.")</p>
                     </div>
                 }
                 else
@@ -50,30 +60,30 @@
                     <form class="cf-form" @onsubmit="Submit" @onsubmit:preventDefault>
                         <div class="cf-row">
                             <div class="cf-field">
-                                <label>Navn</label>
-                                <input type="text" placeholder="Dit fulde navn" @bind="_name" required />
+                                <label>@(LanguageService.CurrentLanguage == "en" ? "Name" : "Navn")</label>
+                                <input type="text" placeholder="@(LanguageService.CurrentLanguage == "en" ? "Your Full Name" : "Dit fulde navn")" @bind="_name" required />
                             </div>
                             <div class="cf-field">
-                                <label>Virksomhed</label>
-                                <input type="text" placeholder="Virksomhedens navn" @bind="_company" />
+                                <label>@(LanguageService.CurrentLanguage == "en" ? "Company" : "Virksomhed")</label>
+                                <input type="text" placeholder="@(LanguageService.CurrentLanguage == "en" ? "Company Name" : "Virksomhedens navn")" @bind="_company" />
                             </div>
                         </div>
                         <div class="cf-row">
                             <div class="cf-field">
-                                <label>Email</label>
-                                <input type="email" placeholder="din@email.dk" @bind="_email" required />
+                                <label>@(LanguageService.CurrentLanguage == "en" ? "Email" : "Email")</label>
+                                <input type="email" placeholder="@(LanguageService.CurrentLanguage == "en" ? "your@email.com" : "din@email.dk")" @bind="_email" required />
                             </div>
                             <div class="cf-field">
-                                <label>Telefon</label>
-                                <input type="tel" placeholder="+45 00 00 00 00" @bind="_phone" />
+                                <label>@(LanguageService.CurrentLanguage == "en" ? "Phone" : "Telefon")</label>
+                                <input type="tel" placeholder="@(LanguageService.CurrentLanguage == "en" ? "+1 (555) 000-0000" : "+45 00 00 00 00")" @bind="_phone" />
                             </div>
                         </div>
                         <div class="cf-field">
-                            <label>Hvad kan vi hjælpe med?</label>
-                            <textarea placeholder="Fortæl kort om din virksomhed og hvad du ønsker hjælp til..." @bind="_message" rows="4" required></textarea>
+                            <label>@(LanguageService.CurrentLanguage == "en" ? "How Can We Help?" : "Hvad kan vi hjælpe med?")</label>
+                            <textarea placeholder="@(LanguageService.CurrentLanguage == "en" ? "Tell us briefly about your company and what you need help with..." : "Fortæl kort om din virksomhed og hvad du ønsker hjælp til...")" @bind="_message" rows="4" required></textarea>
                         </div>
                         <button type="submit" class="cf-submit">
-                            Send besked
+                            @(LanguageService.CurrentLanguage == "en" ? "Send Message" : "Send besked")
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                             </svg>

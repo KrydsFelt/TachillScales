@@ -1,5 +1,6 @@
 @inject NavigationManager Nav
 @inject IJSRuntime JS
+@inject LanguageService LanguageService
 
 <nav class="nav">
     <div class="nav-inner">
@@ -29,8 +30,13 @@
             <li><a href="@KontaktHref" class="@KontaktClass" @onclick="CloseMenu">Kontakt</a></li>
         </ul>
 
+        <div class="nav-language">
+            <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick="SetLanguageDa" type="button">DA</button>
+            <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick="SetLanguageEn" type="button">EN</button>
+        </div>
+
         <a href="@KontaktHref" class="btn-green">
-            Book en samtale
+            @(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book en samtale")
         </a>
 
         <button class="nav-hamburger @(MenuOpen ? "open" : "")"
@@ -47,6 +53,12 @@
 
     private string CurrentPath =>
         "/" + new Uri(Nav.Uri).AbsolutePath.Trim('/').ToLower();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LanguageService.InitializeAsync();
+        LanguageService.Subscribe(StateHasChanged);
+    }
 
     private string LinkClass(string path)
     {
@@ -73,5 +85,17 @@
     {
         MenuOpen = false;
         IsServiceDropdownOpen = false;
+    }
+
+    private async Task SetLanguageDa()
+    {
+        await LanguageService.SetLanguageAsync("da");
+        StateHasChanged();
+    }
+
+    private async Task SetLanguageEn()
+    {
+        await LanguageService.SetLanguageAsync("en");
+        StateHasChanged();
     }
 }

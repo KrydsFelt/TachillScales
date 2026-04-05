@@ -1,10 +1,20 @@
+@inject LanguageService LanguageService
+
 <section class="section-wrap sc-section">
     <div class="section-inner">
         <div class="section-header center">
-            <div class="section-eyebrow">Vores ydelser</div>
-            <h2 class="section-title">Markedsføring er fundamentet. AI er evolutionen.</h2>
+            <div class="section-eyebrow">@(LanguageService.CurrentLanguage == "en" ? "Our Services" : "Vores ydelser")</div>
+            <h2 class="section-title">@if (LanguageService.CurrentLanguage == "en") {
+                <text>Marketing is the Foundation. AI is the Evolution.</text>
+            } else {
+                <text>Markedsføring er fundamentet. AI er evolutionen.</text>
+            }</h2>
             <p class="section-desc">
-                Vi tilbyder to specialiserede ydelser og ét produkt — designet til at virke i tæt samspil med hinanden.
+                @if (LanguageService.CurrentLanguage == "en") {
+                    <text>We offer two specialized services and one product - designed to work together seamlessly.</text>
+                } else {
+                    <text>Vi tilbyder to specialiserede ydelser og ét produkt - designet til at virke i tæt samspil med hinanden.</text>
+                }
             </p>
         </div>
 
@@ -16,17 +26,17 @@
                 <div class="sc-overlay"></div>
                 <div class="sc-content">
                     <div class="sc-top">
-                        <span class="sc-badge">YDELSE 01</span>
+                        <span class="sc-badge">@(LanguageService.CurrentLanguage == "en" ? "SERVICE 01" : "YDELSE 01")</span>
                     </div>
                     <div class="sc-body">
                         <div class="sc-reveal">
                             <div class="sc-tags">
                                 <span>Google Ads</span>
                                 <span>Meta Ads</span>
-                                <span>Retargeting</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "Retargeting" : "Retargeting")</span>
                             </div>
                         </div>
-                        <h3 class="sc-title">Betalt markedsføring</h3>
+                        <h3 class="sc-title">@(LanguageService.CurrentLanguage == "en" ? "Paid Advertising" : "Betalt markedsføring")</h3>
                     </div>
                     <a href="/paid-ads" class="sc-arrow">→</a>
                 </div>
@@ -38,17 +48,17 @@
                 <div class="sc-overlay"></div>
                 <div class="sc-content">
                     <div class="sc-top">
-                        <span class="sc-badge">YDELSE 02</span>
+                        <span class="sc-badge">@(LanguageService.CurrentLanguage == "en" ? "SERVICE 02" : "YDELSE 02")</span>
                     </div>
                     <div class="sc-body">
                         <div class="sc-reveal">
                             <div class="sc-tags">
-                                <span>SEO-optimeret</span>
-                                <span>Mobil-first</span>
-                                <span>Hurtig levering</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "SEO-optimized" : "SEO-optimeret")</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "Mobile-first" : "Mobil-first")</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "Fast Delivery" : "Hurtig levering")</span>
                             </div>
                         </div>
-                        <h3 class="sc-title">Professionelle hjemmesider</h3>
+                        <h3 class="sc-title">@(LanguageService.CurrentLanguage == "en" ? "Professional Websites" : "Professionelle hjemmesider")</h3>
                     </div>
                     <a href="/hjemmesider" class="sc-arrow">→</a>
                 </div>
@@ -60,16 +70,16 @@
                 <div class="sc-overlay sc-overlay-ai"></div>
                 <div class="sc-content">
                     <div class="sc-top">
-                        <span class="sc-badge sc-badge-nyhed">NYHED</span>
-                        <span class="sc-badge">PRODUKT</span>
+                        <span class="sc-badge sc-badge-nyhed">@(LanguageService.CurrentLanguage == "en" ? "NEW" : "NYHED")</span>
+                        <span class="sc-badge">@(LanguageService.CurrentLanguage == "en" ? "PRODUCT" : "PRODUKT")</span>
                     </div>
                     <div class="sc-body">
                         <div class="sc-reveal">
                             <div class="sc-tags">
-                                <span>Under 2 sek svartid</span>
-                                <span>Alle kanaler</span>
-                                <span>AI-drevet</span>
-                                <span>24/7 aktiv</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "Under 2 sec response" : "Under 2 sek svartid")</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "All Channels" : "Alle kanaler")</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "AI-powered" : "AI-drevet")</span>
+                                <span>@(LanguageService.CurrentLanguage == "en" ? "24/7 Active" : "24/7 aktiv")</span>
                             </div>
                         </div>
                         <h3 class="sc-title">Pulse AI</h3>
