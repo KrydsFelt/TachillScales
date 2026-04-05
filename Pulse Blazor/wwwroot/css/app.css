@@ -77,36 +77,34 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 
 /* ========== 2. BLAZOR LOADING ========== */
 .loading-progress {
-    position: absolute;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    inset: 20vh 0 auto 0;
-    margin: 0 auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .loading-progress circle {
-    fill: none;
-    stroke: var(--border-md);
-    stroke-width: 0.6rem;
-    transform-origin: 50% 50%;
-    transform: rotate(-90deg);
+    display: none;
 }
 
 .loading-progress circle:last-child {
-    stroke: var(--accent);
-    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-    transition: stroke-dasharray 0.05s ease-in-out;
+    display: none;
 }
 
 .loading-progress-text {
-    position: absolute;
+    position: static;
     text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
 }
 
-.loading-progress-text::after { content: var(--blazor-load-percentage-text, "Loading"); }
+.loading-progress-text::after { content: var(--blazor-load-percentage-text, "0%"); }
 
 #blazor-error-ui {
     background: lightyellow;
