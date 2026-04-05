@@ -45,24 +45,6 @@
                 </svg>
             </div>
         </div>
-
-        <!-- Floating Service Cards -->
-        <div class="hjem-floating-cards">
-            <a href="/paid-ads" class="hjem-float-card hjem-float-card-1">
-                <h3>@(LanguageService.CurrentLanguage == "en" ? "Marketing" : "Marketing")</h3>
-                <p>@(LanguageService.CurrentLanguage == "en" ? "Google & Meta campaigns maximizing your ROI" : "Google & Meta kampagner der maksimerer din ROI")</p>
-            </a>
-            <a href="/hjemmesider" class="hjem-float-card hjem-float-card-2">
-                <div class="hjem-float-badge">@(LanguageService.CurrentLanguage == "en" ? "COMING SOON" : "KOMMER SNART")</div>
-                <h3>@(LanguageService.CurrentLanguage == "en" ? "Websites" : "Hjemmesider")</h3>
-                <p>@(LanguageService.CurrentLanguage == "en" ? "Custom websites that convert visitors" : "Skræddersyede hjemmesider der konverterer")</p>
-            </a>
-            <a href="/pulse-ai" class="hjem-float-card hjem-float-card-3">
-                <div class="hjem-float-badge">@(LanguageService.CurrentLanguage == "en" ? "NEW" : "NYHED")</div>
-                <h3>Pulse AI</h3>
-                <p>@(LanguageService.CurrentLanguage == "en" ? "Your 24/7 AI sales assistant" : "Din 24/7 AI-salgsassistent der aldrig mister et lead")</p>
-            </a>
-        </div>
     </div>
 </section>
 
@@ -236,102 +218,6 @@
         50% {
             transform: translateY(8px);
         }
-    }
-
-    /* ========== FLOATING SERVICE CARDS ========== */
-    .hjem-floating-cards {
-        position: absolute;
-        bottom: 80px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        pointer-events: none;
-    }
-
-    .hjem-float-card {
-        position: absolute;
-        background: #fff;
-        border-radius: 16px;
-        padding: 14px 16px;
-        width: 140px;
-        border: 1px solid rgba(0,0,0,0.06);
-        text-decoration: none;
-        color: inherit;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        pointer-events: auto;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-
-    .hjem-float-card:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        padding: 18px 20px;
-    }
-
-    .hjem-float-card h3 {
-        font-size: 14px;
-        font-weight: 700;
-        color: #0a0a0a;
-        margin-bottom: 4px;
-    }
-
-    .hjem-float-card p {
-        font-size: 11px;
-        color: #888;
-        line-height: 1.4;
-        margin: 0;
-        display: none;
-    }
-
-    .hjem-float-card:hover p {
-        display: block;
-    }
-
-    .hjem-float-badge {
-        display: inline-block;
-        font-size: 8px;
-        font-weight: 700;
-        letter-spacing: 0.3px;
-        color: #fff;
-        background: #0f1c2a;
-        padding: 2px 6px;
-        border-radius: 10px;
-        margin-bottom: 6px;
-    }
-
-    .hjem-float-card-1 {
-        left: 8%;
-        top: 20px;
-        animation: float-1 5s ease-in-out infinite;
-    }
-
-    .hjem-float-card-2 {
-        left: 50%;
-        top: 10px;
-        transform: translateX(-50%);
-        animation: float-2 6s ease-in-out infinite;
-    }
-
-    .hjem-float-card-3 {
-        right: 8%;
-        top: 30px;
-        animation: float-3 5.5s ease-in-out infinite;
-    }
-
-    @@keyframes float-1 {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-    }
-
-    @@keyframes float-2 {
-        0%, 100% { transform: translateX(-50%) translateY(0px); }
-        50% { transform: translateX(-50%) translateY(-18px); }
-    }
-
-    @@keyframes float-3 {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
     }
 
     /* ========== PHILOSOPHY/QUOTE SECTION ========== */
@@ -579,10 +465,6 @@
 
         .hjem-stat-badge { justify-content: center; width: 100%; }
         .hjem-hero-cta { padding: 14px 40px; font-size: 13px; }
-
-        .hjem-floating-cards {
-            display: none;
-        }
 
         .hjem-services { padding: 60px 0 80px; }
     }
