@@ -624,7 +624,6 @@ p, .body-text {
     background: #2563eb;
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(34,197,94,0.6);
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .hero-live-divider {
@@ -961,16 +960,7 @@ p, .body-text {
 .trust-track {
     display: flex;
     align-items: center;
-    animation: scrollTrack 32s linear infinite;
-    animation-delay: -8s;
     width: max-content;
-}
-
-.trust-track:hover { animation-play-state: paused; }
-
-@keyframes scrollTrack {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
 }
 
 .trust-item {
@@ -1537,12 +1527,6 @@ p, .body-text {
     height: 6px;
     background: var(--accent);
     border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
 }
 
 .footer-socials {
@@ -1798,22 +1782,6 @@ p, .body-text {
     }
 }
 
-/* ========== SCROLL ANIMATIONS ========== */
-[data-animate] {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-}
-[data-animate="fade-left"] { transform: translateX(28px); }
-[data-animate="scale"] { transform: scale(0.94); }
-[data-animate].anim-visible {
-    opacity: 1;
-    transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; }
-}
 
 /* ========== 12b. SC SERVICE CARDS ========== */
 .sc-section { padding: 6rem 2rem; background: #ffffff; }
@@ -2389,13 +2357,6 @@ p, .body-text {
     border-radius: 50%;
     background: #4ade80;
     box-shadow: 0 0 8px #4ade80;
-    animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(0.85); }
-}
 
 .pai-hero-title {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -2519,15 +2480,6 @@ p, .body-text {
     height: 6px;
     border-radius: 50%;
     background: rgba(255,255,255,0.4);
-    animation: typing 1.2s ease-in-out infinite;
-}
-
-.pai-msg-typing span:nth-child(2) { animation-delay: 0.2s; }
-.pai-msg-typing span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes typing {
-    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-    30% { transform: translateY(-5px); opacity: 1; }
 }
 
 .pai-chat-footer {

@@ -1,7 +1,7 @@
 <section class="tm-section">
     <div class="section-inner">
 
-        <div class="tm-header" data-animate="fade-up">
+        <div class="tm-header">
             <div class="section-eyebrow">Kundeanmeldelser</div>
             <h2 class="tm-title">Betroet af virksomheder<br/>der vil vækste.</h2>
         </div>
@@ -9,7 +9,7 @@
         <div class="tm-grid">
             @foreach (var (t, i) in _testimonials.Select((t, i) => (t, i)))
             {
-                <div class="tm-card" data-animate="fade-up" data-delay="@(i * 120)">
+                <div class="tm-card">
                     <div class="tm-card-top">
                         <div class="tm-avatar">@t.Initials</div>
                         <div class="tm-company">@t.Company</div>
