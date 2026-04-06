@@ -1,0 +1,22 @@
+@inject NavigationManager Nav
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    public string CurrentLanguage { get; set; } = "da";
+
+    public void SetLanguage(string lang)
+    {
+        CurrentLanguage = lang;
+    }
+
+    public string T(string da, string en)
+    {
+        return CurrentLanguage == "en" ? en : da;
+    }
+}

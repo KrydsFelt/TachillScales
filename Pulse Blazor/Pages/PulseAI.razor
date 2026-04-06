@@ -1,7 +1,8 @@
 @page "/pulse-ai"
 @inject IJSRuntime JS
+@inject LanguageService LanguageService
 
-<PageTitle>Pulse AI — Intelligent Lead-maskine | Tahcill Scales</PageTitle>
+<PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Pulse AI - Intelligent Lead Machine | Tahcill Scales" : "Pulse AI - Intelligent Lead-maskine | Tahcill Scales")</PageTitle>
 
 <Navigation />
 
@@ -11,27 +12,35 @@
         <div class="pai-hero-left">
             <div class="pai-badge">
                 <span class="pai-badge-dot"></span>
-                Pulse AI — Live nu
+                @(LanguageService.CurrentLanguage == "en" ? "Pulse AI - Live Now" : "Pulse AI - Live nu")
             </div>
-            <h1 class="pai-hero-title">Din hjemmeside mister leads.<br/>Pulse AI stopper det.</h1>
-            <p class="pai-hero-sub">Kunder besøger din hjemmeside udenfor åbningstid — og forsvinder igen. Pulse AI besvarer dem øjeblikkeligt, kvalificerer dem som leads og sender dem videre til dig. Automatisk. 24/7.</p>
+            <h1 class="pai-hero-title">@if (LanguageService.CurrentLanguage == "en") {
+                <text>Your website is losing leads.<br/>Pulse AI stops it.</text>
+            } else {
+                <text>Din hjemmeside mister leads.<br/>Pulse AI stopper det.</text>
+            }</h1>
+            <p class="pai-hero-sub">@if (LanguageService.CurrentLanguage == "en") {
+                <text>Customers visit your website outside business hours - and disappear. Pulse AI answers them instantly, qualifies them as leads and sends them to you. Automatically. 24/7.</text>
+            } else {
+                <text>Kunder besøger din hjemmeside udenfor åbningstid - og forsvinder igen. Pulse AI besvarer dem øjeblikkeligt, kvalificerer dem som leads og sender dem videre til dig. Automatisk. 24/7.</text>
+            }</p>
             <div class="pai-hero-actions">
-                <a href="/kontakt" class="btn-green">Kom i gang gratis</a>
+                <a href="/kontakt" class="btn-green">@(LanguageService.CurrentLanguage == "en" ? "Get Started Free" : "Kom i gang gratis")</a>
             </div>
             <div class="pai-hero-stats">
                 <div class="pai-hstat">
                     <div class="pai-hstat-num">80%</div>
-                    <div class="pai-hstat-lbl">Henvendelser besvaret automatisk</div>
+                    <div class="pai-hstat-lbl">@(LanguageService.CurrentLanguage == "en" ? "Inquiries Answered Automatically" : "Henvendelser besvaret automatisk")</div>
                 </div>
                 <div class="pai-hstat-divider"></div>
                 <div class="pai-hstat">
                     <div class="pai-hstat-num">&lt;2s</div>
-                    <div class="pai-hstat-lbl">Svartid døgnet rundt</div>
+                    <div class="pai-hstat-lbl">@(LanguageService.CurrentLanguage == "en" ? "Response Time 24/7" : "Svartid døgnet rundt")</div>
                 </div>
                 <div class="pai-hstat-divider"></div>
                 <div class="pai-hstat">
                     <div class="pai-hstat-num">60%</div>
-                    <div class="pai-hstat-lbl">Lavere supportomkostninger</div>
+                    <div class="pai-hstat-lbl">@(LanguageService.CurrentLanguage == "en" ? "Lower Support Costs" : "Lavere supportomkostninger")</div>
                 </div>
             </div>
         </div>
@@ -45,21 +54,37 @@
                     </div>
                     <div>
                         <div class="pai-chat-name">Pulse AI</div>
-                        <div class="pai-chat-status">Aktiv nu</div>
+                        <div class="pai-chat-status">@(LanguageService.CurrentLanguage == "en" ? "Active Now" : "Aktiv nu")</div>
                     </div>
                 </div>
                 <div class="pai-chat-body">
                     <div class="pai-msg pai-msg-ai">
-                        Hej! Jeg er her for at hjælpe dig. Hvad kan jeg gøre for dig i dag?
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>Hi! I'm here to help you. What can I do for you today?</text>
+                        } else {
+                            <text>Hej! Jeg er her for at hjælpe dig. Hvad kan jeg gøre for dig i dag?</text>
+                        }
                     </div>
                     <div class="pai-msg pai-msg-user">
-                        Hvad koster det at få lavet en hjemmeside?
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>How much does it cost to build a website?</text>
+                        } else {
+                            <text>Hvad koster det at få lavet en hjemmeside?</text>
+                        }
                     </div>
                     <div class="pai-msg pai-msg-ai">
-                        Godt spørgsmål! Prisen afhænger af omfang og funktioner. Må jeg spørge — hvad er din virksomhed, og hvad skal hjemmesiden primært bruges til?
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>Good question! The price depends on scope and features. May I ask - what is your business, and what should the website primarily be used for?</text>
+                        } else {
+                            <text>Godt spørgsmål! Prisen afhænger af omfang og funktioner. Må jeg spørge - hvad er din virksomhed, og hvad skal hjemmesiden primært bruges til?</text>
+                        }
                     </div>
                     <div class="pai-msg pai-msg-user">
-                        Vi er et mindre rengøringsfirma.
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>We're a small cleaning company.</text>
+                        } else {
+                            <text>Vi er et mindre rengøringsfirma.</text>
+                        }
                     </div>
                     <div class="pai-msg pai-msg-ai pai-msg-typing">
                         <span></span><span></span><span></span>
@@ -73,8 +98,8 @@
             <div class="pai-chat-lead-badge">
                 <div class="pai-lead-icon">✓</div>
                 <div>
-                    <div class="pai-lead-title">Nyt lead kvalificeret</div>
-                    <div class="pai-lead-sub">Sendes til dit CRM automatisk</div>
+                    <div class="pai-lead-title">@(LanguageService.CurrentLanguage == "en" ? "New Lead Qualified" : "Nyt lead kvalificeret")</div>
+                    <div class="pai-lead-sub">@(LanguageService.CurrentLanguage == "en" ? "Sent to Your CRM Automatically" : "Sendes til dit CRM automatisk")</div>
                 </div>
             </div>
         </div>
@@ -85,9 +110,17 @@
 <section class="pai-problem">
     <div class="section-inner">
         <div class="section-header center">
-            <div class="section-eyebrow">Problemet</div>
-            <h2 class="section-title">Du mister kunder mens du sover</h2>
-            <p class="section-desc">70% af alle online-henvendelser sker udenfor normal åbningstid. Uden et svar forsvinder de til en konkurrent.</p>
+            <div class="section-eyebrow">@(LanguageService.CurrentLanguage == "en" ? "The Problem" : "Problemet")</div>
+            <h2 class="section-title">@if (LanguageService.CurrentLanguage == "en") {
+                <text>You're Losing Customers While You Sleep</text>
+            } else {
+                <text>Du mister kunder mens du sover</text>
+            }</h2>
+            <p class="section-desc">@if (LanguageService.CurrentLanguage == "en") {
+                <text>70% of all online inquiries happen outside normal business hours. Without a response, they go to a competitor.</text>
+            } else {
+                <text>70% af alle online-henvendelser sker udenfor normal åbningstid. Uden et svar forsvinder de til en konkurrent.</text>
+            }</p>
         </div>
         <div class="pai-pain-grid">
             <div class="pai-pain">
@@ -96,8 +129,12 @@
                         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                     </svg>
                 </div>
-                <h3>Henvendelser efter lukketid</h3>
-                <p>Potentielle kunder skriver kl. 23 — og får ingen svar. Næste morgen har de valgt en anden.</p>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Inquiries After Hours" : "Henvendelser efter lukketid")</h3>
+                <p>@if (LanguageService.CurrentLanguage == "en") {
+                    <text>Potential customers write at 11 PM - and get no response.</text>
+                } else {
+                    <text>Potentielle kunder skriver kl. 23 - og får ingen svar.</text>
+                } </p>
             </div>
             <div class="pai-pain">
                 <div class="pai-pain-icon">
@@ -105,8 +142,12 @@
                         <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                     </svg>
                 </div>
-                <h3>Dyr menneskelig support</h3>
-                <p>At have ansatte klar 24/7 er for dyrt for de fleste virksomheder. Men at miste leads er dyrere.</p>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Expensive Support" : "Omkostligfuld support")</h3>
+                <p>@if (LanguageService.CurrentLanguage == "en") {
+                    <text>Having staff available 24/7 is too expensive for most companies. But it's essential.</text>
+                } else {
+                    <text>At have ansatte klar 24/7, er for dyrt for de fleste virksomheder. Men det er essentielt</text>
+                }</p>
             </div>
             <div class="pai-pain">
                 <div class="pai-pain-icon">
@@ -114,8 +155,13 @@
                         <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/>
                     </svg>
                 </div>
-                <h3>Ubesvaret = tabt omsætning</h3>
-                <p>Hvert ubesvaret spørgsmål er et tabt salg. De fleste ved det — men har ingen løsning.</p>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Missed Lead" : "Misset lead")</h3>
+                <p>@if (LanguageService.CurrentLanguage == "en") {
+                    <text>When you miss a lead, you potentially lose revenue for your business.</text>
+                } else {
+                    <text>Ved at at du misser et lead - mister du potentielt også omsætning for virksomheden.</text>
+                }
+                </p>
             </div>
         </div>
     </div>
@@ -125,31 +171,47 @@
 <section class="pai-solution" id="hvordan">
     <div class="section-inner">
         <div class="pai-solution-header">
-            <div class="section-eyebrow">Løsningen</div>
-            <h2 class="pai-sol-title">Pulse AI: Din altid-tilgængelige<br/>salgsassistent</h2>
+            <div class="section-eyebrow">@(LanguageService.CurrentLanguage == "en" ? "The Solution" : "Løsningen")</div>
+            <h2 class="pai-sol-title">@if (LanguageService.CurrentLanguage == "en") {
+                <text>Pulse AI: Your Always-Available<br/>Sales Assistant</text>
+            } else {
+                <text>Pulse AI: Din altid-tilgængelige<br/>salgsassistent</text>
+            }</h2>
         </div>
         <div class="pai-steps">
             <div class="pai-step">
                 <div class="pai-step-num">01</div>
                 <div class="pai-step-body">
-                    <h3>Besøgende starter en samtale</h3>
-                    <p>En potentiel kunde lander på din hjemmeside og stiller et spørgsmål — uanset hvad klokken er.</p>
+                    <h3>@(LanguageService.CurrentLanguage == "en" ? "Visitor Starts a Conversation" : "Besøgende starter en samtale")</h3>
+                    <p>@if (LanguageService.CurrentLanguage == "en") {
+                        <text>A potential customer lands on your website and asks a question - no matter what time it is.</text>
+                    } else {
+                        <text>En potentiel kunde lander på din hjemmeside og stiller et spørgsmål - uanset hvad klokken er.</text>
+                    }</p>
                 </div>
             </div>
             <div class="pai-step-arrow">→</div>
             <div class="pai-step">
                 <div class="pai-step-num">02</div>
                 <div class="pai-step-body">
-                    <h3>Pulse AI svarer på under 2 sekunder</h3>
-                    <p>AI'en besvarer spørgsmålet professionelt, stiller opfølgende spørgsmål og kvalificerer leads automatisk.</p>
+                    <h3>@(LanguageService.CurrentLanguage == "en" ? "Pulse AI Responds in Under 2 Seconds" : "Pulse AI svarer på under 2 sekunder")</h3>
+                    <p>@if (LanguageService.CurrentLanguage == "en") {
+                        <text>The AI answers the question professionally, asks follow-up questions and qualifies leads automatically.</text>
+                    } else {
+                        <text>AI'en besvarer spørgsmålet professionelt, stiller opfølgende spørgsmål og kvalificerer leads automatisk.</text>
+                    }</p>
                 </div>
             </div>
             <div class="pai-step-arrow">→</div>
             <div class="pai-step">
                 <div class="pai-step-num">03</div>
                 <div class="pai-step-body">
-                    <h3>Du modtager et varmt lead</h3>
-                    <p>Leadet sendes direkte til dig med kontaktinfo og samtalens indhold — klar til opfølgning.</p>
+                    <h3>@(LanguageService.CurrentLanguage == "en" ? "You Receive a Warm Lead" : "Du modtager et varmt lead")</h3>
+                    <p>@if (LanguageService.CurrentLanguage == "en") {
+                        <text>The lead is sent directly to you with contact information and conversation content - ready for follow-up.</text>
+                    } else {
+                        <text>Leadet sendes direkte til dig med kontaktinfo og samtalens indhold - klar til opfølgning.</text>
+                    }</p>
                 </div>
             </div>
         </div>
@@ -163,14 +225,18 @@
             <div class="pai-cta-left">
                 <div class="pai-badge" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.25);">
                     <span class="pai-badge-dot"></span>
-                    Klar til opsætning på 48 timer
+                    @(LanguageService.CurrentLanguage == "en" ? "Ready for Setup in 48 Hours" : "Klar til opsætning på 48 timer")
                 </div>
-                <h2 class="pai-cta-title">Stop med at miste leads i dag.</h2>
-                <p class="pai-cta-sub">Book en uforpligtende demo og se præcis hvordan Pulse AI vil fungere på din hjemmeside.</p>
+                <h2 class="pai-cta-title">@(LanguageService.CurrentLanguage == "en" ? "Stop Losing Leads Today." : "Stop med at miste leads i dag.")</h2>
+                <p class="pai-cta-sub">@if (LanguageService.CurrentLanguage == "en") {
+                    <text>Book a no-obligation demo and see exactly how Pulse AI will work on your website.</text>
+                } else {
+                    <text>Book en uforpligtende demo og se præcis hvordan Pulse AI vil fungere på din hjemmeside.</text>
+                }</p>
             </div>
             <div class="pai-cta-actions">
-                <a href="/kontakt" class="btn-white">Book en gratis demo</a>
-                <div class="pai-cta-note">Ingen binding. Ingen salgspres.</div>
+                <a href="/kontakt" class="btn-white">@(LanguageService.CurrentLanguage == "en" ? "Book a Free Demo" : "Book en gratis demo")</a>
+                <div class="pai-cta-note">@(LanguageService.CurrentLanguage == "en" ? "No Commitment. No Sales Pressure." : "Ingen binding. Ingen salgspres.")</div>
             </div>
         </div>
     </div>
@@ -179,6 +245,11 @@
 <PulseFooter />
 
 @code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -194,5 +265,10 @@
                 })();
             ");
         }
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
     }
 }

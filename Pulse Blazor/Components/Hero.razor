@@ -1,3 +1,5 @@
+@inject LanguageService LanguageService
+
 <section class="hero" id="hjem">
     <div class="hero-bg-grid"></div>
     <div class="hero-inner">
@@ -6,39 +8,31 @@
         <div class="hero-content">
             <div class="hero-live-indicator">
                 <div class="hero-live-dot"></div>
-                <span>+140 tilfredse kunder</span>
+                <span>@(LanguageService.CurrentLanguage == "en" ? "+140 Satisfied Customers" : "+140 tilfredse kunder")</span>
             </div>
 
             <h1 class="hero-title">
-                Mere synlighed.<br />
-                Mere vækst.
+                @if (LanguageService.CurrentLanguage == "en") {
+                    <text>More Visibility.<br />More Growth.</text>
+                } else {
+                    <text>Mere synlighed.<br />Mere vækst.</text>
+                }
             </h1>
 
             <p class="hero-desc">
-                Tahcill Scales kombinerer strategisk markedsføring med AI-drevet kundeservice. Vi hjælper din virksomhed med at vokse gennem målrettet synlighed og intelligent automatisering.
+                @if (LanguageService.CurrentLanguage == "en") {
+                    <text>Tahcill Scales combines strategic marketing with AI-driven customer service. We help your business grow through targeted visibility and intelligent automation.</text>
+                } else {
+                    <text>Tahcill Scales kombinerer strategisk markedsføring med AI-drevet kundeservice. Vi hjælper din virksomhed med at vokse gennem målrettet synlighed og intelligent automatisering.</text>
+                }
             </p>
 
             <div class="hero-actions">
                 <a href="/kontakt" class="btn-green">
-                    Book en strategisamtale
+                    @(LanguageService.CurrentLanguage == "en" ? "Book a Strategy Session" : "Book en strategisamtale")
                 </a>
-                <a href="/paid-ads" class="btn-outline">Se vores ydelser →</a>
             </div>
 
-            <div class="hero-metrics">
-                <div class="hero-metric">
-                    <div class="hero-metric-value">340%</div>
-                    <div class="hero-metric-label">Gennemsnitlig ROI</div>
-                </div>
-                <div class="hero-metric">
-                    <div class="hero-metric-value">140+</div>
-                    <div class="hero-metric-label">Kunders vækst</div>
-                </div>
-                <div class="hero-metric">
-                    <div class="hero-metric-value">24/7</div>
-                    <div class="hero-metric-label">Pulse AI aktiv</div>
-                </div>
-            </div>
         </div>
 
         <!-- Right: Dashboard mockup -->
@@ -60,8 +54,8 @@
                 <!-- Dashboard body -->
                 <div class="db-body">
                     <div class="db-header">
-                        <div class="db-title">Marketing Oversigt</div>
-                        <div class="db-date">Mar 2025 - i dag</div>
+                        <div class="db-title">@(LanguageService.CurrentLanguage == "en" ? "Marketing Overview" : "Marketing Oversigt")</div>
+                        <div class="db-date">@(LanguageService.CurrentLanguage == "en" ? "Mar 2025 - Today" : "Mar 2025 - i dag")</div>
                     </div>
 
                     <!-- KPI cards -->
@@ -69,15 +63,15 @@
                         <div class="db-kpi">
                             <div class="db-kpi-label">ROI</div>
                             <div class="db-kpi-val pos">+340%</div>
-                            <div class="db-kpi-trend">↑ 28% vs. sidst</div>
+                            <div class="db-kpi-trend">↑ 28% @(LanguageService.CurrentLanguage == "en" ? "vs. last" : "vs. sidst")</div>
                         </div>
                         <div class="db-kpi">
-                            <div class="db-kpi-label">Konv. rate</div>
+                            <div class="db-kpi-label">@(LanguageService.CurrentLanguage == "en" ? "Conv. Rate" : "Konv. rate")</div>
                             <div class="db-kpi-val pos">+127%</div>
-                            <div class="db-kpi-trend">↑ 14% vs. sidst</div>
+                            <div class="db-kpi-trend">↑ 14% @(LanguageService.CurrentLanguage == "en" ? "vs. last" : "vs. sidst")</div>
                         </div>
                         <div class="db-kpi">
-                            <div class="db-kpi-label">Trafik</div>
+                            <div class="db-kpi-label">@(LanguageService.CurrentLanguage == "en" ? "Traffic" : "Trafik")</div>
                             <div class="db-kpi-val">89K</div>
                             <div class="db-kpi-trend">↑ 22%</div>
                         </div>
@@ -90,7 +84,7 @@
 
                     <!-- Bar chart -->
                     <div class="db-chart-area">
-                        <div class="db-chart-title">Kampagne performance - Månedlig omsætning</div>
+                        <div class="db-chart-title">@(LanguageService.CurrentLanguage == "en" ? "Campaign Performance - Monthly Revenue" : "Kampagne performance - Månedlig omsætning")</div>
                         <div class="db-bars">
                             <div class="db-bar-wrap">
                                 <div class="db-bar" style="height:30%"></div>
@@ -152,7 +146,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="db-mini-label">Nye leads i dag</div>
+                                <div class="db-mini-label">@(LanguageService.CurrentLanguage == "en" ? "New Leads Today" : "Nye leads i dag")</div>
                                 <div class="db-mini-val">47</div>
                             </div>
                         </div>
@@ -169,11 +163,27 @@
                     </svg>
                 </div>
                 <div class="db-float-text">
-                    <strong>Kampagne aktiv</strong>
-                    ROI steg +28% denne uge
+                    <strong>@(LanguageService.CurrentLanguage == "en" ? "Campaign Active" : "Kampagne aktiv")</strong>
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>ROI increased +28% this week</text>
+                    } else {
+                        <text>ROI steg +28% denne uge</text>
+                    }
                 </div>
             </div>
         </div>
 
     </div>
 </section>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}

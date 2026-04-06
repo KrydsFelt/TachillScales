@@ -1,13 +1,35 @@
+@inject LanguageService LanguageService
+
 <section class="section-wrap">
     <div class="section-inner">
         <div class="cta-box">
-            <h2>Klar til at blive set?</h2>
-            <p>Tag det første skridt mod en stærkere digital tilstedeværelse. Vi tilbyder en uforpligtende strategisamtale — ingen salgspres, bare ærlighed.</p>
+            <h2>@if (LanguageService.CurrentLanguage == "en") {
+                <text>Ready to Be Seen?</text>
+            } else {
+                <text>Klar til at blive set?</text>
+            }</h2>
+            <p>@if (LanguageService.CurrentLanguage == "en") {
+                <text>Take the first step towards a stronger digital presence. We offer a no-obligation strategy session - no sales pressure, just honesty.</text>
+            } else {
+                <text>Tag det første skridt mod en stærkere digital tilstedeværelse. Vi tilbyder en uforpligtende strategisamtale - ingen salgspres, bare ærlighed.</text>
+            }</p>
             <div class="cta-actions">
                 <a href="/kontakt" class="btn-white">
-                    Book din gratis samtale
+                    @(LanguageService.CurrentLanguage == "en" ? "Book Your Free Session" : "Book din gratis samtale")
                 </a>
             </div>
         </div>
     </div>
 </section>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}

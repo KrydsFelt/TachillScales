@@ -1,5 +1,30 @@
 @inherits LayoutComponentBase
+@implements IAsyncDisposable
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@inject LanguageService LanguageService
 
 <div class="page">
     @Body
 </div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var savedLang = await JS.InvokeAsync<string>("localStorage.getItem", "language");
+            if (!string.IsNullOrEmpty(savedLang))
+            {
+                LanguageService.CurrentLanguage = savedLang;
+            }
+        }
+        catch { }
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}
