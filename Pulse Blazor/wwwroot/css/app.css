@@ -1880,6 +1880,10 @@ p, .body-text {
         padding: 90px 1.5rem 4rem;
     }
 
+    .dashboard-wrap {
+        display: none;
+    }
+
     .impact-grid {
         grid-template-columns: 1fr 1fr;
     }
