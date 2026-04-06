@@ -52,6 +52,46 @@
             <span></span><span></span><span></span>
         </button>
     </div>
+
+    <div class="nav-mobile-menu @(MenuOpen ? "open" : "")">
+        <ul class="nav-mobile-links">
+            <li><a href="/" @onclick="CloseMenu">Hjem</a></li>
+            <li>
+                <button class="nav-mobile-dropdown-toggle @(IsServiceDropdownOpen ? "open" : "")"
+                        @onclick="ToggleServiceDropdown">
+                    Service & Produkter
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <ul class="nav-mobile-submenu @(IsServiceDropdownOpen ? "open" : "")">
+                    <li><a href="/paid-ads" @onclick="CloseMenu">Marketing</a></li>
+                    <li>
+                        <a href="/hjemmesider" @onclick="CloseMenu" class="nav-menu-item-with-badge">
+                            <span>Hjemmesider</span>
+                            <span class="nav-menu-badge">@(LanguageService.CurrentLanguage == "en" ? "COMING SOON" : "KOMMER SNART")</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pulse-ai" @onclick="CloseMenu" class="nav-menu-item-with-badge">
+                            <span>Pulse AI</span>
+                            <span class="nav-menu-badge nav-menu-badge-new">@(LanguageService.CurrentLanguage == "en" ? "NEW" : "NYHED")</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="/kontakt" @onclick="CloseMenu">Kontakt</a></li>
+        </ul>
+        <div class="nav-mobile-footer">
+            <a href="/kontakt" class="btn-green nav-mobile-cta" @onclick="CloseMenu">
+                @(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book en samtale")
+            </a>
+            <div class="nav-language">
+                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick="SetLanguageDa" type="button">DA</button>
+                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick="SetLanguageEn" type="button">EN</button>
+            </div>
+        </div>
+    </div>
 </nav>
 
 @code {
