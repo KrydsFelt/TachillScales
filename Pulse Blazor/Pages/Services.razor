@@ -424,8 +424,22 @@
 
         .services-bottom-btn {
             position: static;
-            width: 100%;
+            width: auto;
             margin-top: 24px;
+            min-width: 140px;
+            height: 45px;
+            padding: 12px 24px;
+        }
+
+        .services-btn-text-original,
+        .services-btn-text-hover {
+            display: none !important;
+        }
+
+        .services-bottom-btn::before {
+            content: "kontakt her ↗";
+            position: static;
+            transform: none !important;
         }
     }
 </style>
