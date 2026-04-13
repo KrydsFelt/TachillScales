@@ -1,0 +1,431 @@
+@page "/services"
+@inject LanguageService LanguageService
+
+<PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Our Services - Tahcill Scales" : "Vores Services - Tahcill Scales")</PageTitle>
+
+<Navigation />
+
+<!-- Services Section -->
+<section class="services-section">
+    <div class="section-inner">
+        <div class="services-container">
+            <!-- Top: About/Services Section -->
+            <div class="services-header">
+                <span class="services-label">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>our services</text>
+                    } else {
+                        <text>vores services</text>
+                    }
+                </span>
+                <p class="services-mission">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>With our talented team, we have specialized in digital marketing, web design, and AI solutions. We ensure top-quality delivery and have cut out the unnecessary to optimize your price-to-quality ratio.</text>
+                    } else {
+                        <text>Med vores dygtige team har vi specialiseret os i digital markedsføring, webdesign og AI-løsninger. Vi sørger for høj kvalitet og har skåret det mest unødvendigt væk for at optimere din pris for kvaliteten.</text>
+                    }
+                </p>
+            </div>
+
+            <!-- Bottom: Dropdowns -->
+            <div class="services-right">
+                <!-- Service 1: Marketing -->
+                <div class="service-dropdown">
+                    <button class="dropdown-header" @onclick="@(() => ToggleDropdown(0))">
+                        <span class="dropdown-number">01</span>
+                        <span class="dropdown-title">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <text>Marketing</text>
+                            } else {
+                                <text>Marketing</text>
+                            }
+                        </span>
+                        <span class="dropdown-icon">@(activeDropdown == 0 ? "−" : "+")</span>
+                    </button>
+                    @if (activeDropdown == 0) {
+                        <div class="dropdown-content">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <p>Our strategic marketing services combine data-driven insights with creative campaigns to reach your ideal audience. We develop targeted strategies across digital channels—social media, content marketing, SEO, and paid advertising—to maximize your ROI and drive sustainable business growth. Every campaign is customized to your unique goals and measured rigorously for results.</p>
+                            } else {
+                                <p>Vores strategiske markedsføring kombinerer data-drevne indsigter med kreative kampagner for at nå dine ideelle kunder. Vi udvikler målrettede strategier på tværs af digitale kanaler—sociale medier, indholdsmarkedsføring, SEO og betalt annoncering—for at maksimere dit ROI og drive bæredygtig vækst. Hver kampagne tilpasses dine unikke mål og måles grundigt for resultater.</p>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <!-- Service 2: Pulse AI -->
+                <div class="service-dropdown">
+                    <button class="dropdown-header" @onclick="@(() => ToggleDropdown(1))">
+                        <span class="dropdown-number">02</span>
+                        <span class="dropdown-title">Pulse AI</span>
+                        <span class="dropdown-icon">@(activeDropdown == 1 ? "−" : "+")</span>
+                    </button>
+                    @if (activeDropdown == 1) {
+                        <div class="dropdown-content">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <p>Pulse AI is our intelligent customer service solution powered by advanced AI technology. It handles inquiries instantly, 24/7, providing immediate responses to customer questions. The system learns from interactions, improving accuracy over time and handling complex queries intelligently. This means faster resolution times, improved customer satisfaction, and significantly reduced operational costs while maintaining a human touch when needed.</p>
+                            } else {
+                                <p>Pulse AI er vores intelligente kundeserviceløsning drevet af avanceret AI-teknologi. Den håndterer forespørgsler øjeblikkeligt, 24/7, og giver øjeblikkelige svar på kundens spørgsmål. Systemet lærer fra interaktioner og forbedrer nøjagtigheden over tid while intelligently håndtering komplekse forespørgsler. Det betyder hurtigere løsningstider, forbedret kundetilfredshed og betydeligt reducerede driftsomkostninger mens menneskelig kontakt bibeholdes når det er nødvendigt.</p>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <!-- Service 3: Hjemmesider -->
+                <div class="service-dropdown">
+                    <button class="dropdown-header" @onclick="@(() => ToggleDropdown(2))">
+                        <span class="dropdown-number">03</span>
+                        <span class="dropdown-title">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <text>Websites</text>
+                            } else {
+                                <text>Hjemmesider</text>
+                            }
+                        </span>
+                        <span class="dropdown-icon">@(activeDropdown == 2 ? "−" : "+")</span>
+                    </button>
+                    @if (activeDropdown == 2) {
+                        <div class="dropdown-content">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <p>We design and build modern, responsive websites that work flawlessly across all devices. Our approach combines stunning visual design with intuitive user experience to create sites that not only look great but drive conversions. From fast-loading pages to SEO optimization, clear navigation to mobile responsiveness—every detail is crafted to engage visitors and turn them into loyal customers.</p>
+                            } else {
+                                <p>Vi designer og bygger moderne, responsive hjemmesider der fungerer problemfrit på alle enheder. Vores tilgang kombinerer flot visuelt design med intuitiv brugeroplevelse for at skabe hjemmesider der ikke kun ser fantastiske ud men driver konverteringer. Fra hurtig indlæsning til SEO-optimering, klar navigation til mobile responsivitet—hver detalje er designet til at engagere besøgende og gøre dem til loyale kunder.</p>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Bottom Section: Call to Action -->
+            <div class="services-bottom">
+                <div class="services-bottom-content">
+                    <h3 class="services-bottom-title">
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>Become partner</text>
+                        } else {
+                            <text>Become partner</text>
+                        }
+                    </h3>
+                    <p class="services-bottom-email">tahcillscales@gmail.com</p>
+                    <a href="/kontakt" class="services-bottom-btn">
+                        <span class="services-btn-text-original">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <text>contact here ↗<span class="services-btn-icon"></span></text>
+                            } else {
+                                <text>kontakt her ↗<span class="services-btn-icon"></span></text>
+                            }
+                        </span>
+                        <span class="services-btn-text-hover">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <text>Let Go!<span class="services-btn-icon">↗</span></text>
+                            } else {
+                                <text>Let Go!<span class="services-btn-icon">↗</span></text>
+                            }
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private int? activeDropdown = null;
+
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+
+    private void ToggleDropdown(int index)
+    {
+        if (activeDropdown == index)
+        {
+            activeDropdown = null;
+        }
+        else
+        {
+            activeDropdown = index;
+        }
+    }
+}
+
+<style>
+    .services-section {
+        padding: 100px 0;
+        background: #f5f5f5;
+        min-height: 100vh;
+    }
+
+    .services-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .services-header {
+        display: flex;
+        flex-direction: column;
+        padding: 60px;
+        background: white;
+        border-radius: 25px;
+    }
+
+    .services-label {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        color: #000000;
+        margin-bottom: 20px;
+    }
+
+    .services-title {
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+        color: #000;
+        margin: 0;
+        text-transform: lowercase;
+    }
+
+    .services-mission {
+        font-size: 16px;
+        color: #000000;
+        line-height: 1.75;
+        margin: 0;
+    }
+
+    .services-bottom {
+        width: 100%;
+        margin-top: 20px;
+        padding: 30px;
+        background: white;
+        border-radius: 25px;
+        min-height: 250px;
+        position: relative;
+        overflow: visible;
+        background-image: radial-gradient(circle 25px at 60px 20px, transparent 25px, white 25px);
+    }
+
+    .services-bottom-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .services-bottom-title {
+        font-size: 25px;
+        color: #000;
+        margin: 0;
+        font-weight: 100;
+    }
+
+    .services-bottom-email {
+        font-size: 16px;
+        color: #333;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    .services-bottom-btn {
+        padding: 14px 48px;
+        background: #0f1820;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: absolute;
+        overflow: hidden;
+        height: 50px;
+        bottom: 30px;
+        right: 30px;
+        min-width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .services-btn-text-original,
+    .services-btn-text-hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .services-btn-text-original {
+        transform: translateY(0);
+    }
+
+    .services-btn-text-hover {
+        transform: translateY(100%);
+    }
+
+    .services-bottom-btn:hover .services-btn-text-original {
+        transform: translateY(-100%);
+    }
+
+    .services-bottom-btn:hover .services-btn-text-hover {
+        transform: translateY(0);
+    }
+
+    .services-btn-icon {
+        display: inline-block;
+        margin-left: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .services-bottom-btn:hover .services-btn-icon {
+        transform: translate(3px, -3px);
+    }
+
+    .services-right {
+        background: white;
+        border-radius: 25px;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .service-dropdown {
+        border-bottom: 1px solid #eee;
+    }
+
+    .service-dropdown:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-header {
+        width: 100%;
+        padding: 24px 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: all 0.3s ease-in-out;
+        text-align: left;
+    }
+
+    .dropdown-header:hover {
+        background: rgba(0, 0, 0, 0.02);
+        padding-left: 8px;
+        padding-right: -8px;
+    }
+
+    .dropdown-number {
+        font-size: 18px;
+        font-weight: 600;
+        color: #0f1820;
+        min-width: 30px;
+    }
+
+    .dropdown-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+        flex: 1;
+    }
+
+    .dropdown-icon {
+        font-size: 24px;
+        font-weight: 300;
+        color: #666;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .dropdown-content {
+        padding: 0 0 24px 46px;
+        animation: slideDown 0.3s ease-in-out;
+    }
+
+    .dropdown-content p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.75;
+        margin: 0;
+    }
+
+    @@keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .services-section {
+            padding: 60px 0;
+        }
+
+        .services-header {
+            padding: 40px;
+        }
+
+        .services-title {
+            font-size: 32px;
+        }
+
+        .services-mission {
+            font-size: 15px;
+        }
+
+        .services-right {
+            padding: 40px;
+        }
+
+        .dropdown-header {
+            padding: 16px 0;
+        }
+
+        .dropdown-number {
+            font-size: 16px;
+        }
+
+        .dropdown-title {
+            font-size: 15px;
+        }
+
+        .services-bottom {
+            padding: 40px;
+            min-height: auto;
+        }
+
+        .services-bottom-title {
+            font-size: 22px;
+        }
+
+        .services-bottom-email {
+            font-size: 14px;
+        }
+
+        .services-bottom-btn {
+            position: static;
+            width: 100%;
+            margin-top: 24px;
+        }
+    }
+</style>

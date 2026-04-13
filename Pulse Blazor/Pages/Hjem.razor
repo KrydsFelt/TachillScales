@@ -1,61 +1,89 @@
 @page "/"
 @inject LanguageService LanguageService
+@inject NavigationManager Nav
 
 <PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Tahcill Scales - Digital Growth & AI" : "Tahcill Scales - Digital Vækst & AI")</PageTitle>
 
 <Navigation />
 
-<!-- Hero -->
-<section class="hjem-hero">
+<!-- About Section -->
+<section class="hjem-about">
     <div class="section-inner">
-        <div class="hjem-hero-content">
-            <h1 class="hjem-hero-title">
-                @if (LanguageService.CurrentLanguage == "en") {
-                    <text>Digital visibility drives<br/></text>
-                    <span class="hjem-title-italic">real growth</span>
-                } else {
-                    <text>Digital synlighed driver<br/></text>
-                    <span class="hjem-title-italic">rigtig vækst</span>
-                }
-            </h1>
-            <p class="hjem-hero-desc">
-                @if (LanguageService.CurrentLanguage == "en") {
-                    <text>Tahcill Scales combines strategic marketing, modern websites, and AI-driven customer service. We help your business grow through targeted visibility and intelligent automation.</text>
-                } else {
-                    <text>Tahcill Scales kombinerer strategisk markedsføring, moderne hjemmesider og AI-drevet kundeservice. Vi hjælper din virksomhed med at vokse gennem målrettet synlighed og intelligent automatisering.</text>
-                }
-            </p>
+        <div class="hjem-about-container">
+            <!-- Left Column -->
+            <div class="hjem-about-left">
+                <span class="hjem-about-label">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>about us</text>
+                    } else {
+                        <text>om os</text>
+                    }
+                </span>
+                <h2 class="hjem-about-title">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>welcome to tahcill scales</text>
+                    } else {
+                        <text>velkommen til tahcill scales</text>
+                    }
+                </h2>
+                <p class="hjem-about-mission">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>Our mission is to enrich peoples' lives through strategic digital solutions, turning ordinary businesses into extraordinary partners. We combine strategic marketing, modern websites, and AI-driven customer service to help your business grow through targeted visibility and intelligent automation.</text>
+                    } else {
+                        <text>Vores mission er at berige menneskers liv gennem strategiske digitale løsninger, transformere almindelige virksomheder til extraordinære partnere. Vi kombinerer strategisk markedsføring, moderne hjemmesider og AI-drevet kundeservice for at hjælpe din virksomhed med at vokse gennem målrettet synlighed og intelligent automatisering.</text>
+                    }
+                </p>
+            </div>
 
-            <div class="hjem-hero-stats">
-                <div class="hjem-stat-badge">
-                    <span class="hjem-stat-icon">⭐</span>
-                    <span class="hjem-stat-text">
+            <!-- Right Column -->
+            <div class="hjem-about-right-container">
+                <!-- Right Top - Quote -->
+                <div class="hjem-about-right">
+                    <blockquote class="hjem-about-quote">
                         @if (LanguageService.CurrentLanguage == "en") {
-                            <text><strong>+140</strong> companies trusted worldwide</text>
+                            <text>"We believe in the match. Not every company is for us, and we're not for every company. But when it fits, we know we can create something extraordinary together."</text>
                         } else {
-                            <text><strong>+140</strong> virksomheder samarbejdet verdenen over</text>
+                            <text>"Vi tror på matchet. Ikke enhver virksomhed er for os, og vi er ikke for enhver virksomhed. Men når det passer, ved vi, vi kan skabe noget extraordinært sammen."</text>
+                        }
+                    </blockquote>
+                </div>
+
+                <!-- Right Bottom - Button -->
+                <button class="hjem-about-right-bottom" @onclick="NavigateToServices">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>Explore our services ↗</text>
+                    } else {
+                        <text>Udforsk vores service ↗</text>
+                    }
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="hjem-about-bottom">
+            <div class="hjem-bottom-content">
+                <h3 class="hjem-bottom-title">
+                    @if (LanguageService.CurrentLanguage == "en") {
+                        <text>Join here!</text>
+                    } else {
+                        <text>Join her!</text>
+                    }
+                </h3>
+                <p class="hjem-bottom-email">tahcillscales@gmail.com</p>
+                <a href="/kontakt" class="hjem-bottom-btn">
+                    <span class="hjem-btn-text-original">
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>see more <span class="hjem-btn-icon">↗</span></text>
+                        } else {
+                            <text>se mere <span class="hjem-btn-icon">↗</span></text>
                         }
                     </span>
-                </div>
+                    <span class="hjem-btn-text-hover">Let Go</span>
+                </a>
             </div>
         </div>
     </div>
 </section>
-
-<!-- About/Philosophy Section -->
-<section class="hjem-philosophy">
-    <div class="section-inner">
-        <blockquote class="hjem-quote">
-            @if (LanguageService.CurrentLanguage == "en") {
-                <text>We believe in the match. Not every company is for us, and we're not for every company. But when it fits, we know we can create something extraordinary together.</text>
-            } else {
-                <text>Vi tror på matchet. Ikke enhver virksomhed er for os, og vi er ikke for enhver virksomhed. Men når det passer, ved vi, vi kan skabe noget extraordinært sammen.</text>
-            }
-        </blockquote>
-    </div>
-</section>
-
-<PulseFooter />
 
 @code {
     protected override void OnInitialized()
@@ -67,111 +95,292 @@
     {
         LanguageService.Unsubscribe(StateHasChanged);
     }
+
+    private void NavigateToServices()
+    {
+        Nav.NavigateTo("/services");
+    }
 }
 
 <style>
-    /* ========== HERO ========== */
-    .hjem-hero {
-        //position: relative;
-        min-height: 100vh;
+    /* ========== ABOUT SECTION ========== */
+    .hjem-about {
+        padding: 110px 0;
+        background: #f5f5f5;
+    }
+
+    .hjem-about-container {
+        display: grid;
+        grid-template-columns: calc(70% - 10px) calc(30% - 10px);
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .hjem-about-left {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-        padding: 100px 0 80px;
-        overflow: hidden;
+        flex-direction: column;
+        padding: 40px;
+        background: white;
+        border-radius: 25px;
     }
 
-    .hjem-hero-content {
-        position: relative;
-        z-index: 10;
-        text-align: center;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 20px;
+    .hjem-about-label {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        color: #666;
     }
 
-    .hjem-hero-title {
-        font-size: clamp(36px, 6vw, 56px);
+    .hjem-about-title {
+        font-size: 24px;
         font-weight: 400;
-        line-height: 1.15;
+        line-height: 1.2;
         letter-spacing: -0.5px;
         color: #000;
-        margin: 0 0 32px 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+        margin: 0;
+        text-transform: lowercase;
     }
 
-    .hjem-title-light { font-weight: 300; display: inline; font-style: normal; }
-    .hjem-title-italic { font-weight: 700; font-style: normal; display: inline; }
-
-    .hjem-hero-desc {
-        font-size: 16px;
-        color: #666;
+    .hjem-about-mission {
+        font-size: 14px;
+        color: #000000;
         line-height: 1.75;
-        margin: 0 auto 48px;
-        max-width: 700px;
-        font-weight: 400;
+        margin: 0;
+        margin-top: auto;
+        font-weight: 100;
     }
 
-    .hjem-hero-stats {
+    .hjem-about-right-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hjem-about-right {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 60px;
+        padding: 80px 60px;
+        background: #0f1820;
+        border-radius: 25px;
+        min-height: 350px;
     }
 
-    .hjem-stat-badge {
+    .hjem-about-right-bottom {
+        background: #1e3a8a;
+        border-radius: 25px;
+        padding: 60px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 100;
+        cursor: pointer;
+        transition: background 0.4s ease-in-out;
+    }
+
+    .hjem-about-right-bottom:hover {
+        background: #0f1f4a;
+    }
+
+    .hjem-about-quote {
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: left;
+        color: #ffffff;
+        margin: 0;
+        font-style: italic;
+        letter-spacing: -0.3px;
+        font-weight: 200;
+    }
+
+    .hjem-about-bottom {
+        width: 100%;
+        margin-top: 20px;
+        padding: 30px;
+        background: white;
+        border-radius: 25px;
+        min-height: 250px;
+        position: relative;
+        overflow: visible;
+        background-image: radial-gradient(circle 25px at 60px 20px, transparent 25px, white 25px);
+    }
+
+    .hjem-about-stat-badge {
+        position: absolute;
+        top: -18px;
+        left: 60px;
         display: flex;
         align-items: center;
         gap: 12px;
-        background: rgba(59, 130, 246, 0.08);
-        padding: 14px 28px;
-        border-radius: 50px;
+        background: white;
+        padding: 14px 24px;
+        border-radius: 25px;
+        box-shadow: 0 8px 24px rgba(22, 36, 54, 0.12);
         font-size: 14px;
         color: #333;
+        font-weight: 500;
+        z-index: 2;
     }
 
-    .hjem-stat-icon { font-size: 18px; }
-    .hjem-stat-text { font-weight: 500; }
-    .hjem-stat-text strong { font-weight: 700; color: #000; }
-
-    /* ========== PHILOSOPHY/QUOTE SECTION ========== */
-    .hjem-philosophy {
-        padding: 80px 0;
-        background: #ffffff;
-        margin-top: -200px;
+    .hjem-bottom-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
     }
 
-    .hjem-quote {
-        line-height: 1.6;
-        text-align: center;
-        color: #ffffff;
-        max-width: 100%;
-        margin: 0 auto;
-        font-style: italic;
-        letter-spacing: -0.3px;
-        background: #0a4d28;
-        padding: 60px 48px;
-        border-radius: 20px;
+    .hjem-bottom-title {
+        font-size: 25px;
+        color: #000;
+        margin: 0;
+        font-weight: 100;
+    }
+
+    .hjem-bottom-email {
+        font-size: 16px;
+        color: #333;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    .hjem-bottom-btn {
+        padding: 14px 48px;
+        background: #0f1820;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: absolute;
+        overflow: hidden;
+        height: 50px;
+        bottom: 30px;
+        right: 30px;
+        min-width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .hjem-bottom-btn:hover {
+        background: #333;
+        transform: translateY(-2px);
+    }
+
+    .hjem-btn-text-original,
+    .hjem-btn-text-hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+        font-weight: 100;
+    }
+
+    .hjem-btn-text-original {
+        transform: translateY(0);
+    }
+
+    .hjem-btn-text-hover {
+        transform: translateY(100%);
+    }
+
+    .hjem-bottom-btn:hover .hjem-btn-text-original {
+        transform: translateY(-100%);
+    }
+
+    .hjem-bottom-btn:hover .hjem-btn-text-hover {
+        transform: translateY(0);
+    }
+
+    .hjem-btn-icon {
+        display: inline-block;
+        margin-left: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hjem-bottom-btn:hover .hjem-btn-icon {
+        transform: translate(3px, -3px);
+    }
+
+    @@keyframes slideText {
+        0% { transform: translateY(100%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
     }
 
     /* ========== RESPONSIVE ========== */
     @@media (max-width: 768px) {
-        .hjem-hero {
-            min-height: 80vh;
-            padding: 80px 0 60px;
+        .hjem-about {
+            padding: 60px 0;
         }
 
-        .hjem-hero-title { font-size: 25px; }
-        .hjem-hero-desc { font-size: 15px; margin: 24px auto 40px; }
+        .hjem-about-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
 
-        .hjem-hero-stats {
+        .hjem-about-left {
+            padding-right: 0;
+        }
+
+        .hjem-about-title {
+            font-size: 32px;
+            margin: 24px 0 0 0;
+        }
+
+        .hjem-about-mission {
+            font-size: 15px;
+            margin-top: auto;
+        }
+
+        .hjem-about-right {
+            padding: 60px 40px;
+            min-height: 350px;
+            aspect-ratio: auto;
+        }
+
+        .hjem-about-right-bottom {
+            min-height: 120px;
+            padding: 40px;
+            font-size: 16px;
+        }
+
+        .hjem-about-quote {
+            font-size: 18px;
+        }
+
+        .hjem-about-bottom {
+            padding: 40px;
+            min-height: auto;
+        }
+
+        .hjem-bottom-title {
+            font-size: 22px;
+        }
+
+        .hjem-bottom-form {
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 40px;
         }
 
-        .hjem-stat-badge { justify-content: center; width: 100%; }
-        .hjem-hero-cta { padding: 14px 40px; font-size: 13px; }
+        .hjem-bottom-email {
+            width: 100%;
+        }
+
+        .hjem-bottom-btn {
+            width: 100%;
+        }
     }
 </style>

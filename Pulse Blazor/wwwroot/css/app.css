@@ -9,7 +9,7 @@
 
 :root {
     /* --- Light Mode --- */
-    --bg:          #ffffff;
+    --bg: #d1d1d1;
     --bg-subtle:   #fafafa;
     --bg-raised:   #f5f5f5;
     --ink:         #0a0a0a;
@@ -504,7 +504,7 @@ p, .body-text {
 
 /* Button variants */
 .btn-green {
-    display: inline-flex;
+    /*display: inline-flex:;*/
     align-items: center;
     gap: 0.5rem;
     background: #162436;
@@ -519,6 +519,7 @@ p, .body-text {
     transition: all 0.2s;
     white-space: nowrap;
     box-shadow: 0 2px 8px rgba(22,36,54,0.2);
+    min-width: 175px;
 }
 
 .btn-green:hover {
@@ -901,6 +902,7 @@ p, .body-text {
 .section-inner {
     max-width: var(--max-w);
     margin: 0 auto;
+    width: calc(100% - 40px);
 }
 
 .section-eyebrow {
@@ -1518,7 +1520,7 @@ p, .body-text {
 
 .footer-top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr 0.1fr;
     gap: 5rem;
     margin-bottom: 5rem;
 }
