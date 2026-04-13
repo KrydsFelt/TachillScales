@@ -322,65 +322,79 @@
     /* ========== RESPONSIVE ========== */
     @@media (max-width: 768px) {
         .hjem-about {
-            padding: 60px 0;
+            padding: 140px 0 60px;
         }
 
         .hjem-about-container {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 20px;
             align-items: stretch;
         }
 
         .hjem-about-left {
             padding-right: 0;
+            padding: 30px;
+            background: white;
+            border-radius: 25px;
         }
 
         .hjem-about-title {
-            font-size: 32px;
-            margin: 24px 0 0 0;
+            font-size: 28px;
+            margin: 12px 0 0 0;
         }
 
         .hjem-about-mission {
-            font-size: 15px;
+            font-size: 14px;
             margin-top: auto;
         }
 
         .hjem-about-right {
-            padding: 60px 40px;
-            min-height: 350px;
+            padding: 40px 30px;
+            min-height: 280px;
             aspect-ratio: auto;
         }
 
         .hjem-about-right-bottom {
-            min-height: 120px;
-            padding: 40px;
-            font-size: 16px;
+            min-height: 100px;
+            padding: 30px;
+            font-size: 15px;
         }
 
         .hjem-about-quote {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .hjem-about-bottom {
-            padding: 40px;
+            padding: 30px;
             min-height: auto;
+            background-image: none !important;
+            position: relative;
         }
 
         .hjem-bottom-title {
-            font-size: 22px;
-        }
-
-        .hjem-bottom-form {
-            flex-direction: column;
-            gap: 12px;
+            font-size: 20px;
         }
 
         .hjem-bottom-email {
-            width: 100%;
+            font-size: 14px;
         }
 
         .hjem-bottom-btn {
-            width: 100%;
+            position: static;
+            width: auto;
+            margin-top: 20px;
+            min-width: 140px;
+            height: 45px;
+            padding: 12px 24px;
+        }
+
+        .hjem-btn-text-original,
+        .hjem-btn-text-hover {
+            display: none !important;
+        }
+
+        .hjem-bottom-btn::before {
+            content: "kontakt her ↗";
         }
     }
 </style>
