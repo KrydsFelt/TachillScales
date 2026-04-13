@@ -62,11 +62,98 @@
                     </button>
                     @if (activeDropdown == 1) {
                         <div class="dropdown-content">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <p>Pulse AI is our intelligent customer service solution powered by advanced AI technology. It handles inquiries instantly, 24/7, providing immediate responses to customer questions. The system learns from interactions, improving accuracy over time and handling complex queries intelligently. This means faster resolution times, improved customer satisfaction, and significantly reduced operational costs while maintaining a human touch when needed.</p>
-                            } else {
-                                <p>Pulse AI er vores intelligente kundeserviceløsning drevet af avanceret AI-teknologi. Den håndterer forespørgsler øjeblikkeligt, 24/7, og giver øjeblikkelige svar på kundens spørgsmål. Systemet lærer fra interaktioner og forbedrer nøjagtigheden over tid while intelligently håndtering komplekse forespørgsler. Det betyder hurtigere løsningstider, forbedret kundetilfredshed og betydeligt reducerede driftsomkostninger mens menneskelig kontakt bibeholdes når det er nødvendigt.</p>
-                            }
+                            <div class="pulse-ai-content">
+                                <p class="pulse-intro">
+                                    @if (LanguageService.CurrentLanguage == "en") {
+                                        <text>Should we look at the numbers? Use our price calculator to see how many leads you're missing. Fill in below and find out. ↓</text>
+                                    } else {
+                                        <text>Skal vi se på prisen? Tag vores pris-beregner og se, hvor mange leads du er gået glip af. Udfyld forneden og find ud af det. ↓</text>
+                                    }
+                                </p>
+
+                                <div class="calculator-section">
+                                    <div class="calculator-row">
+                                        <div class="calculator-field">
+                                            <label>
+                                                @if (LanguageService.CurrentLanguage == "en") {
+                                                    <text>Missed leads per day</text>
+                                                } else {
+                                                    <text>Misset leads pr. dag</text>
+                                                }
+                                            </label>
+                                            <input type="number" @bind="_calculatorMissedLeads" min="0" placeholder="5" />
+                                        </div>
+                                        <div class="calculator-field">
+                                            <label>
+                                                @if (LanguageService.CurrentLanguage == "en") {
+                                                    <text>Conversion rate</text>
+                                                } else {
+                                                    <text>Konverteringshastighed</text>
+                                                }
+                                            </label>
+                                            <div class="conversion-static">20%</div>
+                                        </div>
+                                        <div class="calculator-field">
+                                            <label>
+                                                @if (LanguageService.CurrentLanguage == "en") {
+                                                    <text>Avg. price per lead (DKK)</text>
+                                                } else {
+                                                    <text>Gns. pris pr. lead (DKK)</text>
+                                                }
+                                            </label>
+                                            <input type="number" @bind="_calculatorAveragePrice" min="0" placeholder="500" />
+                                        </div>
+                                    </div>
+
+                                    @if (_calculatorMissedLeads > 0 && _calculatorAveragePrice > 0) {
+                                        <div class="calculator-results">
+                                            @{
+                                                double dailyLoss = _calculatorMissedLeads * 0.2 * _calculatorAveragePrice;
+                                                double monthlyLoss = dailyLoss * 30;
+                                                double yearlyLoss = dailyLoss * 365;
+                                            }
+                                            <div class="result-item">
+                                                <span class="result-label">
+                                                    @if (LanguageService.CurrentLanguage == "en") {
+                                                        <text>Daily loss:</text>
+                                                    } else {
+                                                        <text>Dagligt tab:</text>
+                                                    }
+                                                </span>
+                                                <span class="result-value">@dailyLoss.ToString("N0") DKK</span>
+                                            </div>
+                                            <div class="result-item">
+                                                <span class="result-label">
+                                                    @if (LanguageService.CurrentLanguage == "en") {
+                                                        <text>Monthly loss:</text>
+                                                    } else {
+                                                        <text>Månedligt tab:</text>
+                                                    }
+                                                </span>
+                                                <span class="result-value">@monthlyLoss.ToString("N0") DKK</span>
+                                            </div>
+                                            <div class="result-item">
+                                                <span class="result-label">
+                                                    @if (LanguageService.CurrentLanguage == "en") {
+                                                        <text>Yearly loss:</text>
+                                                    } else {
+                                                        <text>Årligt tab:</text>
+                                                    }
+                                                </span>
+                                                <span class="result-value">@yearlyLoss.ToString("N0") DKK</span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <p class="pulse-description">
+                                    @if (LanguageService.CurrentLanguage == "en") {
+                                        <text>Pulse AI is our intelligent customer service solution powered by advanced AI technology. It handles inquiries instantly, 24/7, providing immediate responses to customer questions. The system learns from interactions, improving accuracy over time and handling complex queries intelligently. This means faster resolution times, improved customer satisfaction, and significantly reduced operational costs while maintaining a human touch when needed.</text>
+                                    } else {
+                                        <text>Pulse AI er vores intelligente kundeserviceløsning drevet af avanceret AI-teknologi. Den håndterer forespørgsler øjeblikkeligt, 24/7, og giver øjeblikkelige svar på kundens spørgsmål. Systemet lærer fra interaktioner og forbedrer nøjagtigheden over tid og håndterer komplekse forespørgsler intelligent. Det betyder hurtigere løsningstider, forbedret kundetilfredshed og betydeligt reducerede driftsomkostninger mens menneskelig kontakt bibeholdes når det er nødvendigt.</text>
+                                    }
+                                </p>
+                            </div>
                         </div>
                     }
                 </div>
@@ -131,6 +218,8 @@
 
 @code {
     private int? activeDropdown = null;
+    private double _calculatorMissedLeads = 0;
+    private double _calculatorAveragePrice = 0;
 
     protected override void OnInitialized()
     {
@@ -440,6 +529,133 @@
             content: "kontakt her ↗";
             position: static;
             transform: none !important;
+        }
+    }
+
+    .pulse-ai-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .pulse-intro {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.75;
+        margin: 0;
+        font-weight: 500;
+    }
+
+    .calculator-section {
+        background: rgba(15, 24, 32, 0.02);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 24px;
+    }
+
+    .calculator-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .calculator-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .calculator-field label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .calculator-field input {
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        font-family: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .calculator-field input:focus {
+        outline: none;
+        border-color: #0f1820;
+        box-shadow: 0 0 0 2px rgba(15, 24, 32, 0.1);
+    }
+
+    .conversion-static {
+        padding: 10px 12px;
+        background: #f5f5f5;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #0f1820;
+        display: flex;
+        align-items: center;
+    }
+
+    .calculator-results {
+        border-top: 1px solid #e5e5e5;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        animation: slideDown 0.3s ease-in-out;
+    }
+
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+    }
+
+    .result-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .result-value {
+        font-size: 16px;
+        font-weight: 700;
+        color: #0f1820;
+    }
+
+    .pulse-description {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.75;
+        margin: 0;
+    }
+
+    @@media (max-width: 768px) {
+        .calculator-row {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .calculator-section {
+            padding: 16px;
+        }
+
+        .result-item {
+            padding: 10px 0;
+        }
+
+        .result-label {
+            font-size: 13px;
+        }
+
+        .result-value {
+            font-size: 14px;
         }
     }
 </style>
