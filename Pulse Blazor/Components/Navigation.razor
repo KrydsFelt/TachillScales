@@ -1,6 +1,6 @@
 @inject NavigationManager Nav
-@inject IJSRuntime JS
 @inject LanguageService LanguageService
+@implements IDisposable
 
 <nav class="nav">
     <div class="nav-inner">
@@ -10,19 +10,54 @@
         </a>
 
         <ul class="nav-links @(MenuOpen ? "open" : "")">
-            <li><a href="/" class="@LinkClass("/")" @onclick="CloseMenu">Hjem</a></li>
-            <li><a href="/services" class="@LinkClass("/services")" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Services" : "Services")</a></li>
-            <li><a href="@KontaktHref" class="@KontaktClass" @onclick="CloseMenu">Kontakt</a></li>
+            <li><a href="/" class="@LinkClass("/")" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Home" : "Hjem")</a></li>
+            <li class="nav-dropdown nav-services-dropdown">
+                <a href="/services" class="nav-dropdown-toggle @(LinkClass("/services"))" @onclick="CloseMenu">
+                    <span>@(LanguageService.CurrentLanguage == "en" ? "Services" : "Services")</span>
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <div class="nav-dropdown-menu nav-services-menu">
+                    <a href="/paid-ads" @onclick="CloseMenu">Meta Ads</a>
+                    <a href="/pulse-ai" @onclick="CloseMenu">Pulse AI</a>
+                    <a href="/hjemmesider" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Websites" : "Hjemmesider")</a>
+                </div>
+            </li>
+            <li><a href="@KontaktHref" class="@KontaktClass" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Contact" : "Kontakt")</a></li>
         </ul>
 
         <div class="nav-cta-group">
-            <a href="@KontaktHref" class="btn-green">
-                @(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book en samtale")
-            </a>
-            <div class="nav-language">
-                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick="SetLanguageDa" type="button">DA</button>
-                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick="SetLanguageEn" type="button">EN</button>
+            <div class="nav-language-dropdown">
+                <button class="nav-language-trigger @(LanguageMenuOpen ? "open" : "")"
+                        @onclick="ToggleLanguageMenu"
+                        type="button"
+                        aria-label="@(LanguageService.CurrentLanguage == "en" ? "Choose language" : "Vælg sprog")"
+                        aria-expanded="@LanguageMenuOpen">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M3.6 9H20.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M3.6 15H20.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M12 3C14.2 5.4 15.45 8.56 15.5 12C15.45 15.44 14.2 18.6 12 21C9.8 18.6 8.55 15.44 8.5 12C8.55 8.56 9.8 5.4 12 3Z" stroke="currentColor" stroke-width="1.7"/>
+                    </svg>
+                    <svg class="nav-language-caret" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="nav-language-menu @(LanguageMenuOpen ? "open" : "")">
+                    <button class="nav-language-option @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick='() => SetLanguage("da")' type="button">
+                        <span>Dansk</span>
+                        <span>DA</span>
+                    </button>
+                    <button class="nav-language-option @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick='() => SetLanguage("en")' type="button">
+                        <span>English</span>
+                        <span>EN</span>
+                    </button>
+                </div>
             </div>
+            <a href="@KontaktHref" class="nav-book-btn">
+                @(LanguageService.CurrentLanguage == "en" ? "BOOK NOW" : "BOOK NU")
+            </a>
         </div>
 
         <button class="nav-hamburger @(MenuOpen ? "open" : "")"
@@ -34,24 +69,48 @@
 
     <div class="nav-mobile-menu @(MenuOpen ? "open" : "")">
         <ul class="nav-mobile-links">
-            <li><a href="/" @onclick="CloseMenu">Hjem</a></li>
+            <li><a href="/" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Home" : "Hjem")</a></li>
             <li><a href="/services" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Services" : "Services")</a></li>
-            <li><a href="/kontakt" @onclick="CloseMenu">Kontakt</a></li>
+            <li><a href="/kontakt" @onclick="CloseMenu">@(LanguageService.CurrentLanguage == "en" ? "Contact" : "Kontakt")</a></li>
         </ul>
         <div class="nav-mobile-footer">
-            <a href="/kontakt" class="btn-green nav-mobile-cta" @onclick="CloseMenu">
-                @(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book en samtale")
-            </a>
-            <div class="nav-language">
-                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick="SetLanguageDa" type="button">DA</button>
-                <button class="nav-lang-toggle @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick="SetLanguageEn" type="button">EN</button>
+            <div class="nav-language-dropdown nav-language-dropdown-mobile">
+                <button class="nav-language-trigger @(LanguageMenuOpen ? "open" : "")"
+                        @onclick="ToggleLanguageMenu"
+                        type="button"
+                        aria-label="@(LanguageService.CurrentLanguage == "en" ? "Choose language" : "Vælg sprog")"
+                        aria-expanded="@LanguageMenuOpen">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M3.6 9H20.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M3.6 15H20.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="M12 3C14.2 5.4 15.45 8.56 15.5 12C15.45 15.44 14.2 18.6 12 21C9.8 18.6 8.55 15.44 8.5 12C8.55 8.56 9.8 5.4 12 3Z" stroke="currentColor" stroke-width="1.7"/>
+                    </svg>
+                    <svg class="nav-language-caret" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="nav-language-menu @(LanguageMenuOpen ? "open" : "")">
+                    <button class="nav-language-option @(LanguageService.CurrentLanguage == "da" ? "active" : "")" @onclick='() => SetLanguage("da")' type="button">
+                        <span>Dansk</span>
+                        <span>DA</span>
+                    </button>
+                    <button class="nav-language-option @(LanguageService.CurrentLanguage == "en" ? "active" : "")" @onclick='() => SetLanguage("en")' type="button">
+                        <span>English</span>
+                        <span>EN</span>
+                    </button>
+                </div>
             </div>
+            <a href="/kontakt" class="nav-book-btn nav-mobile-cta" @onclick="CloseMenu">
+                @(LanguageService.CurrentLanguage == "en" ? "BOOK NOW" : "BOOK NU")
+            </a>
         </div>
     </div>
 </nav>
 
 @code {
     private bool MenuOpen = false;
+    private bool LanguageMenuOpen = false;
 
     private string CurrentPath =>
         "/" + new Uri(Nav.Uri).AbsolutePath.Trim('/').ToLower();
@@ -76,22 +135,32 @@
     private void ToggleMenu()
     {
         MenuOpen = !MenuOpen;
+        if (MenuOpen)
+        {
+            LanguageMenuOpen = false;
+        }
     }
 
     private void CloseMenu()
     {
         MenuOpen = false;
+        LanguageMenuOpen = false;
     }
 
-    private async Task SetLanguageDa()
+    private void ToggleLanguageMenu()
     {
-        await LanguageService.SetLanguageAsync("da");
+        LanguageMenuOpen = !LanguageMenuOpen;
+    }
+
+    private async Task SetLanguage(string language)
+    {
+        await LanguageService.SetLanguageAsync(language);
+        LanguageMenuOpen = false;
         StateHasChanged();
     }
 
-    private async Task SetLanguageEn()
+    public void Dispose()
     {
-        await LanguageService.SetLanguageAsync("en");
-        StateHasChanged();
+        LanguageService.Unsubscribe(StateHasChanged);
     }
 }

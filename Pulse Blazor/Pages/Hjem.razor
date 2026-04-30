@@ -6,84 +6,91 @@
 
 <Navigation />
 
-<!-- About Section -->
-<section class="hjem-about">
-    <div class="section-inner">
-        <div class="hjem-about-container">
-            <!-- Left Column -->
-            <div class="hjem-about-left">
-                <span class="hjem-about-label">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>about us</text>
-                    } else {
-                        <text>om os</text>
-                    }
-                </span>
-                <h2 class="hjem-about-title">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>welcome to tahcill scales</text>
-                    } else {
-                        <text>velkommen til tahcill scales</text>
-                    }
-                </h2>
-                <p class="hjem-about-mission">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>Our mission is to enrich peoples' lives through strategic digital solutions, turning ordinary businesses into extraordinary partners. We combine strategic marketing, modern websites, and AI-driven customer service to help your business grow through targeted visibility and intelligent automation.</text>
-                    } else {
-                        <text>Vores mission er at berige menneskers liv gennem strategiske digitale løsninger, transformere almindelige virksomheder til extraordinære partnere. Vi kombinerer strategisk markedsføring, moderne hjemmesider og AI-drevet kundeservice for at hjælpe din virksomhed med at vokse gennem målrettet synlighed og intelligent automatisering.</text>
-                    }
-                </p>
-            </div>
-
-            <!-- Right Column -->
-            <div class="hjem-about-right-container">
-                <!-- Right Top - Quote -->
-                <div class="hjem-about-right">
-                    <blockquote class="hjem-about-quote">
+<div class="hjem-page">
+    <!-- About Section -->
+    <section class="hjem-about">
+        <div class="section-inner">
+            <div class="hjem-about-container">
+                <!-- Left Column -->
+                <div class="hjem-about-left">
+                    <span class="hjem-about-label">
                         @if (LanguageService.CurrentLanguage == "en") {
-                            <text>"We believe in the match. Not every company is for us, and we're not for every company. But when it fits, we know we can create something extraordinary together."</text>
+                            <text>about us</text>
                         } else {
-                            <text>"Vi tror på matchet. Ikke enhver virksomhed er for os, og vi er ikke for enhver virksomhed. Men når det passer, ved vi, vi kan skabe noget extraordinært sammen."</text>
-                        }
-                    </blockquote>
-                </div>
-
-                <!-- Right Bottom - Button -->
-                <button class="hjem-about-right-bottom" @onclick="NavigateToServices">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>Explore our services ↗</text>
-                    } else {
-                        <text>Udforsk vores service ↗</text>
-                    }
-                </button>
-            </div>
-        </div>
-
-        <!-- Bottom Section -->
-        <div class="hjem-about-bottom">
-            <div class="hjem-bottom-content">
-                <h3 class="hjem-bottom-title">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>Join here!</text>
-                    } else {
-                        <text>Join her!</text>
-                    }
-                </h3>
-                <p class="hjem-bottom-email">tahcillscales@gmail.com</p>
-                <a href="/kontakt" class="hjem-bottom-btn">
-                    <span class="hjem-btn-text-original">
-                        @if (LanguageService.CurrentLanguage == "en") {
-                            <text>see more <span class="hjem-btn-icon">↗</span></text>
-                        } else {
-                            <text>se mere <span class="hjem-btn-icon">↗</span></text>
+                            <text>om os</text>
                         }
                     </span>
-                    <span class="hjem-btn-text-hover">Let Go</span>
-                </a>
+                    <h2 class="hjem-about-title">
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>welcome to tahcill scales</text>
+                        } else {
+                            <text>velkommen til tahcill scales</text>
+                        }
+                    </h2>
+                    <p class="hjem-about-mission">
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>Our mission is to enrich peoples' lives through strategic digital solutions, turning ordinary businesses into extraordinary partners. We combine strategic marketing, modern websites, and AI-driven customer service to help your business grow through targeted visibility and intelligent automation.</text>
+                        } else {
+                            <text>Vores mission er at berige menneskers liv gennem strategiske digitale løsninger, transformere almindelige virksomheder til extraordinære partnere. Vi kombinerer strategisk markedsføring, moderne hjemmesider og AI-drevet kundeservice for at hjælpe din virksomhed med at vokse gennem målrettet synlighed og intelligent automatisering.</text>
+                        }
+                    </p>
+                </div>
+
+                <!-- Right Column -->
+                <div class="hjem-about-right-container">
+                    <!-- Right Top - Pulse AI Feature -->
+                    <button class="hjem-about-right hjem-about-service-card" @onclick="NavigateToServices">
+                        <span class="hjem-about-service-badge">@(LanguageService.CurrentLanguage == "en" ? "NEW" : "NYHED")</span>
+                        <div class="hjem-about-service-content">
+                            <span class="hjem-about-service-label">@(LanguageService.CurrentLanguage == "en" ? "Featured service" : "Udvalgt service")</span>
+                            <h3 class="hjem-about-service-title">Pulse AI</h3>
+                            <p class="hjem-about-service-copy">
+                                @if (LanguageService.CurrentLanguage == "en") {
+                                    <text>AI-powered customer service that answers your customers instantly, all day, every day.</text>
+                                } else {
+                                    <text>AI-drevet kundeservice der svarer dine kunder med det samme, hele dagen, hver dag.</text>
+                                }
+                            </p>
+                        </div>
+                    </button>
+
+                    <!-- Right Bottom - Button -->
+                    <button class="hjem-about-right-bottom" @onclick="NavigateToServices">
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>Explore services ↗</text>
+                        } else {
+                            <text>Udforsk services ↗</text>
+                        }
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="hjem-about-bottom">
+                <div class="hjem-bottom-content">
+                    <h3 class="hjem-bottom-title">
+                        @if (LanguageService.CurrentLanguage == "en") {
+                            <text>Join here!</text>
+                        } else {
+                            <text>Join her!</text>
+                        }
+                    </h3>
+                    <p class="hjem-bottom-email">tahcillscales@gmail.com</p>
+                    <a href="/kontakt" class="hjem-bottom-btn">
+                        <span class="hjem-btn-text-original">
+                            @if (LanguageService.CurrentLanguage == "en") {
+                                <text>see more <span class="hjem-btn-icon">↗</span></text>
+                            } else {
+                                <text>se mere <span class="hjem-btn-icon">↗</span></text>
+                            }
+                        </span>
+                        <span class="hjem-btn-text-hover">Let's Go!</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
 @code {
     protected override void OnInitialized()
@@ -104,6 +111,11 @@
 
 <style>
     /* ========== ABOUT SECTION ========== */
+    .hjem-page {
+        min-height: 100vh;
+        background: #f5f5f5;
+    }
+
     .hjem-about {
         padding: 110px 0;
         background: #f5f5f5;
@@ -159,26 +171,91 @@
     }
 
     .hjem-about-right {
+        position: relative;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 80px 60px;
-        background: #0f1820;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 32px;
+        background: linear-gradient(180deg, rgba(11, 23, 37, 0.15) 0%, rgba(11, 23, 37, 0.88) 100%), url('/pulse-ai-customer-service.png');
+        background-size: cover;
+        background-position: center;
         border-radius: 25px;
         min-height: 350px;
+        overflow: hidden;
+    }
+
+    .hjem-about-service-card {
+        width: 100%;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        box-shadow: 0 18px 40px rgba(15, 24, 32, 0.22);
+    }
+
+    .hjem-about-service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 26px 48px rgba(15, 24, 32, 0.28);
+    }
+
+    .hjem-about-service-badge {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.94);
+        color: #0f1820;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+    .hjem-about-service-content {
+        max-width: 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hjem-about-service-label {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.78);
+    }
+
+    .hjem-about-service-title {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .hjem-about-service-copy {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.92);
     }
 
     .hjem-about-right-bottom {
         background: #1e3a8a;
         border-radius: 25px;
-        padding: 60px;
-        min-height: 150px;
+        padding: 28px 32px;
+        min-height: 88px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: none;
         color: white;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 100;
         cursor: pointer;
         transition: background 0.4s ease-in-out;
@@ -186,17 +263,6 @@
 
     .hjem-about-right-bottom:hover {
         background: #0f1f4a;
-    }
-
-    .hjem-about-quote {
-        font-size: 13px;
-        line-height: 1.6;
-        text-align: left;
-        color: #ffffff;
-        margin: 0;
-        font-style: italic;
-        letter-spacing: -0.3px;
-        font-weight: 200;
     }
 
     .hjem-about-bottom {
@@ -349,19 +415,24 @@
         }
 
         .hjem-about-right {
-            padding: 40px 30px;
+            padding: 28px;
             min-height: 280px;
             aspect-ratio: auto;
         }
 
-        .hjem-about-right-bottom {
-            min-height: 100px;
-            padding: 30px;
-            font-size: 15px;
+        .hjem-about-service-badge {
+            top: 18px;
+            right: 18px;
         }
 
-        .hjem-about-quote {
-            font-size: 16px;
+        .hjem-about-service-title {
+            font-size: 26px;
+        }
+
+        .hjem-about-right-bottom {
+            min-height: 72px;
+            padding: 20px 24px;
+            font-size: 14px;
         }
 
         .hjem-about-bottom {

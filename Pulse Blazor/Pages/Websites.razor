@@ -1,0 +1,496 @@
+@page "/hjemmesider"
+@inject LanguageService LanguageService
+@implements IDisposable
+
+<PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Websites - Tahcill Scales" : "Hjemmesider - Tahcill Scales")</PageTitle>
+
+<Navigation />
+
+<section class="wds-hero">
+    <div class="section-inner wds-hero-inner">
+        <div class="wds-copy">
+            <span class="wds-pill">@(LanguageService.CurrentLanguage == "en" ? "Website design" : "Website design")</span>
+            <h2 class="wds-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Custom Squarespace web design built to feel sharper, calmer, and more complete.</text>
+                }
+                else
+                {
+                    <text>Custom Squarespace webdesign bygget til at føles skarpere, roligere og mere gennemført.</text>
+                }
+            </h2>
+            <p class="wds-body">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>We build custom Squarespace websites for brands that have outgrown the DIY phase and need a site that finally matches their ambition, quality, and direction.</text>
+                }
+                else
+                {
+                    <text>Vi bygger custom Squarespace websites til brands, der er vokset fra gør-det-selv-fasen og har brug for en side, der endelig matcher ambitionen, kvaliteten og retningen.</text>
+                }
+            </p>
+            <a href="/kontakt" class="wds-btn">@(LanguageService.CurrentLanguage == "en" ? "Schedule a call" : "Book et møde")</a>
+        </div>
+
+        <div class="wds-visual-wrap">
+            <div class="wds-visual"></div>
+            <div class="wds-float wds-float-left">
+                <div class="wds-float-mark">Aa</div>
+                <div>
+                    <div class="wds-float-title">Aa Design</div>
+                </div>
+            </div>
+            <div class="wds-float wds-float-top">
+                <div class="wds-float-title">Custom Websites</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="wds-offers">
+    <div class="section-inner">
+        <div class="wds-offers-head">
+            <span class="wds-pill wds-pill-dark">@(LanguageService.CurrentLanguage == "en" ? "What we offer" : "Det vi tilbyder")</span>
+            <h2 class="wds-offers-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Designed for growth, not just launch.</text>
+                }
+                else
+                {
+                    <text>Designet til vækst, ikke bare lancering.</text>
+                }
+            </h2>
+            <p class="wds-offers-body">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Your website is your first impression and your infrastructure. We build websites that feel premium, scale with the business, and support both clarity and conversion.</text>
+                }
+                else
+                {
+                    <text>Jeres website er både førstehåndsindtryk og infrastruktur. Vi bygger websites der føles premium, skalerer med forretningen og understøtter både klarhed og konvertering.</text>
+                }
+            </p>
+        </div>
+
+        <div class="wds-card-grid">
+            <article class="wds-card">
+                <div class="wds-card-icon">◔</div>
+                <h3 class="wds-card-title">@(LanguageService.CurrentLanguage == "en" ? "Squarespace, Mastered" : "Squarespace, mestret")</h3>
+                <p class="wds-card-text">@(LanguageService.CurrentLanguage == "en" ? "We know how to push Squarespace in the right places and when custom code should support the experience." : "Vi ved hvordan Squarespace skal presses de rigtige steder, og hvornår custom code skal understøtte oplevelsen.")</p>
+            </article>
+            <article class="wds-card">
+                <div class="wds-card-icon">⇄</div>
+                <h3 class="wds-card-title">@(LanguageService.CurrentLanguage == "en" ? "Strategic Design" : "Strategisk design")</h3>
+                <p class="wds-card-text">@(LanguageService.CurrentLanguage == "en" ? "Every layout choice is informed by your goals, your audience, and the kind of trust the site needs to create." : "Hvert layoutvalg formes af jeres mål, jeres målgruppe og den tillid siden skal skabe.")</p>
+            </article>
+            <article class="wds-card">
+                <div class="wds-card-icon">▣</div>
+                <h3 class="wds-card-title">@(LanguageService.CurrentLanguage == "en" ? "Built To Convert" : "Bygget til at konvertere")</h3>
+                <p class="wds-card-text">@(LanguageService.CurrentLanguage == "en" ? "Strong visuals matter, but structure is what helps the visitor understand what to do next." : "Stærke visuals betyder noget, men det er strukturen der hjælper den besøgende med at forstå næste skridt.")</p>
+            </article>
+            <article class="wds-card">
+                <div class="wds-card-icon">⚙</div>
+                <h3 class="wds-card-title">@(LanguageService.CurrentLanguage == "en" ? "Seamless Functionality" : "Problemfri funktionalitet")</h3>
+                <p class="wds-card-text">@(LanguageService.CurrentLanguage == "en" ? "From booking and contact flow to small systems and integrations, the site should work as hard as you do." : "Fra booking og kontaktflow til små systemer og integrationer skal siden arbejde lige så hårdt som jer.")</p>
+            </article>
+            <article class="wds-card">
+                <div class="wds-card-icon">⌁</div>
+                <h3 class="wds-card-title">@(LanguageService.CurrentLanguage == "en" ? "Collaborative Process" : "Samarbejdende proces")</h3>
+                <p class="wds-card-text">@(LanguageService.CurrentLanguage == "en" ? "We work closely with you through the process, so the final result feels aligned instead of handed off." : "Vi arbejder tæt med jer gennem processen, så resultatet føles aligned i stedet for bare afleveret.")</p>
+            </article>
+            <article class="wds-card">
+                <div class="wds-card-icon">◌</div>
+                <h3 class="wds-card-title">@(LanguageService.CurrentLanguage == "en" ? "You Own The Site" : "I ejer siden")</h3>
+                <p class="wds-card-text">@(LanguageService.CurrentLanguage == "en" ? "You leave with a website you can confidently use, manage, and grow without confusion." : "I står tilbage med et website, I trygt kan bruge, styre og videreudvikle uden forvirring.")</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="wds-partner">
+    <div class="section-inner">
+        <div class="wds-partner-box">
+            <div class="wds-partner-content">
+                <h3 class="wds-partner-title">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>Become partner</text>
+                    }
+                    else
+                    {
+                        <text>Become partner</text>
+                    }
+                </h3>
+                <p class="wds-partner-email">tahcillscales@gmail.com</p>
+                <a href="/kontakt" class="wds-partner-btn">
+                    <span class="wds-partner-text-original">
+                        @if (LanguageService.CurrentLanguage == "en")
+                        {
+                            <text>contact here <span class="wds-partner-icon">↗</span></text>
+                        }
+                        else
+                        {
+                            <text>kontakt her <span class="wds-partner-icon">↗</span></text>
+                        }
+                    </span>
+                    <span class="wds-partner-text-hover">Let's Go!</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<PulseFooter />
+
+<style>
+    .wds-hero {
+        padding: 148px 0 88px;
+        background:
+            radial-gradient(circle at top center, rgba(103,232,249,0.08) 0%, transparent 22%),
+            linear-gradient(180deg, #2a2425 0%, #415264 100%);
+    }
+
+    .wds-hero-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(430px, 0.95fr);
+        gap: 42px;
+        align-items: start;
+    }
+
+    .wds-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 13px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.16);
+        color: #f2f5f7;
+        font-size: 0.76rem;
+        letter-spacing: 0.02em;
+    }
+
+    .wds-title {
+        margin: 22px 0 28px;
+        max-width: none;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        line-height: 1.03;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #edf2f6;
+    }
+
+    .wds-body {
+        max-width: 62ch;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: rgba(237,242,246,0.9);
+    }
+
+    .wds-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 146px;
+        min-height: 48px;
+        margin-top: 25px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: rgba(103,135,170,0.56);
+        border: 1px solid rgba(255,255,255,0.16);
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.92rem;
+    }
+
+    .wds-visual-wrap {
+        position: relative;
+        min-height: 380px;
+    }
+
+    .wds-visual {
+        width: 100%;
+        height: 312px;
+        border-radius: 18px;
+        background:
+            linear-gradient(180deg, rgba(15,24,32,0.08) 0%, rgba(15,24,32,0.22) 100%),
+            url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400&q=80');
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 20px 50px rgba(14,20,28,0.22);
+    }
+
+    .wds-float {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(15,24,32,0.3);
+        backdrop-filter: blur(8px);
+        color: #edf2f6;
+        border-radius: 14px;
+    }
+
+    .wds-float-left {
+        left: -56px;
+        bottom: 118px;
+    }
+
+    .wds-float-top {
+        top: -18px;
+        right: 70px;
+        padding: 8px 12px;
+    }
+
+    .wds-float-mark {
+        font-size: 2.2rem;
+        line-height: 1;
+        font-weight: 400;
+    }
+
+    .wds-float-title {
+        font-size: 0.82rem;
+        color: #edf2f6;
+    }
+
+    .wds-offers {
+        padding: 92px 0;
+        background: #181a1d;
+    }
+
+    .wds-pill-dark {
+        background: rgba(255,255,255,0.07);
+    }
+
+    .wds-offers-head {
+        margin-bottom: 36px;
+    }
+
+    .wds-offers-title {
+        margin: 20px 0 18px;
+        max-width: none;
+        font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #edf2f6;
+    }
+
+    .wds-offers-body {
+        max-width: 78ch;
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.8;
+        color: rgba(237,242,246,0.74);
+    }
+
+    .wds-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .wds-card {
+        min-height: 278px;
+        padding: 34px 34px 30px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.02) 100%);
+    }
+
+    .wds-card-icon {
+        font-size: 2.3rem;
+        line-height: 1;
+        color: #eef2f6;
+        margin-bottom: 74px;
+    }
+
+    .wds-card-title {
+        margin: 0 0 16px;
+        max-width: 12ch;
+        font-size: 1.25rem;
+        line-height: 1.14;
+        letter-spacing: -0.03em;
+        font-weight: 400;
+        color: #dfe5ea;
+    }
+
+    .wds-card-text {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.8;
+        color: rgba(223,229,234,0.82);
+    }
+
+    .wds-partner {
+        padding: 22px 0 90px;
+        background: #181a1d;
+    }
+
+    .wds-partner-box {
+        width: 100%;
+        padding: 30px;
+        background: white;
+        border-radius: 25px;
+        min-height: 250px;
+        position: relative;
+        overflow: visible;
+        background-image: radial-gradient(circle 25px at 60px 20px, transparent 25px, white 25px);
+    }
+
+    .wds-partner-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .wds-partner-title {
+        margin: 0;
+        font-size: 25px;
+        color: #000;
+        font-weight: 100;
+    }
+
+    .wds-partner-email {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+        font-weight: 400;
+    }
+
+    .wds-partner-btn {
+        padding: 14px 48px;
+        background: #0f1820;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: absolute;
+        overflow: hidden;
+        height: 50px;
+        bottom: 30px;
+        right: 30px;
+        min-width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .wds-partner-text-original,
+    .wds-partner-text-hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .wds-partner-text-original {
+        transform: translateY(0);
+    }
+
+    .wds-partner-text-hover {
+        transform: translateY(100%);
+    }
+
+    .wds-partner-btn:hover .wds-partner-text-original {
+        transform: translateY(-100%);
+    }
+
+    .wds-partner-btn:hover .wds-partner-text-hover {
+        transform: translateY(0);
+    }
+
+    .wds-partner-icon {
+        display: inline-block;
+        margin-left: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .wds-partner-btn:hover .wds-partner-icon {
+        transform: translate(3px, -3px);
+    }
+
+    @@media (max-width: 1024px) {
+        .wds-hero-inner,
+        .wds-card-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .wds-float-left {
+            left: 18px;
+            bottom: 112px;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .wds-hero {
+            padding: 124px 0 64px;
+        }
+
+        .wds-title,
+        .wds-offers-title {
+            font-size: 2.2rem;
+        }
+
+        .wds-visual-wrap {
+            min-height: 250px;
+        }
+
+        .wds-visual {
+            height: 250px;
+        }
+
+        .wds-float {
+            position: static;
+            margin-top: 14px;
+        }
+
+        .wds-card {
+            min-height: auto;
+            padding: 26px 24px;
+        }
+
+        .wds-card-icon {
+            margin-bottom: 38px;
+        }
+
+        .wds-partner-box {
+            padding: 30px;
+            min-height: auto;
+            background-image: none !important;
+        }
+
+        .wds-partner-btn {
+            position: static;
+            width: auto;
+            margin-top: 20px;
+            min-width: 140px;
+            height: 45px;
+            padding: 12px 24px;
+        }
+    }
+</style>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}

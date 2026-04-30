@@ -1,227 +1,290 @@
 @page "/services"
 @inject LanguageService LanguageService
+@implements IDisposable
 
 <PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Our Services - Tahcill Scales" : "Vores Services - Tahcill Scales")</PageTitle>
 
 <Navigation />
 
-<!-- Services Section -->
-<section class="services-section">
+<section class="services-page">
     <div class="section-inner">
-        <div class="services-container">
-            <!-- Top: About/Services Section -->
-            <div class="services-header">
-                <span class="services-label">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>our services</text>
-                    } else {
-                        <text>vores services</text>
+        <div class="services-page-head">
+            <div class="services-page-copy">
+                <span class="services-page-label">services</span>
+                <h2 class="services-page-title">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>What we typically help with when a website or digital setup needs to be lifted.</text>
                     }
-                </span>
-                <p class="services-mission">
-                    @if (LanguageService.CurrentLanguage == "en") {
-                        <text>With our talented team, we have specialized in digital marketing, web design, and AI solutions. We ensure top-quality delivery and have cut out the unnecessary to optimize your price-to-quality ratio.</text>
-                    } else {
-                        <text>Med vores dygtige team har vi specialiseret os i digital markedsføring, webdesign og AI-løsninger. Vi sørger for høj kvalitet og har skåret det mest unødvendigt væk for at optimere din pris for kvaliteten.</text>
+                    else
+                    {
+                        <text>Det vi typisk hjælper med, når et website eller digitalt setup skal løftes.</text>
+                    }
+                </h2>
+                <p class="services-page-sub">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>We keep it simple and focus on the parts that create the biggest difference for the next version of the business.</text>
+                    }
+                    else
+                    {
+                        <text>Vi holder det enkelt og fokuserer på det, der gør størst forskel for næste version af virksomheden.</text>
                     }
                 </p>
             </div>
 
-            <!-- Bottom: Dropdowns -->
-            <div class="services-right">
-                <!-- Service 1: Marketing -->
-                <div class="service-dropdown">
-                    <button class="dropdown-header" @onclick="@(() => ToggleDropdown(0))">
-                        <span class="dropdown-number">01</span>
-                        <span class="dropdown-title">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <text>Marketing</text>
-                            } else {
-                                <text>Marketing</text>
-                            }
-                        </span>
-                        <span class="dropdown-icon">@(activeDropdown == 0 ? "−" : "+")</span>
-                    </button>
-                    @if (activeDropdown == 0) {
-                        <div class="dropdown-content">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <p>Our strategic marketing services combine data-driven insights with creative campaigns to reach your ideal audience. We develop targeted strategies across digital channels—social media, content marketing, SEO, and paid advertising—to maximize your ROI and drive sustainable business growth. Every campaign is customized to your unique goals and measured rigorously for results.</p>
-                            } else {
-                                <p>Vores strategiske markedsføring kombinerer data-drevne indsigter med kreative kampagner for at nå dine ideelle kunder. Vi udvikler målrettede strategier på tværs af digitale kanaler—sociale medier, indholdsmarkedsføring, SEO og betalt annoncering—for at maksimere dit ROI og drive bæredygtig vækst. Hver kampagne tilpasses dine unikke mål og måles grundigt for resultater.</p>
-                            }
-                        </div>
+        </div>
+
+        <div class="services-page-grid">
+            <a href="/paid-ads" class="services-page-card">
+                <div class="services-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 19H20" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M7 16V10" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M12 16V6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M17 16V12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M6 8L10 5L14 8L18 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="services-card-title">Meta Ads</h2>
+                <p class="services-card-body">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>We create campaigns, angles, and follow-up flows that turn traffic into better leads and more qualified conversations.</text>
                     }
-                </div>
-
-                <!-- Service 2: Pulse AI -->
-                <div class="service-dropdown">
-                    <button class="dropdown-header" @onclick="@(() => ToggleDropdown(1))">
-                        <span class="dropdown-number">02</span>
-                        <span class="dropdown-title">Pulse AI</span>
-                        <span class="dropdown-icon">@(activeDropdown == 1 ? "−" : "+")</span>
-                    </button>
-                    @if (activeDropdown == 1) {
-                        <div class="dropdown-content">
-                            <div class="pulse-ai-content">
-                                <p class="pulse-intro">
-                                    @if (LanguageService.CurrentLanguage == "en") {
-                                        <text>Should we look at the numbers? Use our price calculator to see how many leads you're missing. Fill in below and find out. ↓</text>
-                                    } else {
-                                        <text>Skal vi se på prisen? Tag vores pris-beregner og se, hvor mange leads du er gået glip af. Udfyld forneden og find ud af det. ↓</text>
-                                    }
-                                </p>
-
-                                <div class="calculator-section">
-                                    <div class="calculator-row">
-                                        <div class="calculator-field">
-                                            <label>
-                                                @if (LanguageService.CurrentLanguage == "en") {
-                                                    <text>Missed leads per day</text>
-                                                } else {
-                                                    <text>Misset leads pr. dag</text>
-                                                }
-                                            </label>
-                                            <input type="number" @bind="_calculatorMissedLeads" min="0" placeholder="5" />
-                                        </div>
-                                        <div class="calculator-field">
-                                            <label>
-                                                @if (LanguageService.CurrentLanguage == "en") {
-                                                    <text>Conversion rate (%)</text>
-                                                } else {
-                                                    <text>Konverteringshastighed (%)</text>
-                                                }
-                                            </label>
-                                            <input type="number" @bind="_calculatorConversionRate" min="0" max="100" placeholder="20" />
-                                        </div>
-                                        <div class="calculator-field">
-                                            <label>
-                                                @if (LanguageService.CurrentLanguage == "en") {
-                                                    <text>Avg. price per lead (DKK)</text>
-                                                } else {
-                                                    <text>Gns. pris pr. lead (DKK)</text>
-                                                }
-                                            </label>
-                                            <input type="number" @bind="_calculatorAveragePrice" min="0" placeholder="500" />
-                                        </div>
-                                    </div>
-
-                                    @if (_calculatorMissedLeads > 0 && _calculatorAveragePrice > 0 && _calculatorConversionRate > 0) {
-                                        <div class="calculator-results">
-                                            @{
-                                                double dailyLoss = _calculatorMissedLeads * (_calculatorConversionRate / 100) * _calculatorAveragePrice;
-                                                double monthlyLoss = dailyLoss * 30;
-                                                double yearlyLoss = dailyLoss * 365;
-                                            }
-                                            <div class="result-item">
-                                                <span class="result-label">
-                                                    @if (LanguageService.CurrentLanguage == "en") {
-                                                        <text>Daily loss:</text>
-                                                    } else {
-                                                        <text>Dagligt tab:</text>
-                                                    }
-                                                </span>
-                                                <span class="result-value">@dailyLoss.ToString("N0") DKK</span>
-                                            </div>
-                                            <div class="result-item">
-                                                <span class="result-label">
-                                                    @if (LanguageService.CurrentLanguage == "en") {
-                                                        <text>Monthly loss:</text>
-                                                    } else {
-                                                        <text>Månedligt tab:</text>
-                                                    }
-                                                </span>
-                                                <span class="result-value">@monthlyLoss.ToString("N0") DKK</span>
-                                            </div>
-                                            <div class="result-item">
-                                                <span class="result-label">
-                                                    @if (LanguageService.CurrentLanguage == "en") {
-                                                        <text>Yearly loss:</text>
-                                                    } else {
-                                                        <text>Årligt tab:</text>
-                                                    }
-                                                </span>
-                                                <span class="result-value">@yearlyLoss.ToString("N0") DKK</span>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
-
-                                <p class="pulse-description">
-                                    @if (LanguageService.CurrentLanguage == "en") {
-                                        <text>Pulse AI is our intelligent customer service solution powered by advanced AI technology. It handles inquiries instantly, 24/7, providing immediate responses to customer questions. The system learns from interactions, improving accuracy over time and handling complex queries intelligently. This means faster resolution times, improved customer satisfaction, and significantly reduced operational costs while maintaining a human touch when needed.</text>
-                                    } else {
-                                        <text>Pulse AI er vores intelligente kundeserviceløsning drevet af avanceret AI-teknologi. Den håndterer forespørgsler øjeblikkeligt, 24/7, og giver øjeblikkelige svar på kundens spørgsmål. Systemet lærer fra interaktioner og forbedrer nøjagtigheden over tid og håndterer komplekse forespørgsler intelligent. Det betyder hurtigere løsningstider, forbedret kundetilfredshed og betydeligt reducerede driftsomkostninger mens menneskelig kontakt bibeholdes når det er nødvendigt.</text>
-                                    }
-                                </p>
-                            </div>
-                        </div>
+                    else
+                    {
+                        <text>Vi bygger kampagner, vinkler og opfølgning, der gør trafik til bedre leads og mere kvalificerede samtaler.</text>
                     }
-                </div>
+                </p>
+            </a>
 
-                <!-- Service 3: Hjemmesider -->
-                <div class="service-dropdown">
-                    <button class="dropdown-header" @onclick="@(() => ToggleDropdown(2))">
-                        <span class="dropdown-number">03</span>
-                        <span class="dropdown-title">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <text>Websites</text>
-                            } else {
-                                <text>Hjemmesider</text>
-                            }
-                        </span>
-                        <span class="dropdown-icon">@(activeDropdown == 2 ? "−" : "+")</span>
-                    </button>
-                    @if (activeDropdown == 2) {
-                        <div class="dropdown-content">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <p>We design and build modern, responsive websites that work flawlessly across all devices. Our approach combines stunning visual design with intuitive user experience to create sites that not only look great but drive conversions. From fast-loading pages to SEO optimization, clear navigation to mobile responsiveness—every detail is crafted to engage visitors and turn them into loyal customers.</p>
-                            } else {
-                                <p>Vi designer og bygger moderne, responsive hjemmesider der fungerer problemfrit på alle enheder. Vores tilgang kombinerer flot visuelt design med intuitiv brugeroplevelse for at skabe hjemmesider der ikke kun ser fantastiske ud men driver konverteringer. Fra hurtig indlæsning til SEO-optimering, klar navigation til mobile responsivitet—hver detalje er designet til at engagere besøgende og gøre dem til loyale kunder.</p>
-                            }
-                        </div>
+            <a href="/hjemmesider" class="services-page-card">
+                <div class="services-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="4" y="5" width="16" height="14" rx="2.5" stroke="currentColor" stroke-width="1.9"/>
+                        <path d="M4 9H20" stroke="currentColor" stroke-width="1.9"/>
+                        <path d="M8 13H11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M8 16H15" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h2 class="services-card-title">
+                    @(LanguageService.CurrentLanguage == "en" ? "Websites" : "Hjemmesider")
+                </h2>
+                <p class="services-card-body">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>We design and build websites that sharpen first impressions, create trust fast, and make the next step easier for the customer.</text>
                     }
-                </div>
-            </div>
+                    else
+                    {
+                        <text>Vi designer og bygger hjemmesider, der skærper førstehåndsindtrykket, skaber tillid hurtigt og gør næste skridt lettere for kunden.</text>
+                    }
+                </p>
+            </a>
 
-            <!-- Bottom Section: Call to Action -->
-            <div class="services-bottom">
-                <div class="services-bottom-content">
-                    <h3 class="services-bottom-title">
-                        @if (LanguageService.CurrentLanguage == "en") {
-                            <text>Become partner</text>
-                        } else {
-                            <text>Become partner</text>
-                        }
-                    </h3>
-                    <p class="services-bottom-email">tahcillscales@gmail.com</p>
-                    <a href="/kontakt" class="services-bottom-btn">
-                        <span class="services-btn-text-original">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <text>contact here ↗<span class="services-btn-icon"></span></text>
-                            } else {
-                                <text>kontakt her ↗<span class="services-btn-icon"></span></text>
-                            }
-                        </span>
-                        <span class="services-btn-text-hover">
-                            @if (LanguageService.CurrentLanguage == "en") {
-                                <text>Let's Go!<span class="services-btn-icon">↗</span></text>
-                            } else {
-                                <text>Let's Go!<span class="services-btn-icon">↗</span></text>
-                            }
-                        </span>
-                    </a>
+            <a href="/pulse-ai" class="services-page-card">
+                <span class="services-card-badge">@(LanguageService.CurrentLanguage == "en" ? "NEW" : "NYHED")</span>
+                <div class="services-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 8H17" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M7 12H17" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <path d="M7 16H13" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                        <rect x="5" y="4" width="14" height="16" rx="2.5" stroke="currentColor" stroke-width="1.9"/>
+                    </svg>
                 </div>
-            </div>
+                <h2 class="services-card-title">Pulse AI</h2>
+                <p class="services-card-body">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>We build AI customer service that answers instantly, reduces repetitive work, and gives your team more room to focus on the cases that matter.</text>
+                    }
+                    else
+                    {
+                        <text>Vi bygger AI-kundeservice, der svarer med det samme, reducerer gentaget arbejde og giver dit team mere plads til de sager, der betyder noget.</text>
+                    }
+                </p>
+            </a>
         </div>
     </div>
 </section>
 
-@code {
-    private int? activeDropdown = null;
-    private double _calculatorMissedLeads = 0;
-    private double _calculatorAveragePrice = 0;
-    private double _calculatorConversionRate = 0;
+<PulseFooter />
 
+<style>
+    .services-page {
+        padding: 150px 0 90px;
+        background:
+            radial-gradient(circle at top right, rgba(255,255,255,0.08) 0%, transparent 24%),
+            linear-gradient(180deg, #0d141c 0%, #121821 100%);
+    }
+
+    .services-page-head {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 38px;
+    }
+
+    .services-page-copy {
+        max-width: 1080px;
+    }
+
+    .services-page-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: #617286;
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .services-page-title {
+        margin: 18px 0 16px;
+        max-width: 24ch;
+        font-size: clamp(1.9rem, 3.7vw, 3.2rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+        color: #f3f5f7;
+        font-weight: 400;
+    }
+
+    .services-page-sub {
+        max-width: 90ch;
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.85;
+        color: rgba(255,255,255,0.68);
+    }
+
+    .services-page-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .services-page-card {
+        min-height: 420px;
+        padding: 34px 32px;
+        border-radius: 28px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background:
+            radial-gradient(circle at top right, rgba(255,255,255,0.08) 0%, transparent 30%),
+            linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        color: #f3f5f7;
+        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .services-page-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255,255,255,0.22);
+        background:
+            radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 30%),
+            linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
+    }
+
+    .services-card-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 28px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: #162436;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        position: absolute;
+        top: 26px;
+        right: 26px;
+    }
+
+    .services-card-icon {
+        width: 28px;
+        height: 28px;
+        color: #ffffff;
+        margin-bottom: 34px;
+    }
+
+    .services-card-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .services-card-title {
+        margin: 0 0 16px;
+        max-width: 11ch;
+        font-size: clamp(1.45rem, 2.1vw, 2rem);
+        line-height: 1.02;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #f3f5f7;
+    }
+
+    .services-card-body {
+        margin: 0;
+        max-width: 24ch;
+        font-size: 0.98rem;
+        line-height: 1.8;
+        color: rgba(255,255,255,0.72);
+    }
+
+    @@media (max-width: 1024px) {
+        .services-page-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .services-page-card {
+            min-height: 320px;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .services-page {
+            padding: 124px 0 64px;
+        }
+
+        .services-page-head {
+            flex-direction: column;
+            margin-bottom: 28px;
+        }
+
+        .services-page-title {
+            max-width: none;
+            font-size: 2.3rem;
+        }
+
+        .services-page-card {
+            min-height: 280px;
+            padding: 26px 24px;
+            border-radius: 22px;
+        }
+
+        .services-card-title {
+            font-size: 1.7rem;
+        }
+
+        .services-card-badge {
+            top: 22px;
+            right: 22px;
+        }
+    }
+</style>
+
+@code {
     protected override void OnInitialized()
     {
         LanguageService.Subscribe(StateHasChanged);
@@ -231,422 +294,4 @@
     {
         LanguageService.Unsubscribe(StateHasChanged);
     }
-
-    private void ToggleDropdown(int index)
-    {
-        if (activeDropdown == index)
-        {
-            activeDropdown = null;
-        }
-        else
-        {
-            activeDropdown = index;
-        }
-    }
 }
-
-<style>
-    .services-section {
-        padding: 100px 0;
-        background: #f5f5f5;
-        min-height: 100vh;
-    }
-
-    .services-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .services-header {
-        display: flex;
-        flex-direction: column;
-        padding: 60px;
-        background: white;
-        border-radius: 25px;
-    }
-
-    .services-label {
-        display: inline-block;
-        font-size: 13px;
-        font-weight: 500;
-        text-transform: lowercase;
-        letter-spacing: 1px;
-        color: #000000;
-        margin-bottom: 20px;
-    }
-
-    .services-title {
-        font-size: 48px;
-        font-weight: 400;
-        line-height: 1.2;
-        letter-spacing: -0.5px;
-        color: #000;
-        margin: 0;
-        text-transform: lowercase;
-    }
-
-    .services-mission {
-        font-size: 16px;
-        color: #000000;
-        line-height: 1.75;
-        margin: 0;
-    }
-
-    .services-bottom {
-        width: 100%;
-        margin-top: 20px;
-        padding: 30px;
-        background: white;
-        border-radius: 25px;
-        min-height: 250px;
-        position: relative;
-        overflow: visible;
-        background-image: radial-gradient(circle 25px at 60px 20px, transparent 25px, white 25px);
-    }
-
-    .services-bottom-content {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between;
-    }
-
-    .services-bottom-title {
-        font-size: 25px;
-        color: #000;
-        margin: 0;
-        font-weight: 100;
-    }
-
-    .services-bottom-email {
-        font-size: 16px;
-        color: #333;
-        margin: 0;
-        font-weight: 400;
-    }
-
-    .services-bottom-btn {
-        padding: 14px 48px;
-        background: #0f1820;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s;
-        position: absolute;
-        overflow: hidden;
-        height: 50px;
-        bottom: 30px;
-        right: 30px;
-        min-width: 160px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-    }
-
-    .services-btn-text-original,
-    .services-btn-text-hover {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .services-btn-text-original {
-        transform: translateY(0);
-    }
-
-    .services-btn-text-hover {
-        transform: translateY(100%);
-    }
-
-    .services-bottom-btn:hover .services-btn-text-original {
-        transform: translateY(-100%);
-    }
-
-    .services-bottom-btn:hover .services-btn-text-hover {
-        transform: translateY(0);
-    }
-
-    .services-btn-icon {
-        display: inline-block;
-        margin-left: 8px;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .services-bottom-btn:hover .services-btn-icon {
-        transform: translate(3px, -3px);
-    }
-
-    .services-right {
-        background: white;
-        border-radius: 25px;
-        padding: 60px;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-    }
-
-    .service-dropdown {
-        border-bottom: 1px solid #eee;
-    }
-
-    .service-dropdown:last-child {
-        border-bottom: none;
-    }
-
-    .dropdown-header {
-        width: 100%;
-        padding: 24px 0;
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        transition: all 0.3s ease-in-out;
-        text-align: left;
-    }
-
-    .dropdown-header:hover {
-        background: rgba(0, 0, 0, 0.02);
-        padding-left: 8px;
-        padding-right: -8px;
-    }
-
-    .dropdown-number {
-        font-size: 18px;
-        font-weight: 600;
-        color: #0f1820;
-        min-width: 30px;
-    }
-
-    .dropdown-title {
-        font-size: 16px;
-        font-weight: 500;
-        color: #000;
-        flex: 1;
-    }
-
-    .dropdown-icon {
-        font-size: 24px;
-        font-weight: 300;
-        color: #666;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .dropdown-content {
-        padding: 0 0 24px 46px;
-        animation: slideDown 0.3s ease-in-out;
-    }
-
-    .dropdown-content p {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.75;
-        margin: 0;
-    }
-
-    @@keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @@media (max-width: 768px) {
-        .services-section {
-            padding: 140px 0 60px;
-        }
-
-        .services-header {
-            padding: 30px;
-        }
-
-        .services-title {
-            font-size: 28px;
-        }
-
-        .services-mission {
-            font-size: 14px;
-        }
-
-        .services-right {
-            padding: 30px;
-        }
-
-        .dropdown-header {
-            padding: 16px 0;
-        }
-
-        .dropdown-number {
-            font-size: 16px;
-        }
-
-        .dropdown-title {
-            font-size: 15px;
-        }
-
-        .services-bottom {
-            padding: 40px;
-            min-height: auto;
-        }
-
-        .services-bottom-title {
-            font-size: 22px;
-        }
-
-        .services-bottom-email {
-            font-size: 14px;
-        }
-
-        .services-bottom-btn {
-            position: static;
-            width: auto;
-            margin-top: 24px;
-            min-width: 140px;
-            height: 45px;
-            padding: 12px 24px;
-        }
-
-        .services-btn-text-original,
-        .services-btn-text-hover {
-            display: none !important;
-        }
-
-        .services-bottom-btn::before {
-            content: "kontakt her ↗";
-            position: static;
-            transform: none !important;
-        }
-    }
-
-    .pulse-ai-content {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .pulse-intro {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.75;
-        margin: 0;
-        font-weight: 500;
-    }
-
-    .calculator-section {
-        background: rgba(15, 24, 32, 0.02);
-        border: 1px solid #eee;
-        border-radius: 8px;
-        padding: 24px;
-    }
-
-    .calculator-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin-bottom: 20px;
-    }
-
-    .calculator-field {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .calculator-field label {
-        font-size: 13px;
-        font-weight: 600;
-        color: #333;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .calculator-field input {
-        width: 100%;
-        padding: 10px 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: inherit;
-        transition: all 0.3s ease;
-        box-sizing: border-box;
-    }
-
-    .calculator-field input:focus {
-        outline: none;
-        border-color: #0f1820;
-        box-shadow: 0 0 0 2px rgba(15, 24, 32, 0.1);
-    }
-
-    .calculator-results {
-        border-top: 1px solid #e5e5e5;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        animation: slideDown 0.3s ease-in-out;
-    }
-
-    .result-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-    }
-
-    .result-label {
-        font-size: 14px;
-        font-weight: 600;
-        color: #333;
-    }
-
-    .result-value {
-        font-size: 16px;
-        font-weight: 700;
-        color: #0f1820;
-    }
-
-    .pulse-description {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.75;
-        margin: 0;
-    }
-
-    @@media (max-width: 768px) {
-        .calculator-row {
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-
-        .calculator-section {
-            padding: 16px;
-        }
-
-        .result-item {
-            padding: 10px 0;
-        }
-
-        .result-label {
-            font-size: 13px;
-        }
-
-        .result-value {
-            font-size: 14px;
-        }
-    }
-</style>

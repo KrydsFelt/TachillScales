@@ -1,0 +1,532 @@
+@page "/paid-ads"
+@inject LanguageService LanguageService
+@implements IDisposable
+
+<PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Meta Ads - Tahcill Scales" : "Meta Ads - Tahcill Scales")</PageTitle>
+
+<Navigation />
+
+<section class="pads-hero">
+    <div class="section-inner pads-hero-inner">
+        <div class="pads-copy">
+            <span class="pads-pill">@(LanguageService.CurrentLanguage == "en" ? "Paid social advertising" : "Betalt social annoncering")</span>
+            <h2 class="pads-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Meta Ads that create clearer demand, better leads, and more stable growth.</text>
+                }
+                else
+                {
+                    <text>Meta Ads der skaber klarere efterspørgsel, bedre leads og mere stabil vækst.</text>
+                }
+            </h2>
+            <p class="pads-lead">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Most businesses need help in two places: the ads themselves and the path after the click. We build both, so the setup performs as one system.</text>
+                }
+                else
+                {
+                    <text>De fleste virksomheder har brug for hjælp to steder: selve annoncerne og vejen efter klikket. Vi bygger begge dele, så setup'et performer som ét samlet system.</text>
+                }
+            </p>
+            <p class="pads-body">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Our work focuses on targeting, creative direction, landing-page flow, and meaningful follow-up. No noise. No vanity metrics. Just a stronger setup that quietly improves results in the background.</text>
+                }
+                else
+                {
+                    <text>Vores arbejde fokuserer på målretning, kreativ retning, landing-page flow og meningsfuld opfølgning. Ingen støj. Ingen vanity metrics. Bare et stærkere setup der stille og roligt forbedrer resultaterne i baggrunden.</text>
+                }
+            </p>
+            <a href="/kontakt" class="pads-btn">@(LanguageService.CurrentLanguage == "en" ? "Book a call" : "Book et møde")</a>
+        </div>
+
+        <div class="pads-visual-wrap">
+            <div class="pads-visual"></div>
+            <div class="pads-floating-card pads-floating-left">
+                <div class="pads-floating-mark">Aa</div>
+                <div>
+                    <div class="pads-floating-title">@(LanguageService.CurrentLanguage == "en" ? "Creative angles" : "Kreative vinkler")</div>
+                    <div class="pads-floating-sub">@(LanguageService.CurrentLanguage == "en" ? "Hooks and testing" : "Hooks og test")</div>
+                </div>
+            </div>
+            <div class="pads-floating-card pads-floating-right">
+                <div class="pads-floating-icon">↗</div>
+                <div class="pads-floating-title">@(LanguageService.CurrentLanguage == "en" ? "Landing flow" : "Landing flow")</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pads-offers">
+    <div class="section-inner">
+        <div class="pads-offers-head">
+            <span class="pads-pill pads-pill-dark">@(LanguageService.CurrentLanguage == "en" ? "What we offer" : "Det vi tilbyder")</span>
+            <h2 class="pads-offers-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Meta Ads support that strengthens both conversion and campaign quality.</text>
+                }
+                else
+                {
+                    <text>Meta Ads support der styrker både konvertering og kampagnekvalitet.</text>
+                }
+            </h2>
+            <p class="pads-offers-body">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>There is no mystery. We build ad systems that work by creating clarity in targeting, offer, structure, creative, and the page people land on.</text>
+                }
+                else
+                {
+                    <text>Der er ikke noget mystisk i det. Vi bygger annoncesystemer der virker ved at skabe klarhed i målretning, tilbud, struktur, kreativt indhold og den side folk lander på.</text>
+                }
+            </p>
+        </div>
+
+        <div class="pads-card-grid">
+            <article class="pads-card">
+                <div class="pads-card-icon">◔</div>
+                <h3 class="pads-card-title">@(LanguageService.CurrentLanguage == "en" ? "Account Audit & Structure Review" : "Account audit & struktur-review")</h3>
+                <p class="pads-card-text">@(LanguageService.CurrentLanguage == "en" ? "We review your current setup, where budget is leaking, and how campaigns should be reorganized for cleaner learning." : "Vi gennemgår jeres nuværende setup, hvor budgettet lækker, og hvordan kampagnerne bør organiseres for renere læring.")</p>
+            </article>
+            <article class="pads-card">
+                <div class="pads-card-icon">◌</div>
+                <h3 class="pads-card-title">@(LanguageService.CurrentLanguage == "en" ? "Audience & Offer Direction" : "Målgruppe- og tilbudsretning")</h3>
+                <p class="pads-card-text">@(LanguageService.CurrentLanguage == "en" ? "We tighten the audience, sharpen the offer, and make sure the ad message matches what people actually care about." : "Vi strammer målgruppen, skærper tilbuddet og sikrer at budskabet matcher det, folk faktisk interesserer sig for.")</p>
+            </article>
+            <article class="pads-card">
+                <div class="pads-card-icon">⇄</div>
+                <h3 class="pads-card-title">@(LanguageService.CurrentLanguage == "en" ? "Ad Copy & Creative Testing" : "Annoncetekst og kreativ test")</h3>
+                <p class="pads-card-text">@(LanguageService.CurrentLanguage == "en" ? "Hooks, concepts, and creative variants are tested until the account has clearer winners and fewer weak assumptions." : "Hooks, koncepter og kreative varianter testes, indtil kontoen har tydeligere vindere og færre svage antagelser.")</p>
+            </article>
+            <article class="pads-card">
+                <div class="pads-card-icon">⚙</div>
+                <h3 class="pads-card-title">@(LanguageService.CurrentLanguage == "en" ? "Landing Page Alignment" : "Landing page-alignment")</h3>
+                <p class="pads-card-text">@(LanguageService.CurrentLanguage == "en" ? "If the page after the click is weak, performance suffers. We align the landing flow with the ad promise." : "Hvis siden efter klikket er svag, lider performance. Vi aligner landing flowet med annoncens løfte.")</p>
+            </article>
+            <article class="pads-card">
+                <div class="pads-card-icon">⌁</div>
+                <h3 class="pads-card-title">@(LanguageService.CurrentLanguage == "en" ? "Retargeting & Follow-Up" : "Retargeting og opfølgning")</h3>
+                <p class="pads-card-text">@(LanguageService.CurrentLanguage == "en" ? "We build quieter follow-up systems so warm traffic is not wasted after the first visit." : "Vi bygger mere rolige opfølgningssystemer, så varm trafik ikke går tabt efter det første besøg.")</p>
+            </article>
+            <article class="pads-card">
+                <div class="pads-card-icon">▣</div>
+                <h3 class="pads-card-title">@(LanguageService.CurrentLanguage == "en" ? "Ongoing Monitoring" : "Løbende monitorering")</h3>
+                <p class="pads-card-text">@(LanguageService.CurrentLanguage == "en" ? "We review performance regularly and make practical adjustments that improve quality without making the setup messy." : "Vi gennemgår performance løbende og laver praktiske justeringer, der forbedrer kvaliteten uden at gøre setup'et rodet.")</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="pads-partner">
+    <div class="section-inner">
+        <div class="pads-partner-box">
+            <div class="pads-partner-content">
+                <h3 class="pads-partner-title">
+                    @if (LanguageService.CurrentLanguage == "en")
+                    {
+                        <text>Become partner</text>
+                    }
+                    else
+                    {
+                        <text>Become partner</text>
+                    }
+                </h3>
+                <p class="pads-partner-email">tahcillscales@gmail.com</p>
+                <a href="/kontakt" class="pads-partner-btn">
+                    <span class="pads-partner-text-original">
+                        @if (LanguageService.CurrentLanguage == "en")
+                        {
+                            <text>contact here <span class="pads-partner-icon">↗</span></text>
+                        }
+                        else
+                        {
+                            <text>kontakt her <span class="pads-partner-icon">↗</span></text>
+                        }
+                    </span>
+                    <span class="pads-partner-text-hover">Let's Go!</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<PulseFooter />
+
+<style>
+    .pads-hero {
+        padding: 148px 0 88px;
+        background:
+            radial-gradient(circle at top center, rgba(103,232,249,0.08) 0%, transparent 22%),
+            linear-gradient(180deg, #425368 0%, #405164 100%);
+    }
+
+    .pads-hero-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
+        gap: 42px;
+        align-items: start;
+    }
+
+    .pads-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 13px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.16);
+        color: #f2f5f7;
+        font-size: 0.76rem;
+        letter-spacing: 0.02em;
+    }
+
+    .pads-title {
+        margin: 22px 0 28px;
+        max-width: none;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        line-height: 1.03;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #edf2f6;
+    }
+
+    .pads-lead,
+    .pads-body {
+        max-width: 60ch;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: rgba(237,242,246,0.88);
+    }
+
+    .pads-body {
+        margin-top: 16px;
+        color: rgba(237,242,246,0.82);
+    }
+
+    .pads-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 146px;
+        min-height: 48px;
+        margin-top: 25px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: rgba(103,135,170,0.56);
+        border: 1px solid rgba(255,255,255,0.16);
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.92rem;
+    }
+
+    .pads-visual-wrap {
+        position: relative;
+        min-height: 540px;
+    }
+
+    .pads-visual {
+        width: 100%;
+        height: 408px;
+        border-radius: 22px;
+        background:
+            linear-gradient(180deg, rgba(15,24,32,0.06) 0%, rgba(15,24,32,0.26) 100%),
+            url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=80');
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 20px 50px rgba(14,20,28,0.2);
+    }
+
+    .pads-floating-card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(15,24,32,0.3);
+        backdrop-filter: blur(8px);
+        color: #edf2f6;
+    }
+
+    .pads-floating-left {
+        left: -54px;
+        bottom: 78px;
+    }
+
+    .pads-floating-right {
+        right: 24px;
+        bottom: -20px;
+    }
+
+    .pads-floating-mark {
+        font-size: 3rem;
+        line-height: 1;
+        font-weight: 400;
+    }
+
+    .pads-floating-title {
+        font-size: 0.98rem;
+        color: #edf2f6;
+    }
+
+    .pads-floating-sub {
+        font-size: 0.82rem;
+        color: rgba(237,242,246,0.78);
+        margin-top: 4px;
+    }
+
+    .pads-floating-icon {
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+    .pads-offers {
+        padding: 92px 0;
+        background: #181a1d;
+    }
+
+    .pads-pill-dark {
+        background: rgba(255,255,255,0.07);
+    }
+
+    .pads-offers-head {
+        margin-bottom: 36px;
+    }
+
+    .pads-offers-title {
+        margin: 20px 0 18px;
+        max-width: none;
+        font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #edf2f6;
+    }
+
+    .pads-offers-body {
+        max-width: 74ch;
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.8;
+        color: rgba(237,242,246,0.74);
+    }
+
+    .pads-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .pads-card {
+        min-height: 294px;
+        padding: 34px 34px 30px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.02) 100%);
+    }
+
+    .pads-card-icon {
+        font-size: 2.3rem;
+        line-height: 1;
+        color: #eef2f6;
+        margin-bottom: 74px;
+    }
+
+    .pads-card-title {
+        margin: 0 0 16px;
+        max-width: 11ch;
+        font-size: 1.25rem;
+        line-height: 1.14;
+        letter-spacing: -0.03em;
+        font-weight: 400;
+        color: #dfe5ea;
+    }
+
+    .pads-card-text {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.8;
+        color: rgba(223,229,234,0.82);
+    }
+
+    .pads-partner {
+        padding: 22px 0 90px;
+        background: #181a1d;
+    }
+
+    .pads-partner-box {
+        width: 100%;
+        padding: 30px;
+        background: white;
+        border-radius: 25px;
+        min-height: 250px;
+        position: relative;
+        overflow: visible;
+        background-image: radial-gradient(circle 25px at 60px 20px, transparent 25px, white 25px);
+    }
+
+    .pads-partner-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .pads-partner-title {
+        margin: 0;
+        font-size: 25px;
+        color: #000;
+        font-weight: 100;
+    }
+
+    .pads-partner-email {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+        font-weight: 400;
+    }
+
+    .pads-partner-btn {
+        padding: 14px 48px;
+        background: #0f1820;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: absolute;
+        overflow: hidden;
+        height: 50px;
+        bottom: 30px;
+        right: 30px;
+        min-width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .pads-partner-text-original,
+    .pads-partner-text-hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .pads-partner-text-original {
+        transform: translateY(0);
+    }
+
+    .pads-partner-text-hover {
+        transform: translateY(100%);
+    }
+
+    .pads-partner-btn:hover .pads-partner-text-original {
+        transform: translateY(-100%);
+    }
+
+    .pads-partner-btn:hover .pads-partner-text-hover {
+        transform: translateY(0);
+    }
+
+    .pads-partner-icon {
+        display: inline-block;
+        margin-left: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .pads-partner-btn:hover .pads-partner-icon {
+        transform: translate(3px, -3px);
+    }
+
+    @@media (max-width: 1024px) {
+        .pads-hero-inner,
+        .pads-card-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pads-visual-wrap {
+            min-height: 460px;
+        }
+
+        .pads-floating-left {
+            left: 18px;
+            bottom: 66px;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .pads-hero {
+            padding: 124px 0 64px;
+        }
+
+        .pads-title,
+        .pads-offers-title {
+            max-width: none;
+            font-size: 2.2rem;
+        }
+
+        .pads-btn {
+            margin-top: 36px;
+        }
+
+        .pads-visual-wrap {
+            min-height: 340px;
+        }
+
+        .pads-visual {
+            height: 280px;
+        }
+
+        .pads-floating-card {
+            position: static;
+            margin-top: 14px;
+        }
+
+        .pads-card {
+            min-height: auto;
+            padding: 26px 24px;
+        }
+
+        .pads-card-icon {
+            margin-bottom: 38px;
+        }
+
+        .pads-partner-box {
+            padding: 30px;
+            min-height: auto;
+            background-image: none !important;
+        }
+
+        .pads-partner-btn {
+            position: static;
+            width: auto;
+            margin-top: 20px;
+            min-width: 140px;
+            height: 45px;
+            padding: 12px 24px;
+        }
+    }
+</style>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}

@@ -1,0 +1,1308 @@
+@page "/pulse-ai"
+@inject LanguageService LanguageService
+@implements IDisposable
+
+<PageTitle>@(LanguageService.CurrentLanguage == "en" ? "Pulse AI - Tahcill Scales" : "Pulse AI - Tahcill Scales")</PageTitle>
+
+<Navigation />
+
+<section class="pai-hero">
+    <div class="section-inner pai-hero-shell">
+        <div class="pai-hero-copy">
+            <div class="pai-hero-kicker">@(LanguageService.CurrentLanguage == "en" ? "AI customer service" : "AI-kundeservice")</div>
+
+            <h2 class="pai-hero-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Customer service with AI that answers in seconds and takes pressure off your team.</text>
+                }
+                else
+                {
+                    <text>AI-kundeservice der svarer på sekunder og tager presset af jeres team.</text>
+                }
+            </h2>
+
+            <p class="pai-hero-lead">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Pulse AI helps customers instantly, handles repetitive questions, and gives your business a calmer support setup without compromising the experience.</text>
+                }
+                else
+                {
+                    <text>Pulse AI hjælper kunder med det samme, håndterer gentagne spørgsmål og giver jeres virksomhed et roligere supportsetup uden at gå på kompromis med oplevelsen.</text>
+                }
+            </p>
+
+            <p class="pai-hero-body">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Built for brands that want faster replies, fewer support bottlenecks, and a clearer front door for customers before purchase, booking, or contact.</text>
+                }
+                else
+                {
+                    <text>Bygget til brands der vil have hurtigere svar, færre supportflaskehalse og en tydeligere indgang for kunder før køb, booking eller kontakt.</text>
+                }
+            </p>
+
+            <div class="pai-hero-actions">
+                <a href="/kontakt" class="pai-btn-primary">@(LanguageService.CurrentLanguage == "en" ? "Book a demo" : "Book en demo")</a>
+            </div>
+        </div>
+
+        <div class="pai-hero-visual-wrap">
+            <div class="pai-hero-chip pai-hero-chip-top">@(LanguageService.CurrentLanguage == "en" ? "AI Customer Service" : "AI Kundeservice")</div>
+
+            <div class="pai-hero-visual">
+                <div class="pai-hero-chat-card">
+                    <div class="pai-hero-chat-head">
+                        <div>
+                            <div class="pai-hero-chat-name">Pulse AI</div>
+                            <div class="pai-hero-chat-status">@(LanguageService.CurrentLanguage == "en" ? "Live and answering" : "Live og svarer")</div>
+                        </div>
+                        <span class="pai-hero-live-dot" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="pai-hero-chat-body">
+                        <div class="pai-hero-bubble pai-hero-bubble-user">@(LanguageService.CurrentLanguage == "en" ? "Can you help with my order?" : "Kan I hjælpe med min ordre?")</div>
+                        <div class="pai-hero-bubble pai-hero-bubble-ai">@(LanguageService.CurrentLanguage == "en" ? "Yes. I can help with delivery, returns, order status, and route you to support if needed." : "Ja. Jeg kan hjælpe med levering, retur, ordrestatus og sende dig videre til support, hvis det er nødvendigt.")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pai-benefits">
+    <div class="section-inner">
+        <div class="pai-section-head pai-section-head-center">
+            <h2 class="pai-section-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Built for real questions, not locked scripts.</text>
+                }
+                else
+                {
+                    <text>Bygget til rigtige spørgsmål, ikke fastlåste scripts.</text>
+                }
+            </h2>
+            <p class="pai-section-copy">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Most chatbots fail when customers ask something unexpected. Pulse AI understands context, handles follow-up questions, and helps move the conversation forward when it matters.</text>
+                }
+                else
+                {
+                    <text>De fleste chatbots fejler, når kunder spørger om noget uventet. Pulse AI forstår kontekst, håndterer opfølgende spørgsmål og hjælper samtalen videre, når det betyder noget.</text>
+                }
+            </p>
+        </div>
+
+        <div class="pai-benefit-grid">
+            <article class="pai-benefit-card">
+                <div class="pai-benefit-icon">01</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Better customer insight" : "Bedre kundeindsigt")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "Pulse AI turns real customer conversations into useful signals about demand, friction, and missing content." : "Pulse AI gør rigtige kundesamtaler til brugbare signaler om efterspørgsel, friktion og manglende indhold.")</p>
+            </article>
+            <article class="pai-benefit-card">
+                <div class="pai-benefit-icon">02</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Higher conversion" : "Højere konvertering")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "Customers get faster and clearer answers, which makes it easier to keep momentum toward purchase, booking, or contact." : "Kunderne får hurtigere og klarere svar, hvilket gør det lettere at holde momentum mod køb, booking eller kontakt.")</p>
+            </article>
+            <article class="pai-benefit-card">
+                <div class="pai-benefit-icon">03</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Lower support costs" : "Lavere supportomkostninger")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "Reduce operational pressure by letting AI handle the recurring questions that usually clog the inbox." : "Reducer det operationelle pres ved at lade AI håndtere de tilbagevendende spørgsmål, der normalt stopper indbakken til.")</p>
+            </article>
+            <article class="pai-benefit-card">
+                <div class="pai-benefit-icon">04</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Simple implementation" : "Nem implementering")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "Get started fast from your website, FAQs, and approved material without months of technical setup." : "Kom hurtigt i gang ud fra jeres website, FAQs og godkendte materiale uden måneders teknisk opsætning.")</p>
+            </article>
+            <article class="pai-benefit-card">
+                <div class="pai-benefit-icon">05</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Lead capture" : "Leadopsamling")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "Collect intent and context from serious enquiries, even outside business hours, so fewer opportunities are lost." : "Opsaml intention og kontekst fra seriøse henvendelser, også uden for åbningstid, så færre muligheder går tabt.")</p>
+            </article>
+            <article class="pai-benefit-card">
+                <div class="pai-benefit-icon">06</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Always available" : "Altid tilgængelig")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "Offer immediate support 24/7, including evenings and weekends, when your team is offline." : "Tilbyd øjeblikkelig support 24/7, også om aftenen og i weekenderne, når jeres team er offline.")</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="pai-process" id="setup">
+    <div class="section-inner">
+        <div class="pai-section-head">
+            <h2 class="pai-section-title">@(LanguageService.CurrentLanguage == "en" ? "Process & setup" : "Process & setup")</h2>
+            <p class="pai-section-copy pai-section-copy-left">@(LanguageService.CurrentLanguage == "en" ? "A simple launch path from your existing material to a live AI customer service setup that your team can actually use." : "En enkel vej fra jeres eksisterende materiale til et live AI-kundeservice-setup, som jeres team faktisk kan bruge.")</p>
+        </div>
+
+        <div class="pai-process-frame">
+            <article class="pai-process-card">
+                <div class="pai-process-num">01</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Simple setup" : "Nem opsætning")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "We start from your website, your FAQ, or your existing material and prepare Pulse AI to learn your business." : "Vi starter fra jeres website, jeres FAQ eller jeres eksisterende materiale og klargør Pulse AI til at lære jeres forretning.")</p>
+            </article>
+
+            <article class="pai-process-card">
+                <div class="pai-process-num">02</div>
+                <h3>@(LanguageService.CurrentLanguage == "en" ? "Tailored to you" : "Tilpasset jer")</h3>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "We shape the tone, the answers, and the escalation flow so the assistant matches your brand and use case." : "Vi former tonen, svarene og eskaleringsflowet, så assistenten matcher jeres brand og use case.")</p>
+            </article>
+
+            <article class="pai-process-card pai-process-card-wide">
+                <div class="pai-process-wide-copy">
+                    <div class="pai-process-num">03</div>
+                    <h3>@(LanguageService.CurrentLanguage == "en" ? "Results in real time" : "Resultater i realtid")</h3>
+                    <p>@(LanguageService.CurrentLanguage == "en" ? "See the AI-agent deliver better replies, reveal recurring customer needs, and create clearer operational insight from day one." : "Se AI-agenten levere bedre svar, afsløre tilbagevendende kundebehov og skabe klarere operationel indsigt fra dag ét.")</p>
+                </div>
+
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="pai-platform">
+    <div class="section-inner">
+        <div class="pai-section-head pai-section-head-center">
+            <h2 class="pai-section-title">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Built for service at a higher level.</text>
+                }
+                else
+                {
+                    <text>Bygget til service i topklasse.</text>
+                }
+            </h2>
+            <p class="pai-section-copy">
+                @if (LanguageService.CurrentLanguage == "en")
+                {
+                    <text>Pulse AI gives your team the overview they need to monitor quality, follow the results, and improve with more confidence from one place.</text>
+                }
+                else
+                {
+                    <text>Pulse AI giver jeres team det overblik, I har brug for, til at overvåge kvaliteten, følge resultaterne og forbedre med større sikkerhed fra et samlet sted.</text>
+                }
+            </p>
+        </div>
+
+        <div class="pai-platform-tabs">
+            <button type="button" class="pai-platform-tab @(SelectedPlatformTab == "monitor" ? "active" : "")" @onclick='() => SelectPlatformTab("monitor")'>@(LanguageService.CurrentLanguage == "en" ? "Monitor" : "Overvåg")</button>
+            <button type="button" class="pai-platform-tab @(SelectedPlatformTab == "insights" ? "active" : "")" @onclick='() => SelectPlatformTab("insights")'>Insights</button>
+            <button type="button" class="pai-platform-tab @(SelectedPlatformTab == "knowledge" ? "active" : "")" @onclick='() => SelectPlatformTab("knowledge")'>@(LanguageService.CurrentLanguage == "en" ? "Knowledge Base" : "Vidensbase")</button>
+            <button type="button" class="pai-platform-tab @(SelectedPlatformTab == "team" ? "active" : "")" @onclick='() => SelectPlatformTab("team")'>@(LanguageService.CurrentLanguage == "en" ? "Team Management" : "Team-styring")</button>
+        </div>
+
+        <div class="pai-platform-panel">
+            <div class="pai-platform-visual">
+                <div class="pai-dashboard">
+                    <div class="pai-dashboard-head">
+                        <span>@PlatformDashboardTitle</span>
+                        <span class="pai-dashboard-badge">@PlatformDashboardBadge</span>
+                    </div>
+
+                    <div class="pai-dashboard-stats">
+                        <div class="pai-dashboard-stat pai-dashboard-stat-active">
+                            <div class="pai-dashboard-stat-label">@PlatformPrimaryStatLabel</div>
+                            <div class="pai-dashboard-stat-value">@PlatformPrimaryStatValue</div>
+                        </div>
+                        <div class="pai-dashboard-stat">
+                            <div class="pai-dashboard-stat-label">@PlatformSecondaryStatLabel</div>
+                            <div class="pai-dashboard-stat-value">@PlatformSecondaryStatValue</div>
+                        </div>
+                    </div>
+
+                    <div class="pai-dashboard-chart">
+                        <div class="pai-dashboard-line"></div>
+                    </div>
+
+                    <div class="pai-dashboard-categories">
+                        <div class="pai-dashboard-categories-title">@PlatformCategoriesTitle</div>
+                        <div class="pai-dashboard-row">
+                            <span>@PlatformCategoryOneLabel</span>
+                            <div class="pai-dashboard-bar"><i class="bar-one"></i></div>
+                            <strong>@PlatformCategoryOneValue</strong>
+                        </div>
+                        <div class="pai-dashboard-row">
+                            <span>@PlatformCategoryTwoLabel</span>
+                            <div class="pai-dashboard-bar"><i class="bar-two"></i></div>
+                            <strong>@PlatformCategoryTwoValue</strong>
+                        </div>
+                        <div class="pai-dashboard-row">
+                            <span>@PlatformCategoryThreeLabel</span>
+                            <div class="pai-dashboard-bar"><i class="bar-three"></i></div>
+                            <strong>@PlatformCategoryThreeValue</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pai-platform-copy-box">
+                <div class="pai-platform-pill">@PlatformPanelPill</div>
+                <h2>@PlatformPanelTitle</h2>
+                <p>@PlatformPanelCopy</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pai-partner">
+    <div class="section-inner">
+        <div class="pai-partner-box">
+            <div class="pai-partner-copy">
+                <div class="pai-partner-kicker">@(LanguageService.CurrentLanguage == "en" ? "Become partner" : "Bliv partner")</div>
+                <h2>@(LanguageService.CurrentLanguage == "en" ? "See if Pulse AI is the right next move for your support setup." : "Se om Pulse AI er det rigtige næste skridt for jeres supportsetup.")</h2>
+                <p>@(LanguageService.CurrentLanguage == "en" ? "We can review your support flow, identify the best first use case, and map out a realistic rollout." : "Vi kan gennemgå jeres supportflow, identificere det bedste første use case og skitsere et realistisk rollout.")</p>
+                <div class="pai-partner-mail">tahcillscales@gmail.com</div>
+            </div>
+
+            <a href="/kontakt" class="pai-partner-btn">@(LanguageService.CurrentLanguage == "en" ? "Book now" : "Book nu")</a>
+        </div>
+    </div>
+</section>
+
+<PulseFooter />
+
+<style>
+    .pai-hero,
+    .pai-benefits,
+    .pai-process,
+    .pai-platform,
+    .pai-partner {
+        position: relative;
+    }
+
+    .pai-hero {
+        padding: 148px 0 92px;
+        background:
+            radial-gradient(circle at 78% 10%, rgba(89, 165, 224, 0.26) 0%, transparent 26%),
+            radial-gradient(circle at 18% 30%, rgba(116, 67, 41, 0.22) 0%, transparent 22%),
+            linear-gradient(90deg, #241a17 0%, #233544 100%);
+        overflow: hidden;
+    }
+
+    .pai-hero-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+        gap: 46px;
+        align-items: center;
+    }
+
+    .pai-hero-copy {
+        color: #eef2f5;
+    }
+
+    .pai-hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.14);
+        color: rgba(255,255,255,0.92);
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .pai-hero-title {
+        margin: 22px 0 20px;
+        max-width: 11ch;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        line-height: 0.99;
+        letter-spacing: -0.06em;
+        font-weight: 400;
+        color: #f3f6f8;
+    }
+
+    .pai-hero-lead,
+    .pai-hero-body {
+        max-width: 58ch;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: rgba(232,238,244,0.82);
+    }
+
+    .pai-hero-body {
+        margin-top: 12px;
+        color: rgba(232,238,244,0.66);
+    }
+
+    .pai-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+    }
+
+    .pai-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+    }
+
+    .pai-btn-primary {
+        background: rgba(103,135,170,0.76);
+        border: 1px solid rgba(255,255,255,0.16);
+        color: #ffffff;
+    }
+
+    .pai-hero-visual-wrap {
+        position: relative;
+        min-height: 520px;
+    }
+
+    .pai-hero-visual {
+        position: relative;
+        min-height: 520px;
+        border-radius: 26px;
+        overflow: hidden;
+        background:
+            linear-gradient(180deg, rgba(6,10,18,0.18) 0%, rgba(6,10,18,0.42) 100%),
+            url('/pulse-ai-customer-service.png');
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 34px 70px rgba(8, 15, 24, 0.34);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pai-hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(15, 10, 34, 0.38) 0%, rgba(14, 8, 26, 0.08) 40%, rgba(8, 11, 18, 0.44) 100%);
+    }
+
+    .pai-hero-chat-card {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1;
+        width: min(360px, calc(100% - 48px));
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(17, 24, 34, 0.72);
+        border: 1px solid rgba(255,255,255,0.12);
+        backdrop-filter: blur(12px);
+        color: #eef4f9;
+    }
+
+    .pai-hero-chat-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .pai-hero-chat-name {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .pai-hero-chat-status {
+        margin-top: 4px;
+        font-size: 0.8rem;
+        color: rgba(236,243,249,0.72);
+    }
+
+    .pai-hero-live-dot {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        flex: 0 0 12px;
+        border-radius: 50%;
+        background: #67ff9b;
+        box-shadow: 0 0 10px rgba(103, 255, 155, 0.9), 0 0 22px rgba(103, 255, 155, 0.72);
+    }
+
+    .pai-hero-chat-body {
+        display: grid;
+        gap: 10px;
+    }
+
+    .pai-hero-bubble {
+        max-width: 92%;
+        padding: 12px 14px;
+        border-radius: 16px;
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .pai-hero-bubble-user {
+        margin-left: auto;
+        background: rgba(255,255,255,0.1);
+        color: #f4f7fa;
+    }
+
+    .pai-hero-bubble-ai {
+        background: rgba(74, 116, 255, 0.18);
+        color: rgba(241,246,250,0.92);
+    }
+
+    .pai-hero-chip {
+        position: absolute;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 42px;
+        padding: 0 16px;
+        border-radius: 16px;
+        background: rgba(27, 35, 48, 0.8);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: #eef4f9;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 16px 34px rgba(8, 14, 24, 0.28);
+    }
+
+    .pai-hero-chip-top {
+        top: -14px;
+        right: 34px;
+        font-size: 0.84rem;
+    }
+
+    .pai-benefits,
+    .pai-process,
+    .pai-platform,
+    .pai-partner {
+        padding: 6rem 0;
+    }
+
+    .pai-benefits,
+    .pai-process,
+    .pai-platform {
+        background: #f4f0e8;
+    }
+
+    .pai-section-head {
+        max-width: 860px;
+        margin-bottom: 2.8rem;
+    }
+
+    .pai-section-head-center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .pai-section-title {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1.02;
+        letter-spacing: -0.06em;
+        font-weight: 400;
+        color: #121518;
+    }
+
+    .pai-section-copy {
+        max-width: 760px;
+        margin: 18px auto 0;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #53575d;
+    }
+
+    .pai-section-copy-left {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 62ch;
+    }
+
+    .pai-benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.35rem;
+    }
+
+    .pai-benefit-card {
+        padding: 1.75rem;
+        border-radius: 24px;
+        background: #f7f3ec;
+        border: 1px solid rgba(17,21,24,0.08);
+        box-shadow: 0 10px 28px rgba(17,21,24,0.08);
+    }
+
+    .pai-benefit-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 42px;
+        min-height: 42px;
+        border-radius: 14px;
+        background: rgba(79, 107, 255, 0.08);
+        color: #4f6bff;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+    }
+
+    .pai-benefit-card h3 {
+        margin: 22px 0 14px;
+        font-size: 1.05rem;
+        line-height: 1.3;
+        color: #121518;
+    }
+
+    .pai-benefit-card p {
+        margin: 0;
+        font-size: 0.96rem;
+        line-height: 1.75;
+        color: #4f545b;
+    }
+
+    .pai-process-frame {
+        display: flex;
+        gap: 0.85rem;
+        padding: 0.85rem;
+        border-radius: 34px;
+        background: #f0eae0;
+        box-shadow: inset 0 0 0 1px rgba(18,21,24,0.05);
+    }
+
+    .pai-process-card {
+        flex: 0.9 1 0;
+        min-height: 330px;
+        padding: 1.7rem;
+        border-radius: 26px;
+        background: #faf7f1;
+        border: 1px solid rgba(17,21,24,0.06);
+        display: flex;
+        flex-direction: column;
+        transition: flex 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        overflow: hidden;
+    }
+
+    .pai-process-card:first-child {
+        flex: 1.55 1 0;
+    }
+
+    .pai-process-frame:hover .pai-process-card:first-child {
+        flex: 0.9 1 0;
+    }
+
+    .pai-process-frame:hover .pai-process-card:hover {
+        flex: 1.55 1 0;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px rgba(17,21,24,0.08);
+    }
+
+    .pai-process-card-wide {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .pai-process-num {
+        font-size: 0.9rem;
+        color: #66615b;
+    }
+
+    .pai-process-card h3 {
+        margin: 82px 0 14px;
+        max-width: 9ch;
+        font-size: clamp(1.9rem, 3vw, 2.25rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #111518;
+    }
+
+    .pai-process-card p {
+        margin: 0;
+        max-width: 20ch;
+        font-size: 0.98rem;
+        line-height: 1.55;
+        color: #5a6068;
+    }
+
+    .pai-process-card-wide h3,
+    .pai-process-card-wide p {
+        max-width: none;
+    }
+
+    .pai-platform-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        padding: 10px;
+        border-radius: 999px;
+        background: #efe9df;
+        margin-bottom: 16px;
+    }
+
+    .pai-platform-tab {
+        min-height: 52px;
+        padding: 0 20px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #5e605f;
+        font-size: 0.96rem;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .pai-platform-tab.active {
+        background: #ffffff;
+        color: #16191b;
+        box-shadow: 0 12px 26px rgba(18,21,24,0.08);
+    }
+
+    .pai-platform-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        gap: 22px;
+        padding: 10px;
+        border-radius: 30px;
+        background: #faf7f2;
+        border: 1px solid rgba(17,21,24,0.05);
+    }
+
+    .pai-platform-visual {
+        padding: 28px;
+        border-radius: 24px;
+        background: linear-gradient(180deg, #d8d2ff 0%, #d9d5ff 100%);
+    }
+
+    .pai-dashboard {
+        position: relative;
+        min-height: 350px;
+        padding: 28px 28px 32px;
+        border-radius: 26px;
+        background: #ffffff;
+        overflow: hidden;
+    }
+
+    .pai-dashboard-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #16191b;
+    }
+
+    .pai-dashboard-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: #efe7ff;
+        color: #6b54ff;
+        font-size: 0.74rem;
+        font-weight: 700;
+    }
+
+    .pai-dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .pai-dashboard-stat {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: #f4f0ea;
+        border: 1px solid rgba(17,21,24,0.05);
+    }
+
+    .pai-dashboard-stat-active {
+        background: #ffffff;
+        border-color: #6b54ff;
+        box-shadow: inset 0 0 0 1px #6b54ff;
+    }
+
+    .pai-dashboard-stat-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #7a7b7c;
+    }
+
+    .pai-dashboard-stat-value {
+        margin-top: 8px;
+        font-size: 2rem;
+        line-height: 1;
+        font-weight: 700;
+        color: #16191b;
+    }
+
+    .pai-dashboard-chart {
+        position: relative;
+        height: 148px;
+        margin-top: 22px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background:
+            linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(107,84,255,0.06) 100%),
+            repeating-linear-gradient(to bottom, transparent 0, transparent 35px, rgba(17,21,24,0.05) 35px, rgba(17,21,24,0.05) 36px);
+    }
+
+    .pai-dashboard-line {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 14px;
+        top: 28px;
+        background: no-repeat center/contain url("data:image/svg+xml,%3Csvg width='390' height='140' viewBox='0 0 390 140' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 110C29 96 48 106 70 122C92 138 112 42 140 62C160 76 178 50 198 88C220 130 244 46 274 62C301 76 316 46 338 28C354 16 365 48 379 32C386 24 390 8 390 8' stroke='%236B54FF' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+
+    .pai-dashboard-categories {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 210px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(17,21,24,0.06);
+        box-shadow: 0 16px 28px rgba(18,21,24,0.08);
+    }
+
+    .pai-dashboard-categories-title {
+        margin-bottom: 10px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #8a8c90;
+    }
+
+    .pai-dashboard-row {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr) 34px;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.78rem;
+        color: #404348;
+    }
+
+    .pai-dashboard-row + .pai-dashboard-row {
+        margin-top: 8px;
+    }
+
+    .pai-dashboard-bar {
+        height: 6px;
+        border-radius: 999px;
+        background: #ece7de;
+        overflow: hidden;
+    }
+
+    .pai-dashboard-bar i {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+    }
+
+    .bar-one {
+        width: 48%;
+        background: #6b54ff;
+    }
+
+    .bar-two {
+        width: 37%;
+        background: #18a36f;
+    }
+
+    .bar-three {
+        width: 15%;
+        background: #aa6a3f;
+    }
+
+    .pai-platform-copy-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 28px 22px 28px 10px;
+    }
+
+    .pai-platform-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: #f8e87e;
+        color: #16191b;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        align-self: flex-start;
+    }
+
+    .pai-platform-copy-box h2 {
+        margin: 24px 0 16px;
+        max-width: 11ch;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 1.02;
+        letter-spacing: -0.06em;
+        font-weight: 400;
+        color: #101416;
+    }
+
+    .pai-platform-copy-box p {
+        max-width: 48ch;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #5a6068;
+    }
+
+    .pai-partner {
+        background:
+            radial-gradient(circle at 20% 0%, rgba(255,255,255,0.06) 0%, transparent 22%),
+            linear-gradient(180deg, #11161d 0%, #16212d 100%);
+        padding-bottom: 5rem;
+    }
+
+    .pai-partner-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        padding: 38px;
+        border-radius: 34px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        box-shadow: 0 20px 50px rgba(6, 12, 20, 0.22);
+    }
+
+    .pai-partner-kicker {
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(224,232,239,0.62);
+    }
+
+    .pai-partner-copy h2 {
+        margin: 14px 0 14px;
+        max-width: 15ch;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+        color: #f0f4f7;
+    }
+
+    .pai-partner-copy p {
+        max-width: 60ch;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: rgba(224,232,239,0.72);
+    }
+
+    .pai-partner-mail {
+        margin-top: 18px;
+        font-size: 1rem;
+        color: #f4f7fa;
+    }
+
+    .pai-partner-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 154px;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 999px;
+        background: #f2eadf;
+        color: #16212d;
+        text-decoration: none;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        flex-shrink: 0;
+    }
+
+    @@media (max-width: 1100px) {
+        .pai-hero-shell,
+        .pai-platform-panel {
+            grid-template-columns: 1fr;
+        }
+
+        .pai-benefit-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .pai-platform-copy-box {
+            padding: 12px 8px;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .pai-hero {
+            padding: 118px 0 60px;
+        }
+
+        .pai-benefits,
+        .pai-process,
+        .pai-platform,
+        .pai-partner {
+            padding: 4rem 0;
+        }
+
+        .pai-hero-shell {
+            gap: 24px;
+        }
+
+        .pai-hero-title {
+            max-width: none;
+            font-size: 2.2rem;
+        }
+
+        .pai-hero-visual-wrap,
+        .pai-hero-visual {
+            min-height: 360px;
+        }
+
+        .pai-hero-chat-card {
+            right: 14px;
+            left: 14px;
+            width: auto;
+            bottom: 14px;
+            padding: 14px;
+        }
+
+        .pai-hero-chip-top {
+            position: static;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
+        .pai-process-frame {
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 0.75rem;
+        }
+
+        .pai-process-card,
+        .pai-process-card:first-child,
+        .pai-process-frame:hover .pai-process-card:first-child,
+        .pai-process-frame:hover .pai-process-card:hover {
+            flex: auto;
+            transform: none;
+        }
+
+        .pai-section-title {
+            font-size: 2.15rem;
+        }
+
+        .pai-process-card {
+            min-height: auto;
+            padding: 1.35rem;
+        }
+
+        .pai-process-card h3 {
+            margin-top: 44px;
+        }
+
+        .pai-process-card-wide {
+            display: flex;
+        }
+
+        .pai-platform-visual {
+            padding: 14px;
+        }
+
+        .pai-dashboard {
+            min-height: 280px;
+            padding: 16px;
+        }
+
+        .pai-dashboard-stats {
+            grid-template-columns: 1fr;
+        }
+
+        .pai-platform-tabs {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-radius: 28px;
+        }
+
+        .pai-platform-tab {
+            min-height: 48px;
+            padding: 0 14px;
+            font-size: 0.9rem;
+        }
+
+        .pai-dashboard-categories {
+            position: static;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .pai-platform-copy-box h2 {
+            max-width: none;
+            font-size: 2.15rem;
+        }
+
+        .pai-partner-box {
+            padding: 24px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .pai-partner-copy h2 {
+            max-width: none;
+        }
+
+        .pai-partner-btn {
+            width: 100%;
+        }
+    }
+
+    @@media (max-width: 600px) {
+        .pai-benefit-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pai-platform-panel {
+            gap: 14px;
+            padding: 8px;
+            border-radius: 24px;
+        }
+
+        .pai-platform-copy-box {
+            padding: 8px 6px 4px;
+        }
+
+        .pai-dashboard-row {
+            grid-template-columns: 56px minmax(0, 1fr) 36px;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .pai-hero-title,
+        .pai-section-title,
+        .pai-platform-copy-box h2,
+        .pai-partner-copy h2 {
+            font-size: 1.9rem;
+        }
+
+        .pai-benefit-card,
+        .pai-process-card {
+            padding: 1.2rem;
+        }
+
+        .pai-platform-panel,
+        .pai-process-frame {
+            padding: 8px;
+        }
+
+        .pai-hero-chat-card {
+            right: 10px;
+            left: 10px;
+            bottom: 10px;
+            padding: 12px;
+        }
+
+        .pai-hero-bubble {
+            max-width: 100%;
+            font-size: 0.82rem;
+            padding: 10px 12px;
+        }
+
+        .pai-platform-tabs {
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 8px;
+        }
+
+        .pai-platform-tab {
+            justify-content: flex-start;
+            padding: 0 16px;
+        }
+
+        .pai-dashboard {
+            min-height: auto;
+            padding: 14px;
+        }
+
+        .pai-dashboard-head {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>
+
+@code {
+    private string SelectedPlatformTab = "insights";
+
+    protected override void OnInitialized()
+    {
+        LanguageService.Subscribe(StateHasChanged);
+    }
+
+    private void SelectPlatformTab(string tab)
+    {
+        SelectedPlatformTab = tab;
+    }
+
+    private string PlatformDashboardTitle => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Monitoring" : "Overvågning",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Knowledge Base" : "Vidensbase",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Team Overview" : "Team-overblik",
+        _ => "Insights"
+    };
+
+    private string PlatformDashboardBadge => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Live now" : "Live nu",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Synced sources" : "Synkede kilder",
+        "team" => LanguageService.CurrentLanguage == "en" ? "This week" : "Denne uge",
+        _ => LanguageService.CurrentLanguage == "en" ? "Past 30 days" : "Seneste 30 dage"
+    };
+
+    private string PlatformPrimaryStatLabel => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Response speed" : "Svartid",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Sources" : "Kilder",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Active agents" : "Aktive agenter",
+        _ => LanguageService.CurrentLanguage == "en" ? "Conversations" : "Samtaler"
+    };
+
+    private string PlatformPrimaryStatValue => SelectedPlatformTab switch
+    {
+        "monitor" => "< 2s",
+        "knowledge" => "24",
+        "team" => "6",
+        _ => "312"
+    };
+
+    private string PlatformSecondaryStatLabel => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Escalations" : "Eskaleringer",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Coverage gaps" : "Dækningshuller",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Assigned cases" : "Tildelte sager",
+        _ => LanguageService.CurrentLanguage == "en" ? "Knowledge gaps" : "Videnshuller"
+    };
+
+    private string PlatformSecondaryStatValue => SelectedPlatformTab switch
+    {
+        "monitor" => "19",
+        "knowledge" => "7",
+        "team" => "43",
+        _ => "17"
+    };
+
+    private string PlatformCategoriesTitle => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Current pressure" : "Aktuelt pres",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Most used sources" : "Mest brugte kilder",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Top focus areas" : "Vigtigste fokusområder",
+        _ => LanguageService.CurrentLanguage == "en" ? "Top categories" : "Topkategorier"
+    };
+
+    private string PlatformCategoryOneLabel => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Orders" : "Ordrer",
+        "knowledge" => "FAQ",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Support" : "Support",
+        _ => "Pricing"
+    };
+
+    private string PlatformCategoryOneValue => SelectedPlatformTab switch
+    {
+        "monitor" => "46%",
+        "knowledge" => "52%",
+        "team" => "41%",
+        _ => "48%"
+    };
+
+    private string PlatformCategoryTwoLabel => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Delivery" : "Levering",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Product pages" : "Produktsider",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Sales" : "Salg",
+        _ => "Shipping"
+    };
+
+    private string PlatformCategoryTwoValue => SelectedPlatformTab switch
+    {
+        "monitor" => "34%",
+        "knowledge" => "31%",
+        "team" => "33%",
+        _ => "37%"
+    };
+
+    private string PlatformCategoryThreeLabel => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Returns" : "Retur",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Policies" : "Politikker",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Ops" : "Drift",
+        _ => "Returns"
+    };
+
+    private string PlatformCategoryThreeValue => SelectedPlatformTab switch
+    {
+        "monitor" => "20%",
+        "knowledge" => "17%",
+        "team" => "26%",
+        _ => "15%"
+    };
+
+    private string PlatformPanelPill => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en" ? "Monitor" : "Overvåg",
+        "knowledge" => LanguageService.CurrentLanguage == "en" ? "Knowledge base" : "Vidensbase",
+        "team" => LanguageService.CurrentLanguage == "en" ? "Team" : "Team",
+        _ => "Insights"
+    };
+
+    private string PlatformPanelTitle => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en"
+            ? "Follow performance while conversations are happening."
+            : "Følg performance mens samtalerne sker.",
+        "knowledge" => LanguageService.CurrentLanguage == "en"
+            ? "Keep answers grounded in the right material."
+            : "Hold svarene forankret i det rigtige materiale.",
+        "team" => LanguageService.CurrentLanguage == "en"
+            ? "Give your team clearer ownership and better overview."
+            : "Giv jeres team tydeligere ejerskab og bedre overblik.",
+        _ => LanguageService.CurrentLanguage == "en"
+            ? "Get valuable insight from every conversation."
+            : "Få værdifuld indsigt fra hver eneste samtale."
+    };
+
+    private string PlatformPanelCopy => SelectedPlatformTab switch
+    {
+        "monitor" => LanguageService.CurrentLanguage == "en"
+            ? "See where support pressure is building, how fast the assistant responds, and where human handover is most needed."
+            : "Se hvor supportpresset bygger sig op, hvor hurtigt assistenten svarer, og hvor menneskelig overlevering er mest nødvendig.",
+        "knowledge" => LanguageService.CurrentLanguage == "en"
+            ? "Connect FAQs, policies, pages, and approved documents so Pulse AI answers from sources your business actually trusts."
+            : "Forbind FAQs, politikker, sider og godkendte dokumenter, så Pulse AI svarer ud fra kilder, jeres virksomhed faktisk stoler på.",
+        "team" => LanguageService.CurrentLanguage == "en"
+            ? "Keep collaboration structured with clearer handover, better role visibility, and a more manageable support workflow."
+            : "Hold samarbejdet struktureret med tydeligere overlevering, bedre rolleoverblik og et mere håndterbart supportflow.",
+        _ => LanguageService.CurrentLanguage == "en"
+            ? "Track recurring support topics, identify knowledge gaps, and highlight the patterns that matter most. Conversation data becomes a practical way to improve quality, content, and the customer journey."
+            : "Spor tilbagevendende supportemner, identificer videnshuller og fremhæv de mønstre, der betyder mest. Samtaledata bliver en praktisk vej til at forbedre kvalitet, indhold og kunderejsen."
+    };
+
+    public void Dispose()
+    {
+        LanguageService.Unsubscribe(StateHasChanged);
+    }
+}
