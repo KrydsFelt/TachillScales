@@ -11,7 +11,7 @@
         <div class="contact-intro-wrap">
             <div class="contact-intro-badge">@(LanguageService.CurrentLanguage == "en" ? "BOOK A CALL" : "BOOK ET MØDE")</div>
 
-            <h1 class="contact-intro-title">
+            <h2 class="contact-intro-title">
                 @if (LanguageService.CurrentLanguage == "en")
                 {
                     <text>A first conversation if your website needs to feel sharper, calmer, and more complete.</text>
@@ -20,7 +20,7 @@
                 {
                     <text>En første samtale, hvis jeres website skal føles skarpere, roligere og mere gennemført.</text>
                 }
-            </h1>
+            </h2>
 
             <p class="contact-intro-body">
                 @if (LanguageService.CurrentLanguage == "en")
@@ -49,58 +49,18 @@
                     <span class="contact-meta-label">@(LanguageService.CurrentLanguage == "en" ? "Format" : "Format")</span>
                     <span class="contact-meta-value">@(LanguageService.CurrentLanguage == "en" ? "20-30 min. intro call" : "20-30 min. intro call")</span>
                 </div>
-                <div class="contact-meta-row">
-                    <span class="contact-meta-label">@(LanguageService.CurrentLanguage == "en" ? "Typical focus" : "Typisk fokus")</span>
-                    <span class="contact-meta-value">@(LanguageService.CurrentLanguage == "en" ? "Website, UX and digital direction" : "Website, UX og digital retning")</span>
-                </div>
             </div>
 
             <div class="contact-form-shell">
-                @if (_sent)
-                {
-                    <div class="contact-form-success">
-                        <div class="contact-form-kicker">@(LanguageService.CurrentLanguage == "en" ? "Message sent" : "Besked sendt")</div>
-                        <h2 class="contact-form-success-title">@(LanguageService.CurrentLanguage == "en" ? "We will get back to you shortly." : "Vi vender tilbage til jer snarest.")</h2>
-                        <p class="contact-form-success-body">@(LanguageService.CurrentLanguage == "en" ? "Thanks for reaching out. We will review your message and follow up with the next step." : "Tak for jeres henvendelse. Vi gennemgår beskeden og vender tilbage med næste skridt.")</p>
-                    </div>
-                }
-                else
-                {
-                    <div class="contact-form-top">
-                        <div class="contact-form-kicker">@(LanguageService.CurrentLanguage == "en" ? "Tell us a bit about the project" : "Fortæl os lidt om projektet")</div>
-                        <p class="contact-form-top-body">@(LanguageService.CurrentLanguage == "en" ? "We will come back with the next step and a suggestion for a meeting." : "Vi vender tilbage med næste skridt og et forslag til mødetid.")</p>
-                    </div>
+                <div class="contact-form-top">
+                    <div class="contact-form-kicker">@(LanguageService.CurrentLanguage == "en" ? "Direct contact" : "Direkte kontakt")</div>
+                    <h3 class="contact-form-title">@(LanguageService.CurrentLanguage == "en" ? "Send us an email!" : "Send os en mail!")</h3>
+                    <p class="contact-form-top-body">@(LanguageService.CurrentLanguage == "en" ? "Click the button below and your email app opens directly to us." : "Tryk på knappen herunder, så åbner din mail-app direkte til os.")</p>
+                </div>
 
-                    <form class="contact-intro-form" @onsubmit="Submit" @onsubmit:preventDefault>
-                        <div class="contact-intro-grid">
-                            <div class="contact-intro-field">
-                                <label for="name">@(LanguageService.CurrentLanguage == "en" ? "Customer name" : "Navn på kunden")</label>
-                                <input id="name" type="text" @bind="_name" required />
-                            </div>
-                            <div class="contact-intro-field">
-                                <label for="company">@(LanguageService.CurrentLanguage == "en" ? "Company" : "Virksomhed")</label>
-                                <input id="company" type="text" @bind="_company" />
-                            </div>
-                            <div class="contact-intro-field">
-                                <label for="cvr">CVR (@(LanguageService.CurrentLanguage == "en" ? "optional" : "valgfrit"))</label>
-                                <input id="cvr" type="text" @bind="_cvr" />
-                            </div>
-                            <div class="contact-intro-field">
-                                <label for="email">Email</label>
-                                <input id="email" type="email" @bind="_email" required />
-                            </div>
-                        </div>
-
-                        <div class="contact-intro-field contact-intro-field-full">
-                            <label for="message">@(LanguageService.CurrentLanguage == "en" ? "What do you need help with?" : "Hvad har I brug for hjælp til?")</label>
-                            <textarea id="message" rows="7" @bind="_message" required></textarea>
-                        </div>
-
-                        <button type="submit" class="contact-intro-submit">
-                            @(LanguageService.CurrentLanguage == "en" ? "Send request" : "Send forespørgsel")
-                        </button>
-                    </form>
-                }
+                <a href="mailto:nesarahmadtahcill@gmail.com" class="contact-intro-submit">
+                    @(LanguageService.CurrentLanguage == "en" ? "Send us an email!" : "Send os en mail!")
+                </a>
             </div>
         </div>
     </div>
@@ -205,59 +165,23 @@
     }
 
     .contact-form-top-body,
-    .contact-form-success-body {
+    .contact-form-title {
+        margin: 10px 0 0;
+    }
+
+    .contact-form-title {
+        font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        color: #edf1f4;
+    }
+
+    .contact-form-top-body {
         margin: 10px 0 0;
         font-size: 0.98rem;
         line-height: 1.8;
         color: rgba(255,255,255,0.68);
-    }
-
-    .contact-intro-form {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .contact-intro-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 14px;
-    }
-
-    .contact-intro-field {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .contact-intro-field label {
-        font-size: 0.95rem;
-        color: rgba(255,255,255,0.68);
-    }
-
-    .contact-intro-field input,
-    .contact-intro-field textarea {
-        width: 100%;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,0.1);
-        background: rgba(255,255,255,0.05);
-        color: #edf1f4;
-        font-family: inherit;
-        font-size: 1rem;
-        padding: 15px 16px;
-        transition: border-color 0.2s, background 0.2s;
-    }
-
-    .contact-intro-field input:focus,
-    .contact-intro-field textarea:focus {
-        outline: none;
-        border-color: rgba(255,255,255,0.22);
-        background: rgba(255,255,255,0.07);
-    }
-
-    .contact-intro-field textarea {
-        min-height: 150px;
-        resize: vertical;
     }
 
     .contact-intro-submit {
@@ -280,23 +204,6 @@
 
     .contact-intro-submit:hover {
         background: #fff7ec;
-    }
-
-    .contact-form-success {
-        min-height: 280px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .contact-form-success-title {
-        margin: 12px 0 0;
-        max-width: 14ch;
-        font-size: clamp(1.9rem, 4vw, 3rem);
-        line-height: 1.04;
-        letter-spacing: -0.04em;
-        font-weight: 400;
-        color: #edf1f4;
     }
 
     @@media (max-width: 768px) {
@@ -323,10 +230,6 @@
             border-radius: 22px;
         }
 
-        .contact-intro-grid {
-            grid-template-columns: 1fr;
-        }
-
         .contact-intro-submit {
             width: 100%;
         }
@@ -334,26 +237,9 @@
 </style>
 
 @code {
-    private string _name = "";
-    private string _company = "";
-    private string _cvr = "";
-    private string _email = "";
-    private string _message = "";
-    private bool _sent = false;
-
     protected override void OnInitialized()
     {
         LanguageService.Subscribe(StateHasChanged);
-    }
-
-    private void Submit()
-    {
-        if (!string.IsNullOrWhiteSpace(_name) &&
-            !string.IsNullOrWhiteSpace(_email) &&
-            !string.IsNullOrWhiteSpace(_message))
-        {
-            _sent = true;
-        }
     }
 
     public void Dispose()
