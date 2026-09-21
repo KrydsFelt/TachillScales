@@ -75,6 +75,30 @@ a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
 .page { min-height: 100vh; }
 
+.construction-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 2rem;
+    background: #fff;
+    color: #111;
+}
+
+.construction-message {
+    width: min(100%, 42rem);
+    text-align: center;
+}
+
+.construction-message h1 {
+    color: #111;
+    font-size: clamp(1.75rem, 5vw, 3.25rem);
+    line-height: 1.2;
+}
+
 /* ========== 2. BLAZOR LOADING ========== */
 .loading-progress {
     display: none;
